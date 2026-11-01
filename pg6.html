@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><title>Executive Summary Trip Gangguan ULP Labuan</title>
+<style>
+:root{--card:var(--card,#fff);--fg:var(--foreground,#16232e);--mut:var(--muted-foreground,#5d6b7a);--bd:var(--border,#e3e8ee);--acc:var(--accent,#0b6bb5)}
+*{box-sizing:border-box}
+body{font-family:var(--app-font,'Segoe UI',Roboto,sans-serif);margin:0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+h1{font-size:19px;margin:0 0 2px} h2{font-size:14px;margin:0 0 10px;letter-spacing:.3px;text-transform:uppercase;color:var(--acc)}
+.sub{color:var(--mut);font-size:12px;margin-bottom:10px}
+.kpis{display:flex;flex-wrap:wrap;gap:10px}
+.kpi{flex:1 1 130px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut)}
+.kpi .v{font-size:22px;font-weight:700;line-height:1.2} .kpi .s{font-size:11px;color:var(--mut)}
+.verdict{margin-top:10px;background:#fff7e6;border:1px solid #f0c070;border-left:4px solid #d5771a;border-radius:8px;padding:8px 10px;font-size:11.5px;line-height:1.5}
+.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:11px;color:var(--mut);
+  background:#f7f9fc;border:1px solid var(--bd);border-radius:10px;padding:8px 10px}
+.filters label{display:flex;gap:4px;align-items:center}
+.filters select{font-size:11.5px;padding:3px 6px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
+.filters button{font-size:11px;padding:3px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer}
+.filters button.on{background:#0b6bb5;color:#fff;border-color:#0b6bb5}
+.chart{display:flex;align-items:flex-end;gap:8px;height:330px;padding:6px 2px 0;border-bottom:2px solid var(--bd)}
+.bwrap{flex:1 1 0;display:flex;flex-direction:column;height:100%;min-width:0}
+.bararea{flex:1 1 auto;width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;min-height:0}
+.bararea.dv{justify-content:stretch}
+.bval{font-size:10px;font-weight:700;color:var(--fg)} .bar{width:100%;max-width:48px;margin:0 auto;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#3f8ed0,#1d5f9c)}
+.bar.okt{background:linear-gradient(180deg,#f0a83c,#d5771a)} .bar.run{background:repeating-linear-gradient(45deg,#f0a83c,#f0a83c 5px,#f7c884 5px,#f7c884 10px)}
+.bar.y25{background:linear-gradient(180deg,#9fb3c8,#7189a1)}
+.blbl{font-size:10px;color:var(--mut);padding-top:4px;text-align:center;line-height:1.15}
+.bsep{width:14px}
+.chart.dv{align-items:stretch}
+.chart.dv .bwrap{justify-content:space-between}
+.chart.dv .btop,.chart.dv .bbot{flex:1 1 50%;display:flex;flex-direction:column;min-height:0;width:100%;max-width:48px}
+.chart.dv .btop{justify-content:flex-end}
+.chart.dv .bbot{justify-content:flex-start}
+.chart.dv .bar{width:100%;border-radius:0}
+.chart.dv .btop .bar{border-radius:5px 5px 0 0;background:linear-gradient(180deg,#ef7b52,#c2410c)}
+.chart.dv .bbot .bar{border-radius:0 0 5px 5px;background:linear-gradient(180deg,#3fae7a,#0f7a4f)}
+.chart.dv .blbl small{font-weight:700}
+.chart.dv .blbl small.up{color:#c2410c} .chart.dv .blbl small.down{color:#0f7a4f} .chart.dv .blbl small.flat{color:var(--mut)} table{border-collapse:collapse;width:100%;font-size:11.5px}
+th,td{border:1px solid var(--bd);padding:3px 5px} th{background:#f2f5f9;font-size:10px;text-transform:uppercase;letter-spacing:.2px;color:var(--mut);position:sticky;top:0}
+td.num{text-align:center} tr.grp td{background:#eef3f8;font-weight:700}
+tr.grand td{background:#0b6bb5;color:#fff;font-weight:700} tr.grand td.num{color:#fff!important}
+td.sec{text-align:left;white-space:nowrap} td.ytd{font-weight:700;background:#fbfcfe}
+td.dim{color:#9aa4b2} .oktcol{border-left:2px solid #f0a83c}
+.tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:8px;margin-right:5px;font-weight:700;color:#fff}
+.tag.PMR{background:#1d5f9c} .tag.SSO{background:#0f8a5f} .tag.PMT{background:#8a4f0f} .tag.CBO{background:#6b7280} .tag.LAIN{background:#6b7280}
+.pos{color:#c2410c;font-weight:700} .neg{color:#0f7a4f;font-weight:700} .warn{color:#b45309}
+.stat{font-size:10px;text-align:center;color:var(--mut)}
+.two{display:flex;gap:14px;flex-wrap:wrap} .two>div{flex:1 1 320px}
+details summary{cursor:pointer;font-size:12px;font-weight:600;color:var(--acc);margin:4px 0}
+.note{font-size:11px;color:var(--mut);line-height:1.5} code{background:#f2f5f9;padding:1px 4px;border-radius:4px}
+.wrap{overflow:auto;max-height:520px}
+.donutrow{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.insight{font-size:11.5px;line-height:1.65;color:var(--mut);max-width:430px}
+.insight b{color:var(--fg)}
+.donut{position:relative;width:210px;height:210px;transition:background .25s ease;border-radius:50%;margin:2px 0 12px;background:#eef3f8;flex:0 0 auto}
+.donut .hole{position:absolute;inset:24%;background:var(--card,#fff);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut .hole b{font-size:20px;line-height:1.05} .donut .hole span{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px}
+th.wkhead{cursor:pointer;user-select:none}
+tr.penygrp{cursor:pointer} tr.penygrp:hover td{background:#e4edf7}
+.caret{display:inline-block;width:12px;color:var(--acc);font-weight:700}
+td.sub{padding-left:16px}
+th.wkhead:hover{background:#e4edf7}
+.chip small{display:block;font-size:9px;font-weight:700;letter-spacing:0}
+.chip small.up{color:#c2410c} .chip small.down{color:#0f7a4f} .chip small.flat{color:var(--mut)}
+.hbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11.5px}
+.hbar .lab{flex:0 0 78px;color:var(--mut)}
+.hbar .track{flex:1 1 auto;background:#eef3f8;border-radius:6px;height:15px;overflow:hidden}
+.hbar .fill{height:100%;background:linear-gradient(90deg,#3f8ed0,#1d5f9c)}
+.hbar .fill.pk{background:linear-gradient(90deg,#e8a44a,#d5771a)}
+.hbar .val{flex:0 0 96px;text-align:right;font-variant-numeric:tabular-nums;color:var(--fg)}
+.t3{margin:0;padding-left:2px;list-style:none;font-size:11.5px}
+.t3 li{display:flex;align-items:center;gap:6px;padding:2px 0;border-bottom:1px dashed var(--bd)}
+.t3 li:last-child{border-bottom:0}
+.t3 .rk{flex:0 0 18px;height:18px;border-radius:50%;background:#eef3f8;color:var(--mut);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.t3 .nm{flex:1 1 auto}
+.t3 .vv{font-weight:700;font-variant-numeric:tabular-nums}
+.rollrow{display:flex;gap:10px;align-items:stretch;padding:5px 0;border-top:1px dashed var(--bd)}
+.rollrow:first-of-type{border-top:0}
+.roll-lbl{flex:0 0 118px;font-size:11px;font-weight:700;color:var(--fg);display:flex;flex-direction:column;justify-content:center;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{min-width:54px;border:1px solid var(--bd);border-radius:8px;padding:4px 7px;text-align:center;background:var(--card)}
+.chip b{display:block;font-size:15px;line-height:1.15;font-variant-numeric:tabular-nums}
+.chip span{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.2px}
+.chip.done{background:#f2f7fb}
+.chip.now{border-style:dashed;border-color:#d5771a;background:#fff7e6}
+.chip.next{opacity:.42}
+.chip.zero b{color:#b6bfc9}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;background:#eef3f8;color:var(--mut)}
+.badge.live{background:#e8f1fb;color:#0b6bb5} .badge.ok{background:#e5f6ec;color:#0f7a4f} .badge.warn{background:#fff2d9;color:#a35b00}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+td.anm{text-align:left;white-space:nowrap;max-width:230px;overflow:hidden;text-overflow:ellipsis}
+.rank{color:var(--mut);font-size:10px;padding:0 4px;border-radius:6px;background:#eef3f8}
+td.hasil{max-width:330px;font-size:11px;color:var(--mut)} td.anevc{white-space:nowrap;font-size:11px}
+#detQ{background:var(--card);color:var(--fg)}
+.mini{font-size:10.5px;color:var(--mut)}
+</style></head><body>
+
+<div class="card">
+  <h1>REKAPITULASI EXECUTIVE SUMMARY — TRIP GANGGUAN ULP LABUAN</h1>
+  <div class="sub">Data: <b>Sheet10 / Gabungan 2026 — MIRROR KINERJA LABUAN</b> (baris ganda dibuang) · <b>snapshot data: 01 Nov 2026 15:44 WIB</b> <span id="liveBadge" class="badge">snapshot</span> · auto-refresh dari sheet induk tiap 30 menit ·
+   filter tahun/bulan/titik proteksi berlaku untuk semua kartu di bawah</div>
+  <div class="filters">
+    <label>Tahun <select id="fTahun"><option value="2026">2026</option><option value="2025">2025</option><option value="">Semua</option></select></label>
+    <label>Bulan <select id="fBulan"><option value="">Semua bulan</option><option value="1">Januari</option><option value="2">Februari</option><option value="3">Maret</option><option value="4">April</option><option value="5">Mei</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">Agustus</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option></select></label>
+    <label>Jenis proteksi <select id="fKelas"><option value="">Semua</option><option value="PMR">PMR</option><option value="SSO">SSO</option><option value="PMT GI">PMT GI</option><option value="CBO/GH">CBO/GH</option><option value="LAIN">LAIN</option></select></label>
+    <label>Nama titik proteksi <select id="fSect"><option value="">Semua</option></select></label>
+    <label>Penyulang <select id="fPeny"><option value="">Semua</option><option value="CARITA">CARITA</option><option value="CIBALIUNG">CIBALIUNG</option><option value="CIGEULIS">CIGEULIS</option><option value="CIGONDANG">CIGONDANG</option><option value="JIPUT">JIPUT</option><option value="LABUAN KOTA">LABUAN KOTA</option><option value="PANIMBANG">PANIMBANG</option><option value="SUMUR">SUMUR</option><option value="TAROGONG">TAROGONG</option><option value="TELUK">TELUK</option><option value="WISATA">WISATA</option></select></label>
+    <span style="flex:1 1 40px"></span>
+    <button id="bT5" class="on">Top 5 segmen</button><button id="bT10">Top 10 segmen</button>
+    <button id="bAll">ALL gangguan (semua segmen)</button>
+    <button id="bLive">⟳ Ambil data terbaru (live)</button>
+    <button id="bReset">Reset filter</button>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <div class="verdict" id="verdict">🔎 <b>Hasil cek Sheet10 vs rekapan atas: TIDAK SAMA.</b>
+   Yang cocok persis hanya <b>Juni (69), Juli (50), Agustus (43)</b>. Sheet10 (2026) berisi <b>723 baris</b> Jan–Sep
+   dengan <b>150 baris ganda</b> → <b>571 event bersih</b>, rekapan atas <b>613</b>. Rincian di kartu “Perbandingan”.</div>
+</div>
+
+<div class="card">
+  <h2>Rekap berjalan — bulanan → mingguan → harian (otomatis)</h2>
+  <div id="rollNote" class="note" style="margin-bottom:8px"></div>
+  <div class="rollrow"><div class="roll-lbl">Bulanan<br><span class="mini">tutup buku</span></div><div class="chips" id="rollBulan"></div></div>
+  <div class="rollrow"><div class="roll-lbl">Mingguan<br><span class="mini">bulan berjalan</span></div><div class="chips" id="rollMinggu"></div></div>
+  <div class="rollrow"><div class="roll-lbl">Harian<br><span class="mini">minggu berjalan</span></div><div class="chips" id="rollHari"></div></div>
+  <div class="note" style="margin-top:8px">Cara bacanya: hari yang sudah lewat bergulir jadi <b>rekap mingguan</b> (M1 = tgl 1–7, M2 = 8–14, M3 = 15–21, M4 = 22–28, M5 = 29–31), lalu begitu <b>ganti bulan</b> minggu-minggu itu menyatu jadi <b>satu kolom bulanan</b>. Semua otomatis, tidak perlu diubah manual. Kotak garis putus-putus = periode yang masih berjalan.</div>
+</div>
+
+<div class="card">
+  <h2>Grafik trip bulanan <span class="mini" id="chTitle"></span></h2>
+  <div class="filters" style="margin-bottom:6px">
+    <button id="chVal" class="on">Nilai trip</button>
+    <button id="chDelta">Δ naik/turun vs periode sebelumnya</button>
+    <button id="chZoom">Zoom skala (perbesar beda antar bulan)</button>
+    <span class="note">Batang dari nol bikin beda tipis (mis. 76 vs 83) susah kelihatan — pakai mode <b>Δ</b>: batang <span class="pos">merah naik</span> = gangguan bertambah, <span class="neg">hijau turun</span> = berkurang.</span>
+  </div>
+  <div class="chart" id="chart"></div>
+  <div class="sub" style="margin-top:6px" id="chNote"></div>
+</div>
+
+<div class="card">
+  <h2>Rekap bulanan per titik proteksi (REC=PMR · SEC=SSO)</h2>
+  <div class="filters" style="margin-bottom:8px">
+    <button id="bWkAll">Rinci semua minggu (per tanggal)</button>
+    <button id="bPenyAll">Buka semua penyulang</button>
+    <span class="note">Default: hanya baris penyulang. <b>Klik nama penyulang</b> untuk membuka rincian per titik proteksi. Klik header minggu (M1, M2, …) untuk membuka rincian per tanggal.</span>
+  </div>
+  <div class="wrap"><table id="tblRekap"></table></div>
+  <div class="note" style="margin-top:6px">Baris tebal = subtotal penyulang · angka = jumlah trip titik proteksi tsb · kolom harian Oktober hanya muncul saat tahun 2026 dipilih.</div>
+</div>
+
+<div class="card">
+    <h2 id="topTitle">Top segmen paling sering gangguan</h2>
+    <div class="wrap"><table id="tblTop"></table></div>
+    <div class="note" style="margin-top:6px">Diurutkan per penyulang (peringkat segmen di penyulang tsb) — ikut filter tahun/bulan/titik proteksi. Tombol <b>ALL gangguan</b> = tampilkan semua segmen tanpa batas Top N.</div>
+</div>
+
+<div class="card">
+    <h2 id="pieTitle">Pie chart penyebab gangguan (ANEV) &amp; rincian bulanan</h2>
+    <div class="donutrow"><div class="donut" id="donut"><div class="hole"><b id="donutTot">0</b><span>trip</span></div></div>
+      <div class="insight" id="donutInfo"></div></div>
+    <div class="wrap" style="margin-top:4px"><table id="tblAnev"></table></div>
+    <div class="note" id="pieNote" style="margin-top:8px"></div>
+</div>
+
+
+<div class="two">
+  <div class="card">
+    <h2>Top 3 titik proteksi — hari &amp; minggu berjalan</h2>
+    <div id="top3Now" class="note">memuat…</div>
+    <div class="note" style="margin-top:8px">Diambil dari data terakhir yang masuk (bukan jam komputer). Ikut filter aktif.</div>
+  </div>
+  <div class="card">
+    <h2>Profil jam gangguan <span class="mini" id="jamSub"></span></h2>
+    <div id="jamProf"></div>
+    <div class="note" style="margin-top:8px" id="jamNote"></div>
+  </div>
+</div>
+
+<div class="two">
+  <div class="card">
+    <h2>Perbandingan: rekapan atas vs daftar Sheet10 (2026)</h2>
+    <table><thead><tr><th>Bulan</th><th>Rekap<br>Fikry</th><th>Sheet10<br>mentah</th><th>Sheet10<br>bersih</th><th>Baris<br>ganda</th><th>Δ<br>bersih</th><th>Δ<br>mentah</th><th>Status</th></tr></thead>
+    <tbody id="cmpBody"><tr><td>Januari</td><td class="num">34</td><td class="num">33</td><td class="num">32</td><td class="num warn">1</td><td class="num neg">-1</td><td class="num neg">-2</td><td class="stat">beda</td></tr><tr><td>Februari</td><td class="num">104</td><td class="num">116</td><td class="num">76</td><td class="num warn">38</td><td class="num pos">+12</td><td class="num neg">-28</td><td class="stat">beda</td></tr><tr><td>Maret</td><td class="num">96</td><td class="num">129</td><td class="num">83</td><td class="num warn">46</td><td class="num pos">+33</td><td class="num neg">-13</td><td class="stat">beda</td></tr><tr><td>April</td><td class="num">85</td><td class="num">93</td><td class="num">72</td><td class="num warn">21</td><td class="num pos">+8</td><td class="num neg">-13</td><td class="stat">beda</td></tr><tr><td>Mei</td><td class="num">64</td><td class="num">97</td><td class="num">69</td><td class="num warn">28</td><td class="num pos">+33</td><td class="num pos">+5</td><td class="stat">beda</td></tr><tr><td>Juni</td><td class="num">69</td><td class="num">85</td><td class="num">69</td><td class="num warn">16</td><td class="num pos">+16</td><td class="num ">+0</td><td class="stat">sama</td></tr><tr><td>Juli</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num warn"></td><td class="num ">+0</td><td class="num ">+0</td><td class="stat">sama</td></tr><tr><td>Agustus</td><td class="num">43</td><td class="num">43</td><td class="num">43</td><td class="num warn"></td><td class="num ">+0</td><td class="num ">+0</td><td class="stat">sama</td></tr><tr><td>September</td><td class="num">68</td><td class="num">77</td><td class="num">77</td><td class="num warn"></td><td class="num pos">+9</td><td class="num pos">+9</td><td class="stat">beda</td></tr><tr><td>Oktober</td><td class="num">8</td><td class="num">87</td><td class="num">13</td><td class="num warn"></td><td class="num pos">+79</td><td class="num pos">+5</td><td class="stat">beda</td></tr></tbody></table>
+    <div class="note" style="margin-top:6px"><b>Hasil cek: TIDAK SAMA</b> — hanya Juni, Juli, Agustus yang cocok persis. Δ = daftar − rekapan (positif = daftar lebih besar). Baris ganda Sheet10 inilah sebab daftar “mentah” lebih besar di Feb–Jun.</div>
+  </div>
+  <div class="card">
+    <h2>Top penyulang 2026 (statis)</h2>
+    <table><thead><tr><th>Penyulang</th><th>Trip 2026</th><th>%</th></tr></thead><tbody id="topPenyBody"><tr><td>CIBALIUNG</td><td class="num">199</td><td class="num">30%</td></tr><tr><td>PANIMBANG</td><td class="num">145</td><td class="num">22%</td></tr><tr><td>JIPUT</td><td class="num">102</td><td class="num">16%</td></tr><tr><td>CIGONDANG</td><td class="num">88</td><td class="num">13%</td></tr><tr><td>CARITA</td><td class="num">46</td><td class="num">7%</td></tr></tbody></table>
+    <details><summary>Histori 2025 vs 2026 (Jan–Sep)</summary>
+      <table><thead><tr><th>Bulan</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>Mei</th><th>Jun</th><th>Jul</th><th>Agt</th><th>Sep</th></tr></thead><tbody id="histBody">
+      <tr><td>2025</td><td class="num">8</td><td class="num">18</td><td class="num">28</td><td class="num">3</td><td class="num">11</td><td class="num">15</td><td class="num">14</td><td class="num">14</td><td class="num">10</td></tr><tr><td>2026</td><td class="num">32</td><td class="num">76</td><td class="num">83</td><td class="num">72</td><td class="num">69</td><td class="num">69</td><td class="num">50</td><td class="num">43</td><td class="num">77</td></tr></tbody></table>
+      <div class="note">Arsip 2025 di Sheet10 hanya 121 baris (kemungkinan belum lengkap) → dipakai sebagai indikasi pembanding.</div>
+    </details>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Catatan metodologi</h2>
+  <div class="note">
+  1. <b>Titik proteksi</b>: <code>REC</code>=<code>PMR</code>, <code>SEC</code>=<code>SSO</code>; nama segmen diseragamkan (typo spasi/huruf, mis. <code>PMR DADAP LANGU</code> = <code>PMR DADAPLANGU</code>).<br>
+  2. <b>Baris ganda</b>: 150 baris identik di Sheet10 (2026) — Jan 1, Feb 38, Mar 46, Apr 21, Mei 28, Jun 16; Jul–Okt bersih. Semua kartu memakai data <b>bersih</b>.<br>
+  3. <b>Oktober</b> disajikan mingguan + harian: M1 = 1–4 Okt (8 trip); cut-off data 01 Nov 2026.<br>
+  4. Filter <b>Bulan</b> mempersempit tabel rekap, Top segmen, pie chart, dan KPI; kolom harian hanya untuk tahun 2026.<br>
+  5. <b>Penyulang CIGONDANG</b> di canvas ini = <b>gabungan CIGONDANG + PAGELARAN</b> (sesuai permintaan).<br>
+  5b. <b>Penyulang di luar ULP Labuan dikecualikan</b>: {', '.join(sorted(EXCLUDE_PENY))} (tercatat di Sheet10 tapi bukan penyulang Labuan).<br>
+  5c. <b>Nama titik proteksi dirapikan</b>: varian typo disatukan → SSO CICECUNING→CICEUNING ·
+     CBO GH TARONGGONG OUT SUMUR→TAROGONG OUT SUMUR · CBO GH TARONGGONG OUT CIBALIUNG→TAROGONG OUT CIBALIUNG ·
+     SSO PASIRJIPUT→PASARJIPUT · PMR TENJOHALANG→TENJOLAHANG · PMR CISEKEUT→CISEUKEUT ·
+     PMT CIBALIUNG GH TAROGONG→CBO CIBALIUNG GH TAROGONG · PMR KALICAAAH→KALICAAH.<br>
+  6. <b>Auto-update</b>: file ini <i>snapshot</i> yang di-rebuild otomatis oleh <code>refresh_canvas.py</code> — menarik ulang <code>Sheet10</code> dari MIRROR KINERJA LABUAN, lalu membangun ulang HTML ini (jadwal Windows Task Scheduler “RefreshCanvasTripLabuan”, tiap 30 menit). Manual: klik <code>REFRESH_CANVAS.bat</code>.<br>
+  7. Angka rekapan atas (34/104/96/85/64/69/50/43/68/8) <u>tidak</u> bisa direproduksi dari Sheet10 — kemungkinan dari laporan harian DCC/WhatsApp atau hitungan manual.
+  </div>
+</div>
+
+<div class="card">
+  <h2>Detail data — daftar trip sesuai Sheet10</h2>
+  <div class="filters">
+    <label>Urutkan <button id="bDetOrd">Terbaru dulu</button></label>
+    <label>Cari <input id="detQ" placeholder="penyulang / segmen / penyebab / keterangan" style="font-size:11.5px;padding:3px 6px;border:1px solid var(--bd);border-radius:6px;min-width:230px"></label>
+    <span id="detCount" class="note"></span>
+  </div>
+  <div class="wrap" style="max-height:640px"><table id="tblDetail">
+    <thead><tr><th>#</th><th>Tanggal</th><th>Penyulang</th><th>Titik proteksi</th><th>Jam</th><th>Indikasi</th>
+    <th>R</th><th>S</th><th>T</th><th>N</th><th>Hasil pengusutan</th><th>ANEV / penyebab</th></tr></thead>
+    <tbody id="detBody"></tbody></table></div>
+  <div class="note" style="margin-top:6px">Baris identik ganda (dobel entri) sudah dihilangkan; nama titik proteksi &amp; cakupan penyulang sudah dirapikan. Filter tahun/bulan/titik proteksi/penyulang di atas ikut berlaku untuk tabel ini.</div>
+</div>
+
+<script>
+const D={"bulan":["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],"bshort":["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agt","Sep","Okt","Nov","Des"],"peny":["CARITA","CIBALIUNG","CIGEULIS","CIGONDANG","JIPUT","LABUAN KOTA","PANIMBANG","SUMUR","TAROGONG","TELUK","WISATA"],"sect":["CBO CIBALIUNGGHTAROGONG","CBO CIKEUSIK","CBO GH CIBALIUNG","CBO GH CIBALIUNGOUTCIBURIAL","CBO GH CIBALIUNGOUTCIKEUSIK","CBO GH MSK","CBO GH TAROGONG","CBO GH TAROGONGOUTCIBALIUNG","CBO GH TAROGONGOUTCIGEULIS","CBO GH TAROGONGOUTPANIMBANG","CBO GH TAROGONGOUTSUMUR","CBO GH TAROGONGOUTTELUK","CBO GH UP","CBO MHDOUTTAROGONG","CBO RMS","CBO SUMURGHTAROGONG","CBO SUMURTAROGONG","CBO TAROGONG","CBO TAROGONGOUTPAGELARAN","CBO TELUKGHTAROGONG","DUKUH","GHTAROGONG","GHTAROGONGCIBALIUNG","GHTAROGONGOUTCIBALIUNG","JIPUT","KETAPANG","KUTAKARANG","PMR ALASWANGI","PMR ARENGBATOK","PMR BANJARMASIN","PMR BRI","PMR BULAGOR","PMR CAMARA","PMR CIAWI","PMR CIBITUNG","PMR CIBUNGUR","PMR CIKEUDAL","PMR CIKIRUH","PMR CISEUKEUT","PMR CITAMAN","PMR COCONUT","PMR DADAPLANGU","PMR DESAWISATA","PMR DUKUH","PMR JAMPANG","PMR KADUMARIA","PMR KADUTANGGAI","PMR KALICAAH","PMR KARTARAHARJA","PMR KAYUJATI","PMR KPMANDALA","PMR MAKUI","PMR MANGKUALAM","PMR MAQOM","PMR MARAPAT","PMR MENES","PMR NAGA","PMR PADALI","PMR PAGELARAN","PMR PANGGARANGAN","PMR PANGKALAN","PMR PARIGILABUAN","PMR PASIRHUNI","PMR PERHUTANI","PMR SAMBOLO","PMR SPJ","PMR SUKACAI","PMR SUKARESMI","PMR TENJOLAHANG","PMR TURUS","PMR WATES","PMT GHTAROGONG","PMT GI","PMT RTURUS","SSO ALASWANGI","SSO BANJARWANGI","SSO BULUH","SSO CAMARA","SSO CARINGIN","SSO CIBAYONI","SSO CICEUNING","SSO CIGEULIS","SSO CIGONDANG","SSO CIJERUK","SSO CIKIRAY","SSO CILANGGAWE","SSO CIMUNCANG","SSO CINYURUP","SSO CIPUNTEN","SSO CITEREUP","SSO GTA","SSO KAMPUNGSATU","SSO KANANGA","SSO KAROYA","SSO KETAPANG","SSO KURUNGKAMBING","SSO KUTAKARANG","SSO PAGELARAN","SSO PANIMBANG","SSO PASARJIPUT","SSO PASIRIPIS","SSO PERHUTANI","SSO POLOS","SSO RANCECET","SSO SIRUANG","SSO SKIM","SSO SMP","SSO SOGE","SSO SOMPOK","SSO TAMANJAYA","SSO TANJUNGLESUNG","SSO TELUKLADA","SSO UMANG"],"kelas":["PMR","SSO","PMT GI","CBO/GH","LAIN"],"anev":["ANEV belum diisi","Armtie Lepas","Arrester Rusak","Bencana Alam","Benda Asing","Binatang","CT / PT Rusak","Flashover","Gangguan Instalasi Bangunan Pelanggan","Gangguan Tidak Diketahui","Ground Steel Wire (GSW) Putus / Lepas","Instalasi Milik Pelanggan Rusak","Isolator Tumpu / Tarik Rusak","Jointing Kabel Tanah Rusak","Jumperan Putus","Jumperan Putus / Rusak","Kegagalan Peralatan Proteksi Petir","Kendaraan","Konduktor Putus","Konektor Kabel Naik / Turun Rusak","Konektor TM Putus","Layangan / Kawat","Mounting CO Pecah / Retak / Rusak","Partial Discharge","Pekerjaan Konstruksi Pihak Ketiga","Pohon","Publik","Sambungan Kendor / Loss Kontak","Terminasi Indoor Rusak","Terminasi Outdoor Rusak","Tiang Patah / Roboh","Umbul2 / Baliho / Penjor / Terpal / Reklam"],"rows":[[2025,1,14,2,72,2,22,1],[2025,1,17,6,41,0,22,1],[2025,1,18,6,41,0,5,1],[2025,1,19,1,101,1,25,1],[2025,1,22,9,36,0,22,1],[2025,1,26,6,110,1,5,1],[2025,1,30,4,49,0,20,1],[2025,1,31,6,41,0,18,1],[2025,2,2,3,69,0,22,1],[2025,2,2,7,10,3,0,1],[2025,2,4,0,72,2,0,1],[2025,2,4,3,69,0,25,1],[2025,2,5,1,34,0,0,1],[2025,2,5,4,55,0,0,1],[2025,2,5,4,92,1,25,1],[2025,2,6,1,57,0,27,1],[2025,2,11,1,52,0,0,1],[2025,2,11,6,38,0,0,1],[2025,2,11,6,94,1,0,1],[2025,2,12,0,72,2,18,1],[2025,2,14,4,27,0,25,1],[2025,2,14,4,55,0,0,1],[2025,2,16,0,29,0,25,1],[2025,2,16,4,49,0,25,1],[2025,2,19,6,94,1,0,1],[2025,2,22,1,52,0,5,1],[2025,3,1,4,83,1,3,1],[2025,3,1,10,72,2,23,1],[2025,3,4,0,72,2,3,1],[2025,3,4,1,30,0,0,1],[2025,3,4,1,32,0,0,1],[2025,3,4,10,72,2,0,1],[2025,3,5,1,52,0,0,1],[2025,3,7,0,29,0,14,1],[2025,3,7,0,40,0,14,1],[2025,3,7,1,101,1,1,1],[2025,3,10,1,37,0,0,1],[2025,3,10,1,96,1,0,1],[2025,3,13,5,72,2,0,1],[2025,3,13,9,11,3,7,1],[2025,3,13,9,84,1,5,1],[2025,3,14,1,54,0,0,1],[2025,3,14,4,92,1,0,1],[2025,3,14,9,55,0,0,1],[2025,3,15,9,36,0,0,1],[2025,3,15,9,84,1,0,1],[2025,3,18,1,30,0,12,1],[2025,3,19,3,72,2,5,1],[2025,3,19,6,90,1,0,1],[2025,3,24,1,96,1,25,1],[2025,3,26,9,84,1,5,1],[2025,3,28,2,72,2,16,1],[2025,3,28,5,53,0,5,1],[2025,3,30,3,58,0,5,1],[2025,4,5,3,33,0,16,1],[2025,4,11,9,71,2,16,1],[2025,4,18,0,78,1,25,1],[2025,5,2,10,12,3,7,1],[2025,5,5,2,67,0,25,1],[2025,5,5,3,69,0,5,1],[2025,5,14,6,47,0,8,1],[2025,5,17,1,37,0,5,1],[2025,5,17,4,68,0,14,1],[2025,5,17,4,72,2,15,1],[2025,5,18,3,72,2,7,1],[2025,5,21,1,52,0,25,1],[2025,5,22,1,52,0,25,1],[2025,5,28,1,30,0,5,1],[2025,6,2,4,49,0,10,1],[2025,6,7,1,3,3,14,1],[2025,6,8,1,96,1,25,1],[2025,6,11,1,1,3,14,1],[2025,6,11,1,70,0,12,1],[2025,6,11,6,47,0,16,1],[2025,6,14,1,2,3,18,1],[2025,6,16,1,52,0,25,1],[2025,6,17,4,39,0,30,1],[2025,6,20,3,60,0,16,1],[2025,6,27,3,33,0,5,1],[2025,6,28,4,39,0,3,1],[2025,6,30,1,57,0,16,1],[2025,6,30,6,41,0,22,1],[2025,6,30,9,61,0,25,1],[2025,7,2,0,72,2,25,1],[2025,7,2,6,47,0,5,1],[2025,7,4,1,101,1,25,1],[2025,7,5,3,48,0,16,1],[2025,7,7,3,60,0,16,1],[2025,7,7,3,69,0,5,1],[2025,7,7,3,69,0,25,1],[2025,7,10,5,82,1,14,1],[2025,7,12,3,33,0,5,1],[2025,7,15,4,27,0,5,1],[2025,7,20,4,68,0,5,1],[2025,7,25,0,78,1,21,1],[2025,7,28,6,41,0,25,1],[2025,7,29,6,47,0,5,1],[2025,8,5,0,43,0,25,1],[2025,8,11,3,91,1,21,1],[2025,8,12,4,55,0,25,1],[2025,8,12,7,10,3,25,1],[2025,8,13,0,29,0,25,1],[2025,8,13,1,3,3,5,1],[2025,8,13,1,102,1,14,1],[2025,8,13,6,109,1,14,1],[2025,8,14,5,82,1,25,1],[2025,8,18,1,96,1,25,1],[2025,8,19,6,41,0,14,1],[2025,8,22,3,48,0,5,1],[2025,8,24,0,29,0,14,1],[2025,8,28,6,41,0,16,1],[2025,9,1,6,41,0,5,1],[2025,9,8,5,72,2,5,1],[2025,9,9,4,55,0,5,1],[2025,9,10,1,108,1,11,1],[2025,9,12,6,10,3,16,1],[2025,9,14,4,55,0,5,1],[2025,9,15,1,70,0,21,1],[2025,9,17,9,84,1,18,1],[2025,9,21,0,78,1,7,1],[2025,9,30,6,98,1,5,1],[2025,10,1,6,98,1,14,1],[2025,10,2,1,103,1,11,1],[2025,10,2,7,15,3,12,1],[2025,10,8,0,29,0,3,1],[2025,10,8,3,60,0,3,1],[2025,10,13,4,72,2,3,1],[2025,10,17,2,21,4,12,1],[2025,10,20,6,110,1,14,1],[2025,10,22,4,99,1,14,1],[2025,10,24,1,37,0,30,1],[2025,10,28,1,72,2,12,1],[2025,11,5,6,9,3,3,1],[2025,11,6,6,90,1,25,1],[2025,11,8,0,43,0,3,1],[2025,11,8,3,62,0,3,1],[2025,11,11,1,103,1,12,1],[2025,11,16,3,31,0,24,1],[2025,11,18,9,36,0,25,1],[2025,11,20,6,94,1,5,1],[2025,11,26,4,99,1,5,1],[2025,12,2,3,69,0,2,1],[2025,12,2,4,83,1,25,1],[2025,12,3,5,51,0,25,1],[2025,12,9,5,72,2,14,1],[2025,12,9,10,72,2,28,1],[2025,12,13,3,62,0,5,1],[2025,12,14,1,9,3,3,1],[2025,12,15,0,78,1,3,1],[2025,12,15,1,77,1,26,1],[2025,12,16,1,106,1,3,1],[2025,12,17,3,14,3,25,1],[2025,12,17,9,17,3,25,1],[2025,12,17,9,61,0,14,1],[2025,12,18,9,19,3,14,1],[2025,12,19,4,105,1,25,1],[2025,12,19,9,84,1,25,1],[2025,12,23,0,43,0,25,1],[2025,12,23,3,60,0,14,1],[2025,12,24,0,78,1,5,1],[2025,12,31,1,52,0,3,1],[2026,1,2,0,43,0,5,1],[2026,1,2,1,86,1,3,1],[2026,1,2,4,39,0,3,1],[2026,1,3,4,92,1,3,1],[2026,1,12,3,62,0,3,1],[2026,1,18,3,111,1,3,1],[2026,1,20,3,33,0,3,1],[2026,1,20,3,62,0,3,1],[2026,1,20,9,85,1,3,1],[2026,1,21,0,78,1,3,1],[2026,1,21,1,108,1,3,1],[2026,1,21,6,47,0,3,1],[2026,1,23,6,41,0,16,1],[2026,1,23,9,27,0,25,1],[2026,1,24,1,28,0,3,1],[2026,1,24,1,96,1,3,1],[2026,1,24,1,101,1,3,1],[2026,1,24,1,108,1,25,1],[2026,1,24,4,105,1,3,1],[2026,1,25,1,70,0,25,1],[2026,1,26,1,37,0,25,1],[2026,1,26,4,49,0,25,1],[2026,1,27,3,62,0,25,2],[2026,1,28,3,6,3,25,1],[2026,1,29,1,37,0,16,1],[2026,1,29,6,41,0,25,1],[2026,1,29,6,47,0,25,1],[2026,1,30,4,72,2,25,1],[2026,1,30,6,41,0,25,1],[2026,1,30,6,47,0,25,1],[2026,1,31,1,87,1,25,1],[2026,2,3,1,54,0,25,1],[2026,2,3,6,41,0,25,1],[2026,2,4,1,37,0,5,1],[2026,2,5,1,52,0,5,1],[2026,2,5,1,60,0,25,1],[2026,2,5,4,105,1,5,1],[2026,2,6,3,48,0,25,1],[2026,2,7,0,29,0,16,1],[2026,2,7,1,108,1,25,1],[2026,2,7,5,61,0,25,1],[2026,2,7,6,94,1,25,2],[2026,2,8,1,87,1,5,1],[2026,2,8,1,101,1,3,1],[2026,2,8,2,107,1,25,1],[2026,2,8,4,105,1,25,1],[2026,2,9,1,4,3,25,1],[2026,2,9,1,87,1,25,1],[2026,2,9,4,105,1,25,1],[2026,2,10,6,35,0,25,1],[2026,2,10,6,38,0,25,1],[2026,2,10,6,41,0,25,1],[2026,2,10,6,94,1,2,1],[2026,2,10,6,94,1,25,1],[2026,2,10,6,98,1,25,1],[2026,2,11,6,94,1,25,1],[2026,2,14,1,57,0,25,1],[2026,2,14,1,81,1,25,1],[2026,2,14,4,74,1,25,1],[2026,2,15,1,57,0,25,1],[2026,2,15,1,86,1,25,1],[2026,2,15,3,33,0,25,1],[2026,2,15,4,92,1,16,1],[2026,2,15,6,94,1,10,1],[2026,2,15,6,94,1,25,1],[2026,2,16,1,37,0,3,1],[2026,2,16,1,108,1,16,1],[2026,2,16,2,56,0,25,1],[2026,2,16,4,99,1,25,1],[2026,2,16,6,110,1,3,1],[2026,2,17,1,37,0,2,1],[2026,2,17,1,81,1,25,1],[2026,2,17,3,69,0,5,1],[2026,2,18,6,41,0,25,1],[2026,2,19,1,57,0,25,1],[2026,2,19,1,96,1,25,1],[2026,2,19,4,27,0,25,1],[2026,2,19,4,104,1,25,1],[2026,2,20,0,78,1,5,1],[2026,2,20,6,41,0,25,1],[2026,2,21,1,96,1,25,1],[2026,2,21,3,18,3,18,1],[2026,2,21,4,105,1,16,1],[2026,2,21,6,41,0,25,3],[2026,2,21,7,6,3,18,1],[2026,2,21,10,5,3,13,1],[2026,2,22,0,43,0,25,1],[2026,2,22,6,16,3,18,1],[2026,2,23,3,33,0,5,1],[2026,2,23,6,112,1,25,1],[2026,2,24,1,63,0,16,1],[2026,2,24,1,96,1,25,1],[2026,2,24,6,47,0,3,1],[2026,2,24,6,112,1,30,1],[2026,2,25,3,111,1,25,1],[2026,2,25,9,84,1,25,1],[2026,2,27,1,108,1,19,1],[2026,2,27,1,108,1,25,1],[2026,2,27,6,98,1,25,1],[2026,2,27,6,112,1,25,1],[2026,2,28,0,29,0,25,1],[2026,2,28,1,96,1,5,1],[2026,2,28,3,69,0,18,1],[2026,2,28,9,61,0,3,1],[2026,3,1,4,27,0,5,1],[2026,3,2,3,60,0,9,1],[2026,3,2,6,112,1,10,1],[2026,3,3,1,87,1,25,1],[2026,3,3,2,8,3,3,1],[2026,3,3,3,60,0,9,1],[2026,3,3,6,10,3,3,1],[2026,3,3,9,11,3,25,1],[2026,3,3,9,61,0,25,1],[2026,3,4,6,10,3,12,1],[2026,3,5,1,76,1,25,1],[2026,3,5,4,46,0,25,1],[2026,3,5,5,88,1,21,2],[2026,3,5,6,41,0,9,1],[2026,3,5,6,109,1,2,1],[2026,3,6,3,31,0,9,1],[2026,3,6,5,51,0,25,3],[2026,3,6,6,41,0,9,2],[2026,3,8,1,28,0,16,1],[2026,3,8,2,67,0,9,1],[2026,3,9,1,70,0,9,1],[2026,3,9,1,87,1,5,1],[2026,3,10,1,96,1,25,1],[2026,3,10,3,33,0,9,1],[2026,3,10,4,105,1,5,1],[2026,3,10,6,41,0,25,1],[2026,3,11,4,105,1,10,1],[2026,3,11,4,105,1,25,2],[2026,3,11,6,79,1,5,2],[2026,3,11,6,110,1,10,1],[2026,3,12,4,68,0,25,1],[2026,3,12,4,105,1,18,1],[2026,3,12,4,105,1,25,1],[2026,3,13,4,105,1,5,1],[2026,3,14,8,11,3,14,1],[2026,3,15,1,96,1,9,1],[2026,3,15,6,112,1,2,1],[2026,3,16,3,33,0,9,1],[2026,3,16,4,68,0,9,1],[2026,3,16,6,90,1,14,1],[2026,3,16,9,84,1,5,1],[2026,3,17,1,108,1,5,1],[2026,3,18,4,68,0,9,1],[2026,3,19,1,89,1,9,1],[2026,3,19,1,96,1,5,1],[2026,3,19,1,96,1,9,1],[2026,3,19,1,108,1,5,1],[2026,3,19,4,39,0,5,1],[2026,3,20,1,96,1,9,1],[2026,3,20,1,108,1,9,1],[2026,3,21,4,80,1,5,1],[2026,3,21,6,41,0,9,1],[2026,3,21,6,47,0,9,1],[2026,3,22,4,68,0,5,1],[2026,3,22,6,47,0,9,1],[2026,3,23,3,58,0,9,1],[2026,3,24,1,87,1,25,1],[2026,3,24,1,102,1,5,1],[2026,3,24,9,11,3,5,1],[2026,3,25,1,7,3,3,1],[2026,3,25,1,70,0,5,1],[2026,3,25,6,41,0,5,1],[2026,3,26,2,8,3,5,1],[2026,3,27,1,76,1,25,1],[2026,3,27,1,96,1,5,1],[2026,3,27,3,60,0,25,1],[2026,3,27,4,105,1,25,1],[2026,3,28,1,70,0,12,1],[2026,3,28,1,96,1,9,1],[2026,3,29,0,40,0,25,1],[2026,3,29,1,96,1,9,1],[2026,3,29,1,96,1,14,1],[2026,3,29,1,101,1,9,1],[2026,3,29,4,92,1,31,1],[2026,3,29,9,61,0,9,1],[2026,3,30,4,72,2,5,1],[2026,3,31,6,98,1,18,1],[2026,4,1,1,70,0,18,1],[2026,4,1,4,92,1,25,1],[2026,4,1,9,11,3,25,1],[2026,4,2,1,101,1,21,1],[2026,4,2,4,27,0,25,1],[2026,4,3,4,105,1,5,1],[2026,4,4,6,98,1,14,1],[2026,4,5,3,62,0,25,2],[2026,4,6,0,43,0,9,1],[2026,4,7,0,43,0,9,1],[2026,4,7,1,28,0,5,1],[2026,4,7,2,67,0,18,1],[2026,4,7,3,14,3,14,1],[2026,4,7,3,62,0,6,1],[2026,4,7,3,111,1,18,1],[2026,4,7,9,11,3,25,1],[2026,4,8,1,70,0,16,1],[2026,4,8,6,109,1,5,1],[2026,4,9,3,60,0,25,1],[2026,4,9,4,68,0,9,1],[2026,4,10,1,52,0,21,1],[2026,4,10,1,87,1,25,1],[2026,4,10,4,92,1,25,1],[2026,4,11,0,43,0,9,1],[2026,4,11,6,41,0,5,1],[2026,4,12,1,70,0,9,1],[2026,4,12,1,103,1,30,1],[2026,4,12,6,42,0,21,1],[2026,4,14,1,70,0,25,1],[2026,4,15,3,111,1,14,1],[2026,4,15,3,111,1,25,1],[2026,4,16,0,43,0,9,1],[2026,4,17,0,29,0,5,1],[2026,4,17,1,7,3,5,1],[2026,4,17,6,109,1,5,1],[2026,4,18,0,43,0,12,1],[2026,4,18,1,7,3,14,1],[2026,4,18,1,87,1,5,1],[2026,4,18,1,96,1,25,1],[2026,4,18,4,72,2,5,1],[2026,4,18,4,104,1,25,1],[2026,4,19,1,37,0,14,1],[2026,4,19,6,112,1,21,1],[2026,4,20,0,40,0,16,1],[2026,4,20,1,7,3,5,1],[2026,4,20,1,54,0,5,1],[2026,4,20,4,27,0,9,1],[2026,4,20,6,42,0,9,1],[2026,4,20,7,10,3,18,1],[2026,4,21,0,43,0,9,2],[2026,4,21,6,42,0,18,1],[2026,4,23,1,87,1,5,1],[2026,4,23,1,89,1,5,1],[2026,4,24,1,34,0,9,1],[2026,4,24,1,86,1,18,1],[2026,4,25,4,68,0,9,1],[2026,4,26,1,37,0,9,1],[2026,4,26,1,57,0,9,1],[2026,4,26,4,24,4,5,1],[2026,4,26,4,72,2,5,1],[2026,4,27,0,40,0,9,1],[2026,4,27,4,92,1,5,1],[2026,4,28,0,72,2,29,1],[2026,4,28,1,37,0,5,1],[2026,4,28,1,37,0,9,1],[2026,4,28,1,70,0,5,1],[2026,4,29,1,70,0,3,1],[2026,4,29,1,87,1,5,1],[2026,4,29,4,68,0,9,1],[2026,4,30,1,7,3,16,1],[2026,5,1,0,64,0,2,1],[2026,5,1,1,57,0,21,1],[2026,5,2,1,28,0,5,1],[2026,5,2,1,89,1,25,1],[2026,5,3,1,37,0,9,1],[2026,5,4,0,43,0,7,1],[2026,5,4,1,57,0,21,1],[2026,5,5,1,89,1,25,1],[2026,5,5,6,41,0,25,1],[2026,5,7,3,111,1,25,1],[2026,5,8,1,86,1,25,1],[2026,5,8,6,41,0,25,1],[2026,5,9,1,76,1,25,1],[2026,5,10,1,37,0,5,1],[2026,5,10,3,33,0,14,1],[2026,5,11,0,78,1,9,1],[2026,5,11,1,34,0,14,1],[2026,5,11,1,101,1,5,1],[2026,5,11,4,72,2,5,1],[2026,5,11,6,38,0,9,1],[2026,5,11,6,41,0,9,1],[2026,5,11,6,110,1,9,1],[2026,5,12,0,43,0,25,1],[2026,5,12,6,94,1,21,1],[2026,5,14,1,76,1,5,1],[2026,5,14,1,86,1,5,1],[2026,5,15,1,37,0,9,1],[2026,5,16,4,68,0,25,1],[2026,5,17,4,27,0,25,1],[2026,5,17,4,99,1,25,1],[2026,5,17,6,94,1,5,2],[2026,5,18,1,37,0,5,1],[2026,5,18,4,105,1,5,1],[2026,5,19,4,80,1,5,1],[2026,5,21,1,77,1,9,1],[2026,5,21,2,8,3,9,1],[2026,5,21,3,97,1,18,1],[2026,5,21,4,27,0,9,1],[2026,5,21,4,99,1,5,1],[2026,5,21,6,94,1,25,1],[2026,5,21,9,72,2,5,1],[2026,5,23,4,105,1,25,1],[2026,5,24,0,43,0,9,1],[2026,5,24,4,24,4,0,1],[2026,5,24,4,92,1,25,1],[2026,5,24,6,94,1,0,1],[2026,5,24,6,110,1,11,1],[2026,5,25,0,78,1,9,1],[2026,5,25,1,103,1,12,1],[2026,5,25,3,58,0,9,1],[2026,5,25,4,92,1,25,2],[2026,5,25,6,41,0,9,1],[2026,5,26,0,20,4,0,1],[2026,5,26,1,100,1,5,1],[2026,5,26,3,60,0,25,1],[2026,5,26,5,51,0,5,1],[2026,5,26,6,41,0,9,2],[2026,5,28,1,26,4,0,1],[2026,5,28,4,105,1,25,1],[2026,5,29,6,41,0,5,1],[2026,5,30,4,66,0,5,1],[2026,5,30,6,25,4,0,1],[2026,5,31,1,102,1,9,1],[2026,5,31,4,92,1,21,2],[2026,5,31,4,105,1,9,1],[2026,6,2,0,29,0,21,1],[2026,6,2,4,105,1,5,1],[2026,6,2,9,11,3,18,1],[2026,6,3,6,47,0,9,1],[2026,6,4,4,105,1,21,1],[2026,6,5,1,86,1,17,1],[2026,6,5,4,27,0,5,1],[2026,6,5,9,36,0,5,1],[2026,6,6,1,100,1,9,1],[2026,6,6,9,85,1,5,1],[2026,6,7,1,101,1,9,1],[2026,6,8,3,33,0,9,1],[2026,6,9,3,33,0,18,1],[2026,6,9,3,60,0,9,1],[2026,6,9,5,88,1,9,1],[2026,6,9,6,98,1,9,1],[2026,6,10,1,57,0,25,1],[2026,6,10,3,14,3,21,1],[2026,6,10,4,68,0,25,1],[2026,6,12,3,33,0,5,1],[2026,6,12,3,33,0,9,1],[2026,6,12,5,88,1,25,1],[2026,6,13,1,57,0,25,1],[2026,6,13,3,111,1,16,1],[2026,6,13,4,105,1,5,1],[2026,6,13,6,10,3,18,1],[2026,6,14,1,100,1,25,1],[2026,6,14,6,109,1,9,1],[2026,6,14,9,84,1,5,1],[2026,6,15,0,78,1,25,1],[2026,6,15,1,72,2,25,1],[2026,6,15,4,92,1,21,1],[2026,6,17,3,33,0,5,1],[2026,6,18,3,48,0,5,1],[2026,6,18,3,62,0,5,1],[2026,6,19,0,43,0,5,1],[2026,6,19,0,78,1,21,1],[2026,6,19,2,67,0,9,1],[2026,6,19,4,27,0,5,1],[2026,6,21,3,14,3,14,1],[2026,6,22,3,69,0,25,1],[2026,6,24,2,8,3,9,1],[2026,6,25,1,89,1,9,1],[2026,6,26,0,29,0,0,1],[2026,6,26,0,43,0,0,1],[2026,6,26,1,0,3,0,1],[2026,6,26,1,57,0,0,2],[2026,6,26,3,58,0,0,2],[2026,6,26,6,41,0,0,4],[2026,6,26,6,90,1,9,1],[2026,6,26,9,27,0,0,1],[2026,6,27,1,37,0,25,1],[2026,6,27,6,41,0,21,1],[2026,6,28,1,70,0,9,1],[2026,6,28,3,14,3,9,1],[2026,6,28,4,105,1,9,1],[2026,6,28,6,112,1,9,1],[2026,6,29,1,37,0,0,1],[2026,6,29,1,57,0,0,1],[2026,6,29,3,62,0,0,1],[2026,6,29,4,27,0,0,1],[2026,6,29,6,41,0,0,1],[2026,6,29,9,55,0,0,1],[2026,6,30,6,112,1,9,1],[2026,7,1,0,43,0,5,1],[2026,7,1,2,8,3,21,1],[2026,7,1,3,48,0,25,1],[2026,7,2,0,29,0,25,1],[2026,7,2,1,77,1,21,1],[2026,7,2,1,89,1,25,1],[2026,7,2,3,33,0,25,1],[2026,7,3,1,87,1,5,1],[2026,7,5,9,85,1,21,1],[2026,7,7,1,7,3,18,1],[2026,7,7,3,48,0,5,1],[2026,7,7,4,105,1,21,1],[2026,7,8,0,78,1,25,1],[2026,7,8,1,34,0,25,1],[2026,7,8,1,89,1,25,1],[2026,7,8,6,42,0,21,1],[2026,7,9,1,87,1,5,1],[2026,7,9,6,41,0,25,1],[2026,7,9,6,79,1,25,1],[2026,7,10,1,34,0,9,1],[2026,7,10,1,52,0,9,1],[2026,7,10,1,70,0,5,1],[2026,7,10,1,87,1,5,1],[2026,7,11,1,100,1,25,1],[2026,7,12,0,72,2,10,1],[2026,7,14,1,106,1,25,1],[2026,7,14,6,112,1,7,1],[2026,7,15,2,67,0,18,1],[2026,7,15,3,58,0,2,1],[2026,7,16,4,72,2,5,1],[2026,7,16,6,109,1,5,1],[2026,7,18,3,33,0,5,1],[2026,7,18,3,111,1,5,1],[2026,7,19,1,77,1,5,1],[2026,7,21,1,81,1,22,1],[2026,7,21,4,80,1,21,1],[2026,7,23,1,103,1,25,1],[2026,7,23,6,47,0,10,1],[2026,7,23,6,90,1,25,1],[2026,7,24,1,86,1,14,1],[2026,7,24,1,101,1,24,1],[2026,7,25,1,72,2,5,1],[2026,7,25,6,41,0,14,1],[2026,7,26,4,92,1,25,1],[2026,7,27,1,103,1,25,1],[2026,7,27,5,82,1,5,1],[2026,7,27,6,47,0,9,1],[2026,7,28,0,29,0,21,1],[2026,7,28,2,8,3,25,1],[2026,7,29,1,52,0,9,1],[2026,8,3,2,8,3,21,1],[2026,8,4,1,0,2,25,1],[2026,8,5,1,89,1,25,1],[2026,8,6,1,100,1,5,1],[2026,8,6,4,66,0,5,1],[2026,8,8,1,100,1,18,1],[2026,8,8,3,58,0,9,1],[2026,8,8,4,49,0,25,1],[2026,8,12,3,33,0,9,1],[2026,8,13,3,33,0,9,1],[2026,8,13,6,47,0,9,1],[2026,8,13,6,90,1,21,1],[2026,8,15,1,37,0,21,1],[2026,8,15,4,27,0,9,1],[2026,8,15,6,41,0,9,1],[2026,8,17,0,29,0,9,1],[2026,8,17,6,98,1,5,1],[2026,8,18,1,81,1,5,1],[2026,8,18,3,33,0,9,1],[2026,8,18,6,109,1,5,1],[2026,8,19,0,29,0,7,1],[2026,8,19,3,33,0,5,1],[2026,8,19,6,41,0,21,1],[2026,8,20,1,70,0,5,1],[2026,8,21,3,60,0,14,1],[2026,8,21,6,41,0,9,1],[2026,8,21,6,98,1,22,1],[2026,8,23,4,39,0,9,1],[2026,8,23,4,105,1,21,1],[2026,8,24,1,87,1,5,1],[2026,8,24,4,92,1,25,1],[2026,8,25,3,31,0,25,1],[2026,8,25,4,55,0,9,1],[2026,8,27,0,29,0,9,1],[2026,8,27,1,54,0,9,1],[2026,8,27,1,108,1,14,1],[2026,8,27,2,67,0,21,1],[2026,8,27,4,66,0,21,1],[2026,8,29,0,43,0,9,1],[2026,8,29,9,61,0,21,1],[2026,8,31,1,52,0,9,1],[2026,8,31,3,73,2,9,1],[2026,8,31,4,92,1,5,1],[2026,9,1,3,14,3,13,1],[2026,9,1,3,60,0,21,1],[2026,9,2,1,37,0,21,1],[2026,9,3,1,86,1,5,1],[2026,9,3,4,105,1,5,1],[2026,9,4,1,54,0,21,1],[2026,9,5,1,28,0,21,1],[2026,9,6,1,86,1,25,1],[2026,9,6,3,48,0,21,1],[2026,9,6,3,69,0,5,1],[2026,9,6,6,41,0,5,1],[2026,9,6,6,41,0,7,1],[2026,9,6,6,42,0,25,4],[2026,9,6,6,47,0,21,1],[2026,9,7,3,60,0,9,1],[2026,9,8,1,54,0,25,1],[2026,9,8,1,103,1,7,1],[2026,9,8,6,41,0,21,1],[2026,9,9,4,105,1,5,1],[2026,9,10,1,52,0,25,1],[2026,9,10,1,54,0,25,1],[2026,9,10,1,89,1,21,1],[2026,9,10,9,84,1,5,1],[2026,9,11,0,29,0,5,1],[2026,9,12,2,67,0,21,1],[2026,9,12,6,98,1,21,1],[2026,9,13,3,33,0,5,1],[2026,9,14,1,54,0,5,1],[2026,9,14,1,87,1,25,1],[2026,9,14,6,41,0,21,1],[2026,9,15,1,28,0,7,1],[2026,9,15,3,48,0,25,1],[2026,9,15,3,60,0,5,1],[2026,9,15,6,41,0,25,1],[2026,9,15,6,42,0,12,1],[2026,9,16,2,107,1,21,1],[2026,9,17,1,87,1,5,1],[2026,9,17,4,66,0,25,1],[2026,9,18,1,22,4,21,1],[2026,9,19,1,108,1,12,1],[2026,9,19,4,80,1,25,1],[2026,9,20,1,72,2,18,1],[2026,9,20,1,89,1,18,1],[2026,9,20,3,69,0,5,1],[2026,9,20,6,72,2,18,1],[2026,9,20,8,72,2,18,1],[2026,9,21,3,33,0,2,1],[2026,9,21,4,80,1,5,1],[2026,9,21,4,99,1,5,1],[2026,9,21,6,41,0,5,1],[2026,9,22,4,92,1,5,1],[2026,9,22,4,105,1,5,1],[2026,9,22,6,109,1,5,1],[2026,9,23,1,52,0,0,1],[2026,9,23,1,52,0,25,1],[2026,9,23,6,109,1,21,1],[2026,9,23,9,61,0,9,1],[2026,9,24,1,52,0,25,1],[2026,9,24,3,48,0,5,1],[2026,9,24,9,36,0,5,1],[2026,9,25,1,37,0,5,1],[2026,9,25,4,105,1,5,1],[2026,9,26,9,36,0,5,1],[2026,9,27,1,101,1,25,1],[2026,9,27,6,109,1,21,1],[2026,9,27,7,10,3,5,1],[2026,9,28,2,56,0,21,1],[2026,9,29,0,29,0,16,1],[2026,9,29,1,52,0,25,1],[2026,9,29,2,8,3,12,1],[2026,9,29,6,41,0,25,1],[2026,9,30,1,70,0,9,1],[2026,9,30,1,103,1,14,1],[2026,9,30,4,105,1,14,1],[2026,10,1,3,48,0,18,1],[2026,10,1,6,47,0,9,1],[2026,10,2,0,29,0,9,1],[2026,10,2,1,52,0,25,1],[2026,10,2,6,109,1,25,1],[2026,10,3,2,67,0,9,1],[2026,10,4,6,41,0,25,1],[2026,10,4,6,47,0,5,1],[2026,10,5,0,40,0,22,1],[2026,10,5,6,41,0,9,1],[2026,10,6,4,92,1,25,1],[2026,10,6,6,110,1,5,1],[2026,10,6,7,10,3,4,1],[2026,10,7,1,34,0,9,1],[2026,10,7,1,89,1,5,1],[2026,10,7,3,33,0,9,1],[2026,10,7,9,27,0,25,1],[2026,10,7,9,84,1,25,1],[2026,10,8,6,41,0,5,1],[2026,10,8,9,72,2,5,1],[2026,10,9,4,39,0,9,1],[2026,10,9,6,41,0,9,1],[2026,10,10,1,37,0,21,1],[2026,10,10,2,8,3,21,1],[2026,10,10,4,27,0,5,1],[2026,10,10,9,84,1,5,1],[2026,10,11,1,52,0,25,1],[2026,10,11,3,33,0,25,1],[2026,10,12,2,67,0,25,1],[2026,10,12,3,60,0,9,1],[2026,10,12,4,39,0,9,1],[2026,10,13,6,109,1,21,1],[2026,10,14,1,87,1,25,1],[2026,10,14,6,47,0,9,1],[2026,10,15,2,8,3,9,1],[2026,10,15,2,67,0,5,1],[2026,10,16,1,37,0,5,1],[2026,10,16,1,87,1,5,1],[2026,10,17,6,98,1,25,1],[2026,10,18,6,110,1,25,1],[2026,10,18,9,84,1,21,1],[2026,10,19,0,29,0,5,1],[2026,10,19,1,52,0,18,1],[2026,10,19,1,89,1,18,1],[2026,10,19,6,98,1,25,1],[2026,10,20,0,40,0,25,1],[2026,10,20,1,70,0,0,1],[2026,10,20,3,33,0,5,1],[2026,10,21,1,4,3,9,1],[2026,10,21,1,34,0,9,1],[2026,10,21,6,98,1,18,1],[2026,10,22,4,92,1,9,1],[2026,10,22,6,47,0,25,1],[2026,10,23,3,33,0,5,1],[2026,10,23,3,58,0,21,1],[2026,10,23,9,85,1,21,1],[2026,10,24,6,47,0,9,1],[2026,10,24,6,106,1,5,1],[2026,10,25,1,52,0,21,1],[2026,10,25,6,47,0,9,2],[2026,10,25,6,109,1,4,1],[2026,10,25,10,5,3,11,1],[2026,10,26,1,87,1,5,1],[2026,10,26,9,11,3,9,1],[2026,10,26,10,5,3,28,1],[2026,10,27,2,8,3,9,1],[2026,10,27,3,48,0,5,1],[2026,10,27,4,75,1,5,1],[2026,10,27,6,10,3,21,1],[2026,10,27,6,47,0,18,1],[2026,10,28,1,87,1,5,1],[2026,10,28,3,60,0,5,1],[2026,10,29,2,8,3,9,1],[2026,10,29,2,67,0,9,1],[2026,10,29,3,48,0,9,1],[2026,10,29,4,27,0,9,1],[2026,10,29,6,47,0,0,1],[2026,10,29,6,109,1,9,1],[2026,10,30,1,23,4,9,1],[2026,10,30,1,54,0,0,1],[2026,10,30,3,62,0,25,1],[2026,10,30,6,90,1,9,1],[2026,10,31,3,58,0,9,1],[2026,10,31,8,13,3,9,1],[2026,11,1,3,33,0,9,1]],"alias":{"SSOCICECUNING":"SSO CICEUNING","CBOGHTARONGGONGOUTSUMUR":"CBO GH TAROGONGOUTSUMUR","CBOGHTARONGGONGOUTCIBALIUNG":"CBO GH TAROGONGOUTCIBALIUNG","SSOPASIRJIPUT":"SSO PASARJIPUT","PMRTENJOHALANG":"PMR TENJOLAHANG","PMRCISEKEUT":"PMR CISEUKEUT","PMTKALICAAAH":"PMR KALICAAH","PMRKALICAAAH":"PMR KALICAAH","CBOCIBALIUNGGHTAROGONG":"CBO CIBALIUNGGHTAROGONG","PMTCIBALIUNGGHTAROGONG":"CBO CIBALIUNGGHTAROGONG"},"exclude":["MANDALAWANGI","SALADA","SINAGAR"],"meta":{"raw":806,"dup":150,"rawBulan":{"1":33,"2":114,"3":129,"4":93,"5":97,"6":85,"7":50,"8":43,"9":77,"10":85},"dupBulan":{"1":1,"2":38,"3":46,"4":21,"5":28,"6":16},"generated":"01 Nov 2026 15:44 WIB"}};
+const LIVE_URL='https://script.google.com/macros/s/AKfycbwoCpsY745rxBVgLfR4CMzgsd24G2jNTdTPBGcCuqemVvMPMx4j6bWrZQLypGeYNf8P/exec';
+const ALIAS={"SSOCICECUNING": "SSO CICEUNING", "CBOGHTARONGGONGOUTSUMUR": "CBO GH TAROGONGOUTSUMUR", "CBOGHTARONGGONGOUTCIBALIUNG": "CBO GH TAROGONGOUTCIBALIUNG", "SSOPASIRJIPUT": "SSO PASARJIPUT", "PMRTENJOHALANG": "PMR TENJOLAHANG", "PMRCISEKEUT": "PMR CISEUKEUT", "PMTKALICAAAH": "PMR KALICAAH", "PMRKALICAAAH": "PMR KALICAAH", "CBOCIBALIUNGGHTAROGONG": "CBO CIBALIUNGGHTAROGONG", "PMTCIBALIUNGGHTAROGONG": "CBO CIBALIUNGGHTAROGONG"};
+const EXCLUDE=["MANDALAWANGI", "SALADA", "SINAGAR"];
+let DET={"peny":["CARITA","CIBALIUNG","CIGEULIS","CIGONDANG","JIPUT","LABUAN KOTA","PANIMBANG","SUMUR","TAROGONG","TELUK","WISATA"],"sect":["CBO CIBALIUNGGHTAROGONG","CBO CIKEUSIK","CBO GH CIBALIUNG","CBO GH CIBALIUNGOUTCIBURIAL","CBO GH CIBALIUNGOUTCIKEUSIK","CBO GH MSK","CBO GH TAROGONG","CBO GH TAROGONGOUTCIBALIUNG","CBO GH TAROGONGOUTCIGEULIS","CBO GH TAROGONGOUTPANIMBANG","CBO GH TAROGONGOUTSUMUR","CBO GH TAROGONGOUTTELUK","CBO GH UP","CBO MHDOUTTAROGONG","CBO RMS","CBO SUMURGHTAROGONG","CBO SUMURTAROGONG","CBO TAROGONG","CBO TAROGONGOUTPAGELARAN","CBO TELUKGHTAROGONG","DUKUH","GHTAROGONG","GHTAROGONGCIBALIUNG","GHTAROGONGOUTCIBALIUNG","JIPUT","KETAPANG","KUTAKARANG","PMR ALASWANGI","PMR ARENGBATOK","PMR BANJARMASIN","PMR BRI","PMR BULAGOR","PMR CAMARA","PMR CIAWI","PMR CIBITUNG","PMR CIBUNGUR","PMR CIKEUDAL","PMR CIKIRUH","PMR CISEUKEUT","PMR CITAMAN","PMR COCONUT","PMR DADAPLANGU","PMR DESAWISATA","PMR DUKUH","PMR JAMPANG","PMR KADUMARIA","PMR KADUTANGGAI","PMR KALICAAH","PMR KARTARAHARJA","PMR KAYUJATI","PMR KPMANDALA","PMR MAKUI","PMR MANGKUALAM","PMR MAQOM","PMR MARAPAT","PMR MENES","PMR NAGA","PMR PADALI","PMR PAGELARAN","PMR PANGGARANGAN","PMR PANGKALAN","PMR PARIGILABUAN","PMR PASIRHUNI","PMR PERHUTANI","PMR SAMBOLO","PMR SPJ","PMR SUKACAI","PMR SUKARESMI","PMR TENJOLAHANG","PMR TURUS","PMR WATES","PMT GHTAROGONG","PMT GI","PMT RTURUS","SSO ALASWANGI","SSO BANJARWANGI","SSO BULUH","SSO CAMARA","SSO CARINGIN","SSO CIBAYONI","SSO CICEUNING","SSO CIGEULIS","SSO CIGONDANG","SSO CIJERUK","SSO CIKIRAY","SSO CILANGGAWE","SSO CIMUNCANG","SSO CINYURUP","SSO CIPUNTEN","SSO CITEREUP","SSO GTA","SSO KAMPUNGSATU","SSO KANANGA","SSO KAROYA","SSO KETAPANG","SSO KURUNGKAMBING","SSO KUTAKARANG","SSO PAGELARAN","SSO PANIMBANG","SSO PASARJIPUT","SSO PASIRIPIS","SSO PERHUTANI","SSO POLOS","SSO RANCECET","SSO SIRUANG","SSO SKIM","SSO SMP","SSO SOGE","SSO SOMPOK","SSO TAMANJAYA","SSO TANJUNGLESUNG","SSO TELUKLADA","SSO UMANG"],"anev":["ANEV belum diisi","Armtie Lepas","Arrester Rusak","Bencana Alam","Benda Asing","Binatang","CT / PT Rusak","Flashover","Gangguan Instalasi Bangunan Pelanggan","Gangguan Tidak Diketahui","Ground Steel Wire (GSW) Putus / Lepas","Instalasi Milik Pelanggan Rusak","Isolator Tumpu / Tarik Rusak","Jointing Kabel Tanah Rusak","Jumperan Putus","Jumperan Putus / Rusak","Kegagalan Peralatan Proteksi Petir","Kendaraan","Konduktor Putus","Konektor Kabel Naik / Turun Rusak","Konektor TM Putus","Layangan / Kawat","Mounting CO Pecah / Retak / Rusak","Partial Discharge","Pekerjaan Konstruksi Pihak Ketiga","Pohon","Publik","Sambungan Kendor / Loss Kontak","Terminasi Indoor Rusak","Terminasi Outdoor Rusak","Tiang Patah / Roboh","Umbul2 / Baliho / Penjor / Terpal / Reklam"],"rows":[[2025,1,14,"14:12",2,72,"GF",87,74,792,713,"Ggn Block Fco Gardu SLAC Patah Fase R",22],[2025,1,17,"05:51",6,41,"GF",53,56,34,32,"FCO Kapasitor bank putus",22],[2025,1,18,"00:29",6,41,"GF",31,196,45,211,"Binatang tokek di gardu GPR",5],[2025,1,19,"15:06",1,101,"GF",47,29,196,185,"Gangguan pohon tumbang menimpa SUTM",25],[2025,1,22,"09:02",9,36,"OC",273,299,388,236,"Ggn Tabung Fco Terbakar Fase S di Fco Bangko Gardu BJRS010",22],[2025,1,26,"00:54",6,110,"GF",104,152,261,218,"Binatang tokek / kadal menempel di traves tiang sutm",5],[2025,1,30,"03:00",4,49,"GF",69,269,122,223,"Gangguan FCO putus phasa S & R",20],[2025,1,31,"18:36",6,41,"GF",26,0,45,39,"Ggn Jumper Pengeluaran Pmr Dadaplangu putus Fase S",18],[2025,2,2,"18:41",3,69,"GF",25,47,162,142,"Ggn isolator patah dkt CO Nabeng",22],[2025,2,2,"16:23",7,10,"","","","","","",0],[2025,2,4,"15:48",3,69,"GF",11,11,363,365,"Gangguan pohon pepaya roboh menempel pada jaringan SUTM (Cuaca Hujan Deras)",25],[2025,2,4,"15:12",0,72,"MGF",1468,73,63,1439,"",0],[2025,2,5,"12:01",4,92,"46BC",1,133,133,41,"Gangguan pohon roboh menimpa SUTM di Kp. Ciherang dkt grd CLB",25],[2025,2,5,"12:00",4,55,"OC",1083,1060,48,1,"",0],[2025,2,5,"13:14",1,34,"GF",22,162,24,147,"",0],[2025,2,6,"11:53",1,57,"GF",50,49,178,139,"Gangguan jemperan grounding nempel grd NKAC",27],[2025,2,11,"05:08",1,52,"GF",28,27,107,84,"",0],[2025,2,11,"08:49",6,38,"OC",704,762,675,78,"",0],[2025,2,11,"08:49",6,94,"GF",67,217,27,229,"",0],[2025,2,12,"03:20",0,72,"MOCGF",7329,7215,7183,292,"Ggn SUTM kabel naik p.carita putus 1 fasa dekat GI menes",18],[2025,2,14,"18:50",4,27,"OC",1017,18,1105,169,"Gangguan pohon tangkil menimpa SUTM dekat gardu SNKJ",25],[2025,2,14,"18:47",4,55,"OC",1146,1118,47,1,"",0],[2025,2,16,"08:30",4,49,"GF",21,20,302,284,"Ggn ranting pohon kena jaringan di Kp. Koranji dkt gardu KIM",25],[2025,2,16,"14:05",0,29,"OC",239,3721,3743,1,"Ggn ranting pohon Rambutan menimpa jaringan di Kp. Tembol dkt grd LKK",25],[2025,2,19,"12:37",6,94,"","","","","","",0],[2025,2,22,"10:27",1,52,"GF",38,125,13,121,"Ggn tando menempel di SUTM grd CBHG",5],[2025,3,1,"01:42",10,72,"MGF",1542,33,26,1827,"Desis didalam kubikel gardu MSK (Corona)",23],[2025,3,1,"15:03",4,83,"GF",9,10,722,715,"Gangguan ranting pohon menempel pada jaringan SUTM",3],[2025,3,4,"15:16",0,72,"GF",2672,892,30,1739,"Gangguan Sutm Lepas dari Isolator Fase R dekat Gardu MDC",3],[2025,3,4,"02:20",1,32,"","","","","","",0],[2025,3,4,"02:20",1,30,"GF",217,876,691,132,"",0],[2025,3,4,"15:16",10,72,"MGF",2672,892,30,1739,"",0],[2025,3,5,"07:57",1,52,"GF",8,8,98,91,"",0],[2025,3,7,"01:55",0,40,"GF",1143,928,8,661,"Ggn Jumper pendatangan fasa R putus",14],[2025,3,7,"09:27",0,29,"GF",168,95,87,130,"Gangguan Kabel Jumper Pendatangan Pmr Janaka putus 1 Fase dekat Gardu SCRA",14],[2025,3,7,"12:35",1,101,"GF",157,5,6,155,"Gangguan Sutm Lepas dari Isolator dan Menempel ke Travers dekat Gardu ECB",1],[2025,3,10,"22:10",1,37,"GF",90,1700,80,1000,"",0],[2025,3,10,"22:10",1,96,"",71,1673,73,998,"",0],[2025,3,13,"16:12",9,11,"GF",118,102,1041,1015,"Indikasi gangguan kabel terbakar Grd SBLR",7],[2025,3,13,"20:05",9,84,"GF",47,315,46,267,"Ggn binatang tando di phasa. S grd CRY",5],[2025,3,13,"16:12",5,72,"GF",118,102,1041,1015,"",0],[2025,3,14,"09:37",4,92,"GF",6,300,6,360,"",0],[2025,3,14,"09:37",9,55,"GF",0,0,0,306,"",0],[2025,3,14,"19:06",1,54,"OC",802,671,229,211,"",0],[2025,3,15,"20:18",9,36,"GF",138,213,320,275,"",0],[2025,3,15,"20:18",9,84,"GF",21,21,286,265,"",0],[2025,3,18,"21:20",1,30,"GF",356,603,390,348,"Gangguan isolator patah di jembatan pantai karang gardu JPOL disertai cuaca hujan angin",12],[2025,3,19,"05:43",3,72,"OC",7481,7516,7494,0.021,"Binatang tikus di kubikel gardu FBL",5],[2025,3,19,"15:05",6,90,"GF",184,286,52,408,"",0],[2025,3,24,"13:00",1,96,"GF",3,93,2,92,"POHON",25],[2025,3,26,"19:30",9,84,"GF",46,540,56,500,"Gangguan Binatang Tando masih menempel di jaringan dekat gardu EDAL002",5],[2025,3,28,"00:01",5,53,"GF",920,225,200,709,"Gangguan binatang Tando masih nempel di isolator di kp jaha 3 gwang sesudah grdu SKJU",5],[2025,3,28,"00:06",2,72,"GF",6145,6133,676,647,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,3,30,"02:59",3,58,"OC",264,515,279,0,"Gangguan binatang tando menempel SUTM di aftak phasa 3 gwang sebelum gardu PHUA",5],[2025,4,5,"22:18",3,33,"GF",952,959,9,0,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,4,11,"13:36",9,71,"MGF",99,771,85,697,"Cuaca hujan ekstrim dan petir, sesuai dengan info warga dan aplikasi VAISALA",16],[2025,4,18,"06:07",0,78,"OC",48,3301,3269,2,"Ggn SUTM putus 1 phasa, 4 gawang melorot akibat tertimpa pohon tumbang dekat Gardu LKK",25],[2025,5,2,"07:10",10,12,"MOC",4690,4380,4670,0,"Flashover Gardu RRT",7],[2025,5,5,"20:34",3,69,"GF",128,10,19,111,"Gangguan binatang tando menempel di sutm dekat Gardu BGN",5],[2025,5,5,"22:50",2,67,"OC",400,511,577,1,"Pohon menyentuh sutm",25],[2025,5,14,"07:20",6,47,"GF",242,125,75,245,"IB Konsumen gardu SMUR02",8],[2025,5,17,"02:00",4,68,"MGF",1199,4612,5004,1056,"Jumper PMR Tenjolahang Putus",14],[2025,5,17,"22:25",1,37,"GF",80,1320,80,1270,"Ggn binatang tando nempel di SUTM",5],[2025,5,17,"01:55",4,72,"GF",10,146,143,4,"Jumper pendatangan di pmr tenjolahang putus",15],[2025,5,18,"05:40",3,72,"GF",9199,9979,9209,3.229,"KUBIKEL TERGANGGU DI GARDU MRS",7],[2025,5,21,"16:28",1,52,"OC",8,352,342,0,"Gangguan pohon kelapa tumbang menimpa sutm dekat gardu CBHG",25],[2025,5,22,"16:19",1,52,"OC",20,358,347,0,"Ggn Pohon Albasiah Roboh Menimpa Sutm Akibat Tertiup Angin kencang dekat Gardu NBH",25],[2025,5,28,"21:15",1,30,"OC",865,977,916,192,"Gangguan Binatang tando menabrak SUTM menyebabkan Jumper Putus dekat aftak Gardu BKC",5],[2025,6,2,"11:38",4,49,"GF",81,533,113,469,"Ggn Tiang GSW nempel ke SUTM dekat gardu BNP",10],[2025,6,7,"08:24",1,3,"GF",218,58,55,168,"Fco GmSSDC putus 3 Fase",14],[2025,6,8,"00:48",1,96,"OC",433,434,3,0,"Gangguan pohon bambu menimpa sutm dekat Gardu TOE",25],[2025,6,11,"16:09",1,1,"GF",154,16,16,140,"Ranting pohon menempel jaringan",14],[2025,6,11,"08:37",6,47,"OC",526,439,219,15,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,6,11,"09:06",1,70,"",150,272,185,146,"Gangguan TEMUAN ISOLATOR PHASE S PATAH , 1 GAWANG SETELAH FCO JUNG",12],[2025,6,14,"14:50",1,2,"GF",425,458,421,19,"Gangguan SUTM putus dekat gardu CIA",18],[2025,6,16,"11:51",1,52,"OC",414,450,406,0,"Gangguan Pohon Tumbang Menimpah Jaringan SUTM sebelum Sso Pasir Ipis",25],[2025,6,17,"16:40",4,39,"OC",2367,2374,13,338,"Gangguan tiang roboh 5 gawang setelah PMR Citaman",30],[2025,6,20,"20:06",3,60,"GF",250,50,48,212,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,6,27,"14:27",3,33,"OC",86,269,52,0,"Gangguan binatang Tando di kp.babakan keusik Di Gardu BBP",5],[2025,6,28,"15:39",4,39,"GF",619,32,61,594,"Gangguan belum ditemukan",3],[2025,6,30,"16:18",6,41,"OC",24,40,35,48,"Gangguan FCO Kapasitor Putus Phasa R dekat Gardu HSE",22],[2025,6,30,"19:44",1,57,"OC",41,339,315,0,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,6,30,"20:11",9,61,"GF",27,1,1,265,"RANTING POHON MENEMPEL KE JARINGAN",25],[2025,7,2,"18:53",6,47,"GF",168,330,119,286,"Gangguan Binatang Tando Menempel ke Sutm dan Travers Fase S dekat Gardu ELIS008",5],[2025,7,2,"17:43",0,72,"GF",68,66,1288,1218,"RANTING POHON MENEMPEL KE JARINGAN",25],[2025,7,4,"22:56",1,101,"GF",9,146,56,148,"RANTING POHON MENEMPEL KE JARINGAN",25],[2025,7,5,"18:38",3,48,"GF",11,200,11,192,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,7,7,"21:51",3,69,"GF",41,141,42,135,"Gangguan binatang kelalawar mengenai SUTM sebelum gardu TUP",5],[2025,7,7,"08:32",3,69,"GF",136,3,4,133,"Ranting Pohon Menempel ke jaringan",25],[2025,7,7,"23:55",3,60,"GF",230,43,42,193,"BERSAMAAN DENGAN HUJAN PETIR",16],[2025,7,10,"13:03",5,82,"MGF",3995,3464,14,1111,"Gangguan sso cigondang co grd cgkr putus 2 fhas dan jemperan pendatangan putus 1 F S",14],[2025,7,12,"21:53",3,33,"GF",13,350,106,0,"Gangguan binatang Tando menempel SUTM 2 gawang setelah PMR Ciawi",5],[2025,7,15,"07:34",4,27,"OC",16,113,18,95,"Gangguan binatang ular menempel sutm fassa S 4 tiang sebelum aftak cisereh",5],[2025,7,20,"20:52",4,68,"GF",94,813,68,717,"Gangguan binatang Tando menempel di SUTM Gardu SKJB",5],[2025,7,25,"14:47",0,78,"GF",921,161,56,874,"Layang Layang Menempel Ke Sutm dan Di tarik Warga dekat Gardu SDSL",21],[2025,7,28,"13:09",6,41,"OC",419,372,87,6,"Gangguan pohon roboh di dekat gardu GPT",25],[2025,7,29,"12:01",6,47,"",96,"","","","Binatang Lutung Menempel Ke Sutm di Kp.Jaralang dekat Gardu JRL303",5],[2025,8,5,"15:31",0,43,"MOC",1433,1442,17,1,"Gangguan Ranting pohon dekat Gardu KPE",25],[2025,8,11,"13:19",3,91,"GF",940,870,22,280,"Gangguan Benang dan Layang Layang Menempel ke Sutm dekat Gardu TLD",21],[2025,8,12,"04:08",7,10,"GF",50,45,428,410,"Gangguan SUTM putus R Fase Akibat Tertimpa Pohon Roboh di Kp.Citeureup dekat Gardu SDCE",25],[2025,8,12,"11:58",4,55,"OC",37,1023,1005,1,"Gangguan Pohon roboh Menimpa SUTM G CLB",25],[2025,8,13,"07:54",1,102,"OC",230,209,207,1,"Gangguan arrester jebol dan blok co patah gardu PLS",14],[2025,8,13,"10:12",6,109,"GF",187,24,55,143,"Gangguan Jumper arester jembol phasa 1,2 & 3 dan menempel ke basing TM Gardu LGP",14],[2025,8,13,"14:42",1,3,"GF",46,140,47,93,"Gangguan Binatang Tando dekat gardu JRC",5],[2025,8,13,"16:38",0,29,"GF",347,43,42,307,"RANTING POHON MENEMPEL KE JARINGAN SEBELUM GARDU LKK",25],[2025,8,14,"02:20",5,82,"GF",14,14,386,373,"Ranting pohon menempel di isolator fasa S dekat gardu LACA",25],[2025,8,18,"15:41",1,96,"OC",318,323,9,0,"Gangguan pelapah kelapa dekat gardu CLL",25],[2025,8,19,"08:39",6,41,"GF",52,63,20,53,"Ggn CO Kapasitor putus phase R gardu HSED",14],[2025,8,22,"16:40",3,48,"GF",13,224,13,215,"Gangguan Binatang Bunglon Menempel Ke Sutm Dan Travers di Fase S kp.Depok dekat Gardu DOK",5],[2025,8,24,"04:23",0,29,"GF",52,1829,1629,583,"Gangguan Arester jebol fhase S gardu TPu",14],[2025,8,28,"19:38",6,41,"GF",170,89,47,207,"Gangguan temporer bersamaan dengan hujan",16],[2025,9,1,"05:38",6,41,"GF",224,116,69,251,"Gangguan Binatang Kodok menempel ke pendatangan block fco Gardu CPH",5],[2025,9,8,"20:13",5,72,"GF",843,5,6,3430,"Ada Ledakan akibat Binatang Tando Menempel ke Bushing Trafo Gardu CRMP",5],[2025,9,9,"19:30",4,55,"GF",36,544,29,517,"Gangguan ditemukan binatang Tando menempel SUTM Gardu TGCW",5],[2025,9,10,"18:28",1,108,"GF",21,140,16,133,"Gangguan arah pelanggan di gardu CMGU",11],[2025,9,12,"08:33",6,10,"GF",139,216,106,168,"peralatan proteksi petir",16],[2025,9,14,"23:16",4,55,"GF",38,41,346,307,"Ggn Binatang Tando dekat gardu KNBA",5],[2025,9,15,"23:20",1,70,"OC",160,441,515,47,"Ggn layangan menempel jaringan dkt gardu CBL",21],[2025,9,17,"17:55",9,84,"GF",220,33,154,141,"Gangguan Sutm putus 2 fasa Akibat petir dekat gardu MCP",18],[2025,9,21,"14:30",0,78,"MGF",890,35,77,861,"Gangguan flashover di fco aftak mini aki",7],[2025,9,30,"10:29",6,98,"GF",298,13,14,288,"Gangguan binatang tando menempel di SUTM dekat Gardu MIPA",5],[2025,10,1,"15:37",6,98,"MOC",1018,1195,1146,298,"Kabel Jumper Pendatangan Exs.Trafo Tambak putus 2 Fase Akibat Imbas Petir dekat Gardu TUZ",14],[2025,10,2,"18:21",1,103,"OC",18,14,133,0,"Gangguan ib pelanggan Gardu CMGU010",11],[2025,10,2,"19:06",7,15,"GF",727,19,13,712,"Gangguan Isolator Pecah Fase S di Kp.Tarogong dekat Gardu TDM",12],[2025,10,8,"13:11",0,29,"GF",48,124,66,110,"Ggn pohon roboh menimpa jaringan arah SSO Janaka",3],[2025,10,8,"16:52",3,60,"OC",600,631,59,0,"Gangguan di arah aftak apolo ada bambu nimpa sutm",3],[2025,10,13,"11:55",4,72,"MOC",8434,9531,8333,1,"Gangguan berbarengan dengan adanya petir dekat Gardu SMDC",3],[2025,10,17,"13:45",2,21,"OC",545,520,320,0,"Gangguan Isolator Patah Fase R di Kp.Tegal Papak dekat Gardu TLPA",12],[2025,10,20,"02:46",6,110,"GF",486,43,75,400,"Gangguan Jumper Pandatangan CO Gardu BBV putus menempel ke Traves",14],[2025,10,22,"19:44",4,99,"GF",576,12,14,607,"Gangguan jumper arester Kp.sukasari jiput dekat GRD KHMA",14],[2025,10,24,"07:37",1,37,"GF",240,310,370,110,"Gangguan tiang roboh dekat Gardu CGC",30],[2025,10,28,"11:59",1,72,"GF",55,44,777,726,"Gangguan Isolator pecah Fase S depan pom bensin baleker",12],[2025,11,5,"21:00",6,9,"GF",29,29,844,843,"Gangguan tiang sutm roboh dekat gardu TLPA",3],[2025,11,6,"09:13",6,90,"GF",146,180,63,275,"Gangguan ada pelepah daun kelapa menempel di SUTM dekat Gardu GBRA",25],[2025,11,8,"05:40",3,62,"GF",42,43,390,354,"Gangguan Pelepah Sawit menempel ke SUTM dekat Gardu KRPB",3],[2025,11,8,"23:18",0,43,"OC",1643,1627,231,2,"Gangguan pohon roboh menimpa SUTM 4 gawang dari PMR Dukuh disertai cuaca hujan angin",3],[2025,11,11,"12:25",1,103,"GF",240,5,5,300,"Gangguan Isolator Lepas di gardu CRR",12],[2025,11,16,"14:14",3,31,"GF",109,0,416,415,"Ggn pohon roboh menimpa SUTM dekat gardu DIP akibat beko pelebaran jalan",24],[2025,11,18,"09:47",9,36,"MOC",2741,2762,217,0,"gangguan dahan pohon menimpa SUTM akibat angin kencang dekat gardu BCJ",25],[2025,11,20,"12:08",6,94,"GF",64,50,19,67,"FCO gardu putus akibat tando G. CSAT",5],[2025,11,26,"08:13",4,99,"GF",21,17,310,294,"Ggn binatang Tando menabrak SUTM dekat Gardu BSS",5],[2025,12,2,"13:08",4,83,"GF",12,749,11,739,"Gangguan pohon menimpa SUTM gardu BKJA",25],[2025,12,2,"15:52",3,69,"GF",139,6,5,132,"Ggn arrester jebol 1 fasa R di Gardu NBT, cuaca hujan angin",2],[2025,12,3,"12:36",5,51,"GF",7,7,221,215,"Pelepah kelapa nimpa sutm di kp babad Dekat grd BTL",25],[2025,12,9,"08:50",10,72,"MOCGF",5826,4535,8708,4826,"Gangguan Terminasi rusak di GH UP",28],[2025,12,9,"08:50",5,72,"MGF",7826,7196,93,1319,"Jamper PT jebol F.s berbarengan dengan trip P.Wisata",14],[2025,12,13,"02:35",3,62,"GF",47,1117,1028,250,"Ggn binatang Tando menempel ke SUTM gardu PPD",5],[2025,12,14,"05:09",1,9,"OC",278,881,1036,0,"Gangguan pohon roboh menimpa SUTM di dekat G.LCGA",3],[2025,12,15,"07:01",0,78,"OC",73,3690,3636,1,"SUTM putus di gardu CRAA",3],[2025,12,15,"14:15",1,77,"GF",19,26,157,142,"Ggn Warga tebang pohon menimpa Sutm dekat gardu CGLB",26],[2025,12,16,"12:04",1,106,"GF",3,4,161,157,"Gangguan Ranting Pohon Patah dilokasi Perhutani Menimpa Sutm dan Menempel ke Travers dekat Gardu KRL",3],[2025,12,17,"11:45",3,14,"GF",118,122,393,275,"Gangguan Pohon Tumbang Menimpah Jaringan SUTM Dekat GarduPRK",25],[2025,12,17,"19:10",9,17,"MOC",2406,2575,2707,0,"Gangguan Pohon Albasiah menimpa jaringan dekat gardu EDAL001",25],[2025,12,17,"19:43",9,61,"GF",1,64,1,633,"Gangguan Jumper pendatangan G.SBLR putus F s",14],[2025,12,18,"05:09",9,19,"MOCGF",2811,81,3031,116,"Gangguan Jumper Pendatangan VT di PMR Cikeudal Jebol Fase R&S",14],[2025,12,19,"05:06",9,84,"GF",39,802,40,774,"Gangguan daun jati nempel isolator di G. CRYD",25],[2025,12,19,"11:56",4,105,"GF",14,576,14,564,"Gangguan adanya ranting pohon menempel ke jaringan SUTM Gardu KIM",25],[2025,12,23,"13:28",0,43,"OC",86,1279,1280,0,"Gangguan Bambu menimpa Sutm dekat gardu UTP",25],[2025,12,23,"15:10",3,60,"GF",51,61,278,245,"Gggn Co trafo G.BPA Putus 1 fhasa",14],[2025,12,24,"20:30",0,78,"GF",69,66,700,639,"Gangguan Binatang muka menyentuh SUTM di G.LKIK",5],[2025,12,31,"11:29",1,52,"OC",370,351,37,0,"Gangguan tiang sentral Gardu HMC di kampung Pamatang luhur desa mangkualam berptensi roboh",3],[2026,1,2,"12:43",0,43,"GF",22,229,27,211,"Gangguan Binatang Bunglon Menempel ke Fco Jaring Kawoyang Fase S dekat G.KWY",5],[2026,1,2,"15:29",1,86,"GF",4,3,111,11,"Gangguan SUTM Putus Fase T Akibat Imbas Petir dekat Gardu CSRH",3],[2026,1,2,"16:58",4,39,"GF",97,18,18,80,"Gangguan adanya SUTM Putus 2 Fase RT Akibat Imbas Petir Kp.Cangketek dekat Gardu CNJ",3],[2026,1,3,"07:57",4,92,"OC",143,140,0,0,"Gangguan pohon albasiah nimpa ke jaringan kp. Kananga G.KNAA",3],[2026,1,12,"12:16",3,62,"GF",478,133,142,362,"Gangguan dahan pohon sawit menimpa Sutm dekat Gardu JIP",3],[2026,1,18,"06:23",3,111,"NO INDICATION","","","","","Ggn bersamaan dengan hujan angin",3],[2026,1,20,"03:23",3,33,"OC",1253,1385,1339,181,"Gangguan Pelapah Kelapa Menimpah Jaringan SUTM Gardu SNL dan ada ledakan akibat daun sukun G.STG",3],[2026,1,20,"03:26",3,62,"GF",104,47,39,88,"Gangguan ranting pohon menimpa aspan dekat G.KTG dan sutm arah Aftak G. PPD putus",3],[2026,1,20,"11:51",9,85,"GF",0,141,0,1437,"Gangguan adanya pelepah kelapa menempel pada SUTM di 2 titik dekat gardu KUM & 1 titik dekat gardu KUKA.",3],[2026,1,21,"03:42",6,47,"GF",84,93,87,13,"Gangguan Tiang SUTM roboh dkt gardu ELIS007",3],[2026,1,21,"04:21",0,78,"OC",97,3481,3335,377,"Gangguan pohon roboh dari akar menimpa SUTM dkt gardu MSKA, SUTM lepas dari isolator SEGMEN GI - PMR COCONUT",3],[2026,1,21,"14:27",1,108,"NO INDICATION","","","","","Gangguan Kabel SUTM Lepas dari Isolator 4 Gawang Akibat Tertimpa Pohon Mahoni Roboh Dekat Gardu CRR",3],[2026,1,23,"22:15",6,41,"","","","","","Gangguan bersamaan dengan petir",16],[2026,1,23,"17:50",9,27,"","","","","","Gangguan dahan pohon menyentuh SUTM",25],[2026,1,24,"08:44",1,96,"GF",155,2,1,1563,"Gangguan Pohon menimpa SUTM dekat G MTG",3],[2026,1,24,"08:55",4,105,"GF",20,12,271,255,"Gangguan TEMUAN SUTM LEPAS AKIBAT TERTIMPA POHON GARDU KSDA",3],[2026,1,24,"10:39",1,101,"GF",193,26,16,175,"Gangguan sutm lepas dari isilator akibat tertimpah pohon jati roboh, di wilayah Perhutani sebelum grd ECB",3],[2026,1,24,"11:51",1,28,"OC",106,412,456,1,"pohon aprika roboh di aft grd cbl a tanpa co jaringan, 6 gawang dari mainline",3],[2026,1,24,"13:22",1,108,"GF",144,8,9,138,"Gangguan ranting pohon menimpah SUTM di G. TUB",25],[2026,1,25,"09:06",1,70,"OC",250,577,659,27,"Gangguan Dahan pohon Patah Menimpa SUTM di Kp.Cimandahan 5 Gawang Sesudah Sso Cimandahan, Pohon Albasiah Roboh Menimpa Sutm dekat G.WTMA",25],[2026,1,26,"04:07",1,37,"GF",1670,50,60,1640,"Gangguan dahan pohon menyentuh SUTM",25],[2026,1,26,"15:49",4,49,"","","","","","Gangguan dahan pohon menyentuh SUTM",25],[2026,1,27,"12:39",3,62,"GF",414,62,61,373,"Gangguan Pelapah sawit yang kering tertiup angin nempel ke sutm Gardu JIP",25],[2026,1,27,"10:16",3,62,"GF",425,95,94,350,"Gangguan dahan pohon menyentuh SUTM",25],[2026,1,28,"20:36",3,6,"","","","","","Gangguan akibat dahan pohon kelapa menyentuh SUTM dekat gardu PGNB",25],[2026,1,29,"01:04",6,41,"GF",118,73,48,103,"Gangguan dahan pohon menyentuh SUTM",25],[2026,1,29,"01:04",6,47,"GF",9,49,46,41,"Gangguan dahan pohon menyentuh SUTM",25],[2026,1,29,"10:43",1,37,"OC",4630,4650,60,0,"Gangguan bersamaan dengan petir",16],[2026,1,30,"05:26",6,41,"GF",143,77,44,156,"POHON MENEMPEL KE JARINGAN SUTM",25],[2026,1,30,"05:26",6,47,"GF",187,11,32,293,"Gangguan dahan pohon menyentuh SUTM",25],[2026,1,30,"12:37",4,72,"GF",335,143,147,220,"beberapa pohon menempek dan roboh terkena SUTM dkt grd PGNB",25],[2026,1,31,"10:13",1,87,"GF",14,13,143,132,"Pohon menyentuh SUTM",25],[2026,2,3,"04:58",6,41,"GF",216,139,67,232,"Ranting Pohon Menyentuh SUTM",25],[2026,2,3,"03:20",1,54,"GF",835,923,855,226,"Ranting Pohon Menyentuh SUTM",25],[2026,2,4,"20:19",1,37,"GF",1670,60,70,1630,"Gangguan binatang tando menyentuh SUTM dekat G. CBTG001",5],[2026,2,5,"23:04",4,105,"GF",534,15,15,522,"Binatang tando menabrak sutm di dekat fco kaduhami",5],[2026,2,5,"04:32",1,52,"OC",15,393,389,0,"Binatang tikus menempel di bushing gardu DLWG003",5],[2026,2,5,"18:39",1,60,"GF",49,245,50,208,"Ranting Pohon Menyentuh SUTM",25],[2026,2,6,"01:14",3,48,"GF",0,202,0,202,"Dahan Pohon Menyentuh SUTM",25],[2026,2,7,"18:06",1,108,"GF",121,10,35,96,"Gangguan Sutm putus Fase R Akibat Tertimpa Pohon Kelapa Roboh Sebelum G.CBT",25],[2026,2,7,"08:12",6,94,"GF",45,53,62,43,"Gangguan ranting menimpa SUTM 1 gwang sebelum G TJPA",25],[2026,2,7,"12:48",6,94,"GF",41,58,68,45,"Gangguan ranting menimpa SUTM 1 gwang sebelum G TJPA",25],[2026,2,7,"20:16",5,61,"GF",26,1,1,256,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,7,"08:12",0,29,"OC",1360,1326,329,453,"Ranting Pohon Menyentuh SUTM",16],[2026,2,8,"04:31",1,101,"GF",52,196,44,179,"GangguanSutm Lepas dari Isolator 3 Gawang, Akibat Tertimpa Pohon Jati Roboh dekat G.ECB",3],[2026,2,8,"13:57",4,105,"GF",227,12,12,215,"pohon bambu roboh dekat gardu BNP",25],[2026,2,8,"13:42",2,107,"GF",20,381,21,363,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,8,"14:18",1,87,"GF",14,13,143,132,"Gangguan indikasi ada ledakan ditiang akibat binatang tando dekat gardu BNP",5],[2026,2,9,"03:10",1,87,"GF",6,128,7,126,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,9,"13:14",4,105,"GF",520,13,12,510,"Gangguan pohon roboh menimpa SUTM Gardu BNP",25],[2026,2,9,"19:22",1,4,"GF",18,18,170,153,"Dahan Pohon Menyentuh SUTM",25],[2026,2,10,"03:03",6,94,"GF",87,43,54,114,"Gangguan Hotspot jumper kapasitor sso ketapang",25],[2026,2,10,"03:03",6,98,"GF",107,168,69,252,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,10,"23:13",6,94,"GF",102,49,45,119,"Gangguan arrester G.VDL rusak",2],[2026,2,10,"03:03",6,35,"GF",120,352,369,330,"Ranting Pohon Menyentuh SUTM",25],[2026,2,10,"03:03",6,38,"GF",55,180,86,225,"Ranting Pohon Menyentuh SUTM",25],[2026,2,10,"03:03",6,41,"GF",93,55,130,178,"Dahan Pohon Menyentuh SUTM",25],[2026,2,11,"11:25",6,94,"GF",45,105,61,118,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,14,"02:58",1,81,"GF",7,240,8,233,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,14,"02:56",1,57,"GF",30,35,53,44,"Dahan Pohon Menyentuh SUTM",25],[2026,2,14,"03:49",4,74,"GF","","","","","Dahan Pohon Menyentuh SUTM",25],[2026,2,15,"19:56",6,94,"GF",27,59,93,120,"Tiang gsw menyentuh sutm Dekat g.hse",10],[2026,2,15,"01:40",6,94,"GF",78,49,89,93,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,15,"13:53",1,86,"GF",5,136,4,13,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,15,"21:45",4,92,"OC",35,1,34,0,"Gangguan Kp kananga GRD KNA ,info warga Binatang Tando nabrak jaringan",16],[2026,2,15,"13:53",1,57,"GF",32,47,29,36,"Ranting Pohon Menyentuh SUTM",25],[2026,2,15,"22:52",3,33,"GF",288,1010,1012,281,"Ranting Pohon Menyentuh SUTM",25],[2026,2,16,"18:56",1,37,"GF",1290,160,486,1530,"Gangguan bersamaan cuaca ekstrim, hujan angin",3],[2026,2,16,"19:05",6,110,"GF",1178,1346,265,240,"Gangguan Jumper Pendatangan fco jebol ft, dan fs jebol di aresternya Arah G.CPT",3],[2026,2,16,"05:53",4,99,"GF",16,14,247,234,"informasi warga baralak terbawa angin dekat GRD KKK",25],[2026,2,16,"19:17",1,108,"OC",19,450,454,0,"Gangguan bersamaan dengan petir",16],[2026,2,16,"22:06",2,56,"NO INDICATION","","","","","Gangguan dahan pohon menyentuh SUTM",25],[2026,2,17,"11:04",1,37,"GF",1490,430,390,1380,"Gangguan Temuan Arester Jebol Di G.CKK",2],[2026,2,17,"19:16",3,69,"GF",26,26,132,121,"Gangguan Tando Menyentuh SUTM di Dekat G.SPK",5],[2026,2,17,"15:30",1,81,"GF",869,1015,836,1017,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,18,"17:51",6,41,"GF",75,162,114,143,"Ranting Pohon Menyentuh SUTM",25],[2026,2,19,"14:47",4,104,"GF",154,155,521,376,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,19,"21:30",1,96,"GF",4,173,3,171,"Gangguan temuan kembang jati di pasa S Segment Kutakarang s/d gardu Krak dan aftak grd",25],[2026,2,19,"01:06",4,27,"NO INDICATION","","","","","Dahan Pohon Menyentuh SUTM",25],[2026,2,19,"14:47",1,57,"GF",33,33,51,40,"Ranting Pohon Menyentuh SUTM",25],[2026,2,20,"04:29",0,78,"NO INDICATION","","","","","Gangguan binatang ular cincin menempel ke Bushing trafo dekat gardu TKK kp Salabarang",5],[2026,2,20,"04:29",6,41,"GF",63,160,137,265,"Dahan Pohon Menyentuh SUTM",25],[2026,2,21,"09:20",10,5,"NO INDICATION","","","","","Gangguan SKTM Gardu MSE - IN BSK phasa 1 Zero",13],[2026,2,21,"21:42",7,6,"OC",31,30,32,2,"Gangguan ada ledakan di jembatan cisekeut. SUTM menempel ke jembatan cisekeut. untuk jaringan di copel dari pmr cisekeut arah G. TDP",18],[2026,2,21,"23:10",3,18,"OC",236,1987,1860,0,"Gangguan SUTM putus dekat gardu PRK",18],[2026,2,21,"05:26",4,105,"OC",21,1321,1336,0,"FCO KADUJAMI PUTUS FASA S BERBARENGAN DENGAN PETIR",16],[2026,2,21,"21:58",1,96,"OC",4,368,371,0,"Gangguan Pelepah Kelapa Menimpah SUTM Akibat Tertiup Angin kencang dekat G.RBD",25],[2026,2,21,"05:09",6,41,"GF",57,116,110,148,"Ranting Pohon Menyentuh SUTM",25],[2026,2,21,"08:53",6,41,"GF",37,106,124,179,"Dahan Pohon Menyentuh SUTM",25],[2026,2,21,"09:44",6,41,"GF",35,116,125,203,"Dahan Pohon Menyentuh SUTM",25],[2026,2,22,"23:18",6,16,"GF",48,283,48,266,"Gangguan SUTM putus P.Sumur, Grd POS tiga gawang melorot dan 1 buah isolator tumpu patah",18],[2026,2,22,"07:58",0,43,"GF",6,6,312,307,"Ranting Pohon Menyentuh SUTM",25],[2026,2,23,"08:30",3,33,"GF",32,321,21,226,"Gangguan indikasi bintang tando nempel di jaringan 1 gawang sesudah G.BKBA",5],[2026,2,23,"20:20",6,112,"GF",171,97,73,158,"Ranting Pohon Menyentuh SUTM",25],[2026,2,24,"05:24",6,47,"NO INDICATION","","","","","Gangguan 3 Tiang Roboh Akibat Terbawa Longsor 2 Tiang 1B dan 1 Tiang Kontruksi 2B antara G.TJPB dan G.VLN",3],[2026,2,24,"01:19",1,63,"MOC",1899,1866,136,1,"pohon kelapa roboh dekat gardu DBBB",16],[2026,2,24,"01:37",1,96,"GF",168,2,2,188,"Gangguan Pelepah Kelapa Menimpah SUTM Akibat Tertiup Angin kencang dekat G.RBD",25],[2026,2,24,"14:27",6,112,"GF",157,91,43,180,"anomali proteksi berbarengan dengan trip PMR kalicaah (tiang patah akibat pohon roboh)",30],[2026,2,25,"05:03",9,84,"GF",21,22,562,543,"tando setelah SPBU kadu suluh",25],[2026,2,25,"17:47",3,111,"GF",88,378,94,317,"Gangguan dahan pohon menyentuh SUTM",25],[2026,2,27,"02:34",1,108,"GF",9,66,9,60,"bareng dengan fco cikeuyeup andongan turun traves meleyot",25],[2026,2,27,"08:29",6,112,"GF",75,132,87,79,"tiang GSW miring dan menempel di sutm 1gw sebelum PMR DDL dekat gardu DDL",25],[2026,2,27,"11:40",1,108,"GF",114,12,13,103,"Jumper FCO CIKEUYEUP PUTUS 1 FASA",19],[2026,2,27,"14:05",6,98,"GF",117,149,66,259,"Gangguan Pelapah Kelapa Menggepret Kejaringan SUTM G.MPL",25],[2026,2,28,"01:28",9,61,"OC",268,1,267,1,"Gangguan Ranting Pohon Albasiah Patah Menimpah Sutm Akibat Tertiup Angin Kencang Dekat G.MKJA",3],[2026,2,28,"01:36",1,96,"GF",163,2,2,161,"Binatang Tando Menempel Ke Sutm dan Travers Fase R dekat Gardu KSP.",5],[2026,2,28,"11:51",3,69,"GF",406,602,4,365,"Gangguan Fco jaring Terep damar putus 1 Fase R",18],[2026,2,28,"12:12",0,29,"GF",310,41,42,270,"SAAT PEMASUKAN FCO SALABARANG PUTUS PHASA R",25],[2026,3,1,"05:04",4,27,"NO INDICATION","","","","","Gangguan info warga ada Binatang Tando nabrak SUTM Dekat GRD PKK",5],[2026,3,2,"12:44",6,112,"GF",55,156,73,153,"Gsw menempel ke Sutm Fasa T 6 gawang dari Sso Umang",10],[2026,3,2,"19:54",3,60,"GF",54,251,55,209,"Gangguan Belum Diketahui",9],[2026,3,3,"18:32",6,10,"GF",42,30,334,298,"Sutm menempel Ke Travers Akibat Isolator Tumpu Patah dekat Gardu SCBR",3],[2026,3,3,"18:45",2,8,"OC",2266,2437,2248,18,"GANGGUAN Pohon Roboh menimpa SUTM Gardu STJM",3],[2026,3,3,"01:10",9,11,"GF",213,80,81,139,"Pohon bambu roboh Menimpa Sutm dekat gardu CPUA",25],[2026,3,3,"06:22",9,61,"GF",1,133,133,1,"pohon bambu roboh Akibat hujan disertai angin Kp.cugung GRD CPUA",25],[2026,3,3,"16:37",1,87,"GF",6,128,7,126,"Pelapah Kelapa terbawa angin kencang Menimpa Sutm gardu CYR",25],[2026,3,3,"12:33",3,60,"GF",42,42,273,245,"Gangguan Belum Diketahui",9],[2026,3,4,"11:01",6,10,"GF",16,19,33,2,"Gangguan ISOLATORTumpu patah di SSO CISEUKET",12],[2026,3,5,"15:58",1,76,"OC",757,760,3,0,"Gangguan Pohon rubuh menimpah SUTM dekat G. CKC",25],[2026,3,5,"05:57",4,46,"GF",97,1706,1574,372,"Ranting pohon asem tertiup Angin Menimpah Sutm dekat gardu MNS",25],[2026,3,5,"07:39",5,88,"GF",67,72,528,470,"Ggn kabel icon menempel pada SUTM dekat gardu DTL",21],[2026,3,5,"07:38",6,109,"GF",124,139,26,286,"Arrester gardu jebol fasa R di gardu TMJ",2],[2026,3,5,"23:21",5,88,"GF",82,82,325,253,"Kabel Telkom putus menempel ke Sutm dekat gardu DTL",21],[2026,3,5,"23:20",6,41,"GF",143,141,31,255,"Gangguan Belum Diketahui",9],[2026,3,6,"15:50",5,51,"GF",8,8,716,710,"Gangguan Ranting Pohon Rambutan Patah Tertiup Angin Kencang Menimpa Sutm dan Travers dekat G.BMKA",25],[2026,3,6,"15:16",5,51,"GF",5,6,889,886,"Gangguan Ranting Pohon Rambutan Patah Tertiup Angin Kencang Menimpa Sutm dan Travers dekat G.BMKA",25],[2026,3,6,"00:49",6,41,"GF",64,103,110,133,"Gangguan Belum Diketahui",9],[2026,3,6,"01:41",3,31,"GF",6,0,6,355,"Gangguan Belum Diketahui",9],[2026,3,6,"12:45",6,41,"GF",116,88,176,160,"Gangguan Belum Diketahui",9],[2026,3,6,"14:32",5,51,"GF",7,7,910,905,"Gangguan Ranting Pohon Rambutan Patah Tertiup Angin Kencang Menimpa Sutm dan Travers dekat G.BMKA",25],[2026,3,8,"13:11",2,67,"GF",11,11,385,381,"Gangguan Belum Diketahui",9],[2026,3,8,"02:24",1,28,"OC",481,533,453,4,"Gangguan bersamaan dengan petir",16],[2026,3,9,"19:14",1,87,"OC",10,428,422,0,"Binatang Tando Menempel Ke Sutm dan Travers dekat Gardu CDS",5],[2026,3,9,"05:31",1,70,"GF",171,245,131,135,"Gangguan Belum Diketahui",9],[2026,3,10,"19:46",1,96,"OC",413,415,4,0,"Pohon Bambu roboh Menimpa Sutm dekat gardu TOE",25],[2026,3,10,"21:07",4,105,"GF",194,19,20,175,"Info Warga ada ledakan akibat Binatang Tando Menabrak Sutm dekat gardu MLK",5],[2026,3,10,"03:07",3,33,"GF",8,284,7,277,"Gangguan Belum Diketahui",9],[2026,3,10,"14:57",6,41,"OC",104,456,421,0,"Gangguan Pelapa kelapa terbawa angin Menimpa Sutm",25],[2026,3,11,"05:21",4,105,"GF",16,260,15,247,"pelepah kelapa jatuh menimpa sutm dekat g.pmz",25],[2026,3,11,"10:21",6,110,"GF",59,230,81,182,"Gangguan Gsw Menempel di Jaringan SUTM Kp Legon Gardu LEG",10],[2026,3,11,"19:20",6,79,"GF",187,14,15,177,"Binatang Kelelawar Menempel di bushing TM trafo gardu SMPG",5],[2026,3,11,"21:40",6,79,"GF",188,15,16,178,"Binatang Kelelawar Menempel di bushing TM trafo gardu SMPG",5],[2026,3,11,"22:08",4,105,"GF",161,19,19,142,"pelepah kelapa menyentuh sutm dekat g.pmz",25],[2026,3,11,"23:51",4,105,"GF",81,17,18,62,"Gangguan KAWAT GSW NEMPEL SUTM GARDU BNP",10],[2026,3,12,"07:58",4,105,"GF",74,12,9,62,"Gangguan ledakan pada kabel rantas dekat GRD PMZ, Gangguan dahan pohon Kelapa menyentuh SUTM",25],[2026,3,12,"15:23",4,105,"GF",19,175,21,156,"Kawat Rantas dekat gardu KSD",18],[2026,3,12,"19:29",4,68,"GF",198,890,202,711,"Gangguan Pohon Bambu Menimpah Jaringan SUTM Kp,Cijeruk GRD bej",25],[2026,3,13,"19:23",4,105,"GF",568,20,19,551,"Gangguan Binatang tando dekat Gardu RTL",5],[2026,3,14,"06:21",8,11,"OC",3049,2210,3157,15,"Gangguan jumper pengeluaran Pmr Cikeudal putus fasa S",14],[2026,3,15,"02:25",6,112,"GF",244,144,98,120,"Arrester gardu PTJ Jebol Fasa ST",2],[2026,3,15,"19:47",1,96,"OC",5,400,404,0,"Gangguan Tidak diketahui",9],[2026,3,16,"01:21",9,84,"OC",2089,2248,23,205,"Gangguan Info warga ada ledakan akibat binatang Tando menabrak jaringan Di Kp gonggong GRD cryd",5],[2026,3,16,"06:15",6,90,"GF",166,122,137,136,"Gangguan Blok Fco gardu CIHJ pecah bawahnya keramik",14],[2026,3,16,"23:00",4,68,"GF",272,887,290,691,"Gangguan Tidak diketahui",9],[2026,3,16,"19:36",3,33,"GF",261,9,8,253,"Gangguan Tidak diketahui",9],[2026,3,17,"02:53",1,108,"OC",428,439,16,0,"INFO WARGA ADA LEDAKAN AKIBAT BINATANG TANDO DEKAT GARDU CBK",5],[2026,3,18,"05:02",4,68,"GF",798,872,966,677,"Gangguan Tidak diketahui",9],[2026,3,19,"22:12",1,108,"GF",79,31,34,49,"Gangguan binatang tando dekat Gardu CBT",5],[2026,3,19,"03:58",1,89,"GF",33,32,34,0,"Gangguan Tidak diketahui",9],[2026,3,19,"04:34",1,96,"GF",153,2,2,151,"Gangguan Informasi dari warga Terdapat Binatang Tando Menabrak Jaringan SUTM gardu CGC",5],[2026,3,19,"21:06",1,96,"GF",156,3,3,154,"Gangguan Tidak diketahui",9],[2026,3,19,"03:11",4,39,"GF",11,10,217,206,"Gangguan Informasi Warga Binatang Tando Menabrak jaringan SUTM, di Grd SEJ",5],[2026,3,20,"00:36",1,96,"OC",439,441,4,0,"Gangguan Tidak diketahui",9],[2026,3,20,"01:20",1,108,"OC",100,33,55,59,"Gangguan Tidak diketahui",9],[2026,3,21,"05:51",4,80,"GF",16,650,18,637,"BINATANG TUPAY DIGARDU JSA",5],[2026,3,21,"03:13",6,47,"GF",0,33,15,21,"Gangguan Tidak diketahui",9],[2026,3,21,"04:29",6,41,"GF",96,87,188,122,"Gangguan Tidak diketahui",9],[2026,3,22,"00:26",6,47,"GF",238,250,244,14,"Gangguan Tidak diketahui",9],[2026,3,22,"15:55",4,68,"GF",187,635,980,833,"Gangguan ditemukan binatang kekes di G.TLJ",5],[2026,3,23,"20:24",3,58,"GF",190,569,201,406,"Gangguan Tidak diketahui",9],[2026,3,24,"01:52",1,87,"OC",417,414,7,0,"Gangguan ranting pohon masih nempel di dekat isolator, di kp cinyurup GRD CYR",25],[2026,3,24,"04:35",1,102,"GF",10,11,166,157,"Gangguan binatang tokek ngegantung di grd LIM",5],[2026,3,24,"19:36",9,11,"GF",104,746,105,664,"Gangguan Terdapat Ledakan Informasi Binatang Tando Menabrak Jaringan SUTM Dekat Gardu BCJ sebelum Co Bangko.",5],[2026,3,25,"08:48",6,41,"GF",11,184,37,179,"Gangguan binatang Ular melilit diatas CT dan Traves",5],[2026,3,25,"18:25",1,7,"OC",2261,2447,2320,3,"Gangguan Temuan Kabel Terminasi Outdoor GH Tarogong terbakar akibat pohon roboh dekat gardu BBCA",3],[2026,3,25,"01:11",1,70,"GF",191,134,142,247,"Gangguan Binatang Ular Menempel Ke Sutm dan Travers dekat Gardu JUM",5],[2026,3,26,"06:13",2,8,"GF",2261,2247,2320,3,"Gangguan Binatang Tupai Menempel ke Bushing Trafo Gardu ASN",5],[2026,3,27,"12:02",4,105,"GF",17,16,567,555,"Gangguan Binatang Tando Menempel ke Sutm dan Travers dekat Gardu RTL",25],[2026,3,27,"15:17",1,76,"GF",2,2,141,139,"Gangguan Sutm Lepas dari Isolator Akibat Tertimpa Pohon Kelapa Yang ditebang Warga Dekat Gardu BLH",25],[2026,3,27,"19:28",1,96,"GF",157,3,3,155,"Gangguan Binatang Tando Menempel ke Sutm dan Travers dekat Gardu BTG001",5],[2026,3,27,"07:57",3,60,"GF",234,46,46,204,"Gangguan Pelepah Kelapa Patah Terbang Menimpa Sutm dekat Gardu TJB",25],[2026,3,28,"04:19",1,70,"GF",436,259,319,265,"Gangguan Sutm Menempel ke Travers Akibat Isolator Pecah dekat Gardu LING01",12],[2026,3,28,"02:04",1,96,"GF",160,2,2,159,"Gangguan Tidak diketahui",9],[2026,3,29,"10:49",0,40,"MOC",3164,3119,82,2,"Gangguan informasi warga ada ledakan dan padam P. Carita ranting nimpa jaringan sutm dekat gardu LKK",25],[2026,3,29,"15:02",1,101,"OC",1899,1866,136,1,"Gangguan Tidak diketahui",9],[2026,3,29,"15:02",1,96,"GF",293,2,3,291,"Gangguan Tidak diketahui",9],[2026,3,29,"22:15",1,96,"GF",172,2,2,170,"Gangguan fco keramat putus fasa r",14],[2026,3,29,"22:23",4,92,"OC",1,16,15,0,"Gangguan Penjol Menempel ke Sutm dan Travers dekat Gardu PLE",31],[2026,3,29,"08:51",9,61,"GF",17,1,1,164,"Gangguan Tidak diketahui",9],[2026,3,30,"21:58",4,72,"OC",5192,5443,5165,4,"Gangguan Seekor Tando ke jaringan lokasi pas PMR Tenjolahang",5],[2026,3,31,"15:44",6,98,"GF",116,94,86,174,"GANGGUAN SUTM LEPAS DARI ISOLATOR DEKAT GARDU TLP,DOUBLE SIRKIT DENGAN SUTM P.SUMUR",18],[2026,4,1,"13:13",4,92,"GF",110,106,12,0,"Gangguan pohon roboh Menimpa Sutm dekat gardu BGK",25],[2026,4,1,"13:55",1,70,"GF",122,201,0,92,"Gangguan sutm putus 1 fhasa T di kp.wates grd wtm",18],[2026,4,1,"20:03",9,11,"OC",2520,2449,2490,2,"Pelepah Kelapa Kering Menempel Ke Sutm Dekat Gardu BCJ",25],[2026,4,2,"08:28",4,27,"GF",15,16,72,57,"Gangguan Pohon ditebang warga menimpa SUTM dekat gardu NKJC",25],[2026,4,2,"02:46",1,101,"GF",7,345,346,0,"Gangguan ada temuan kabel wifi nempel di Phasa T bunyi desis kencang di sesudah G.ECB",21],[2026,4,3,"04:40",4,105,"GF",16,204,15,191,"Binatang muka menempel ke Sutm dan Travers dekat Gardu GNC",5],[2026,4,4,"07:24",6,98,"GF",925,1023,143,268,"Gangguan jumper PT putus sso sobang",14],[2026,4,5,"14:15",3,62,"GF",72,975,862,209,"Gangguan Pelepah Kawung nimpa sutm dket G.STLD",25],[2026,4,5,"00:13",3,62,"GF",369,106,107,280,"Gangguan Ranting jatuh Menimpa Jaringan SUTM A3C Aftak GRD PPD",25],[2026,4,6,"21:56",0,43,"GF",43,61,365,363,"Gangguan Tidak diketahui",9],[2026,4,7,"21:04",3,14,"GF",28,249,8,157,"Gangguan berbarengan dengan putus nya jumper fco cikuya dan petir",14],[2026,4,7,"21:32",2,67,"GF",23,429,423,194,"Gangguan SUTM Putus 2 Phasa Dekat Gardu SKK",18],[2026,4,7,"23:24",3,111,"GF",752,102,854,702,"Gangguan SUTM putus 1PHASA , melorot 1 aspan, Dekat gardu KTG Akibat Petir",18],[2026,4,7,"02:01",9,11,"GF",2404,86,2535,102,"Gangguan Temuan dahan pohon patah nimpa sutm sebelum Co Bangko dekat G.BCJ",25],[2026,4,7,"21:14",3,62,"GF",36,552,501,219,"Gangguan saat pengusutan",6],[2026,4,7,"12:34",0,43,"GF",53,198,84,192,"Gangguan Tidak diketahui",9],[2026,4,7,"13:25",1,28,"GF",68,165,47,125,"Gangguan Binatang Tando Menempel ke Sutm dan Travers dekat Gardu CBLA",5],[2026,4,8,"20:44",6,109,"GF",23,141,19,128,"Gangguan Binatang Tando Menabrak Sutm dekat Gardu TJC",5],[2026,4,8,"22:06",1,70,"GF",168,274,117,226,"GGN SUTM PUTUS DEAKT GARDU WTM AKIBAT PETIR",16],[2026,4,9,"05:06",3,60,"GF",50,52,250,214,"Gangguan batang pohon buah naga ketiup angin ke jaringan pas Grd MPRA",25],[2026,4,9,"13:30",4,68,"GF",1079,1196,982,869,"Gangguan Tidak diketahui",9],[2026,4,10,"05:15",4,92,"OC",98,1,0,0,"Pelapah Kelapa terbawa angin menimpa SUTM dekat gardu KNA",25],[2026,4,10,"10:40",1,87,"GF",146,5,5,147,"Warga menebang pohon menimpa sutm dekat G. CIN",25],[2026,4,10,"19:02",1,52,"OC",12,408,402,0,"Gangguan kabel wifi nempel ke pengeluaran jmpur co G. PKM",21],[2026,4,11,"04:48",0,43,"GF",8,199,9,191,"Gangguan Tidak diketahui",9],[2026,4,11,"11:15",6,41,"GF",68,59,162,120,"Gangguan Binatang Tando Menempel ke Sutm dan Travers dekat Gardu GPT",5],[2026,4,12,"13:11",1,103,"GF",11,11,354,346,"Gangguan tiang roboh arah Sso Rancecet,",30],[2026,4,12,"02:49",6,42,"GF",258,5,5,255,"Gangguan arku layang² tertiup angin di kp. cikadu induk 3 Gwang sblm grd TJJ",21],[2026,4,12,"23:58",1,70,"GF",202,357,446,136,"Gangguan Tidak diketahui",9],[2026,4,14,"19:32",1,70,"GF",573,617,186,234,"gangguan aftak curug luhur pelapah kelapa nimpa ke jaringan sutm sebelum gardu clh",25],[2026,4,15,"00:46",3,111,"GF",280,79,80,218,"Gangguan ranting nempel ke trapes 2 gwang stelah grd kpng",25],[2026,4,15,"12:35",3,111,"GF",835,754,105,352,"Gangguan jumper pengeluaran gardu SSPH putus fasa S",14],[2026,4,16,"12:42",0,43,"GF",503,66,44,465,"Gangguan Tidak diketahui",9],[2026,4,17,"01:42",0,29,"GF",251,667,396,227,"GangguanBinatang Tando Menempel ke Sutm dan Travers dekat Gardu CRAA",5],[2026,4,17,"17:39",1,7,"GF",179,204,479,326,"Gangguan hewan Tando dekat G. HCMA",5],[2026,4,17,"13:04",6,109,"GF",437,275,308,45,"Gangguan binatang toke di Gardu TJG",5],[2026,4,18,"14:23",4,104,"GF",225,8,9,215,"Ggn pohon menyentuh SUTM dekat gardu LMJA",25],[2026,4,18,"14:51",1,7,"GF",20,17,16,12,"Gangguan arah Sso Zambrud terlewati arus Gangguan indikasi Pendatangan jumper Fco PRJ putus 1 fasa S barengan dengan petir",14],[2026,4,18,"07:05",4,72,"GF",355,166,168,173,"Gangguan Binatang Tando Menempel di jaringan SUTM di Pmr Tenjolahang",5],[2026,4,18,"08:33",1,96,"OC",426,427,3,0,"Gangguan indikasi warga nebang pohon bambu menimpa SUTM dekat Gardu RSG",25],[2026,4,18,"19:21",0,43,"GF",73,90,39,0,"Gangguan Isolator Pecah Fase RT Akibat Imbas Petir dekat Gardu DUS B.",12],[2026,4,18,"21:57",1,87,"OC",358,353,8,0,"Hewan Tando dekat G. CYR",5],[2026,4,19,"02:53",6,112,"GF",70,123,87,45,"Gangguan Kabel Wifi Menempel Ke Sutm dekat Gardu SLEG",21],[2026,4,19,"00:46",1,37,"OC",3790,3820,70,0,"Gangguan Fco Keramat putus fase S",14],[2026,4,20,"10:08",1,7,"GF",160,215,430,323,"Gangguan Binatang Tando & Pohon nempel di jumper aresster sebelum gardu HMCA & Kabel mvtic arah Gardu MPS terbakar",5],[2026,4,20,"18:31",7,10,"GF",115,149,86,45,"Gangguan Temuan kabel putus fasa S sebelum G.JPOL & Sutm Menempel ke Travers Akibat Isolator Fase R Pecah dekat Gardu SIDA",18],[2026,4,20,"08:50",1,54,"GF",300,168,144,188,"Gangguan Gangguan Binatang Tando nempel di jumper aresster sebelum gardu HMCA",5],[2026,4,20,"05:46",4,27,"GF",20,22,287,266,"Gangguan Tidak diketahui",9],[2026,4,20,"14:20",0,40,"GF",753,76,62,694,"Gangguan Jaringan SUTM Aman, Info Warga Berbarengan dengan Petir saat Trip",16],[2026,4,20,"16:10",6,42,"GF",258,5,5,255,"Gangguan Tidak diketahui",9],[2026,4,21,"01:12",6,42,"GF",6,22,19,140,"Gangguan Sutm putus 1 FASA R arah aft Sadang gardu SDG",18],[2026,4,21,"05:18",0,43,"GF",70,416,71,411,"Gangguan Tidak diketahui",9],[2026,4,21,"10:29",0,43,"OC",1150,1157,39,1,"Gangguan Tidak diketahui",9],[2026,4,23,"03:56",1,87,"OC",358,353,8,0,"Gangguan Binatang Tando Nempel ke jaringan SUTM dekat gardu SAGA",5],[2026,4,23,"19:36",1,89,"GF",33,34,35,0,"Gangguan Binatang Tando Menabrak Sutm info warga sempat ada ledakan pas dibawah Sso Citeureup",5],[2026,4,24,"16:21",1,86,"GF",5,138,5,14,"Gangguan SUTM putus akibat petir dekat Gardu CSRG",18],[2026,4,24,"15:58",1,34,"GF",512,32,554,118,"Gangguan Tidak diketahui",9],[2026,4,25,"04:25",4,68,"GF",360,781,217,864,"Gangguan Tidak diketahui",9],[2026,4,26,"19:09",4,72,"GF",220,220,886,666,"Binatang Tando Menempel Ke Sutm dan Travers dekat Gardu CDK",5],[2026,4,26,"15:14",1,37,"GF",180,1930,3170,1680,"Gangguan Tidak diketahui",9],[2026,4,26,"16:08",1,57,"GF",164,60,40,149,"Gangguan Tidak diketahui",9],[2026,4,26,"19:09",4,24,"GF",220,220,886,666,"Binatang Tando Menempel Ke Sutm dan Travers dekat Gardu CDK",5],[2026,4,27,"03:06",4,92,"OC",27,1,26,0,"Gangguan binatang Tando nabrak jaringan di Kp manuntung peuntas gardu KNAB",5],[2026,4,27,"11:40",0,40,"GF",873,98,71,794,"Gangguan Tidak diketahui",9],[2026,4,28,"02:56",1,37,"GF",480,1330,400,1250,"Gangguan binatang tando dekat Gardu PGDC",5],[2026,4,28,"03:04",1,70,"GF",490,575,140,8,"Gangguan Binatang Tando dekat gardu SSDC",5],[2026,4,28,"12:46",0,72,"MOC",10246,4,10839,2239,"Gangguan kabel turun di SSO coconut putus 1 phase S",29],[2026,4,28,"01:53",1,37,"GF",90,3960,4020,1220,"Gangguan Tidak diketahui",9],[2026,4,29,"07:43",1,87,"OC",433,385,8,98,"Gangguan Fco gardu CDS putus fasa RS akibat binatang bunglon menempel di bushing TM",5],[2026,4,29,"14:33",1,70,"GF",491,521,567,130,"GANGGUAN TIANG ROBOH AKIBAT TERTIMPA POHON Dekat G.SDCA",3],[2026,4,29,"13:33",4,68,"GF",1007,158,1024,670,"Gangguan Tidak diketahui",9],[2026,4,30,"14:15",1,7,"OC",334,1875,207,162,"info warga berbarengan dengan adanya petir listrik padam dekat Gardu LKJ",16],[2026,5,1,"09:02",1,57,"GF",55,36,35,40,"Gangguan Layang - Layang Menempel ke Sutm dan Travers dekat Gardu NKA",21],[2026,5,1,"17:37",0,64,"OC",1730,32,1496,346,"Gangguan Arrester Jebol Fase ST di Pmr Sambolo & Arrester Jebol Fase R di Kabel Turun 1 Gawang Setelah G.BSK",2],[2026,5,2,"01:04",1,89,"GF",855,816,11,234,"GANGGUAN POHON ROBOH MENIMPA SUTM DEKAT GARDU CEM",25],[2026,5,2,"23:20",1,28,"GF",84,179,58,167,"Gangguan info dari warga Binatang Tando Menabrak SUTM DI GRD spow",5],[2026,5,3,"22:27",1,37,"GF",70,1300,60,1270,"FCO CITOE PUTUS 1 FASA S, ARRESTER PHASE S JEBOL GARDU TOE",9],[2026,5,4,"20:04",0,43,"BC",69,78,33,1,"GANGGUAN ISOLATOR ASPAN FLASH OVER 1 GAWANG SESUDAH GARDU KDB",7],[2026,5,4,"15:58",1,57,"GF",35,41,64,54,"Gangguan Kabel Wifi Menempel Ke Sutm dekat Gardu CNT",21],[2026,5,5,"14:38",1,89,"GF",21,17,38,27,"Gangguan Pelepah Kelapa Menempel Ke Sutm Akibat Tertiup Angin Kencang dekat Gardu PTLJ",25],[2026,5,5,"13:57",6,41,"GF",224,98,53,224,"Gangguan Ranting Pohon Menimpa ke Arrester Gardu GPR",25],[2026,5,7,"15:13",3,111,"GF",262,79,77,204,"Gangguan pohon bambu roboh di kp kapinango dekat grdu KPNG",25],[2026,5,8,"22:06",1,86,"GF",5,140,5,14,"Gangguan Ranting Pohon Sawit Patah Menimpa Sutm Akibat Tertiup Angin Kencang dekat Gardu CGO",25],[2026,5,8,"05:53",6,41,"GF",189,107,74,150,"Gangguan SUTM lepas dari isolator akibat pohon kelapa roboh dekat gardu CIST",25],[2026,5,9,"08:55",1,76,"OC",789,791,2,0,"Gangguan Pohon Menempel ke SUTM Akibat Ditebang Warga dekat Gardu CKC",25],[2026,5,10,"19:45",3,33,"OCGF",852,858,9,308,"Gangguan Jumper pendatangan Menempel Ke Traves fasa S akibat Tertiup Angin Kencang dekat Gardu PBR",14],[2026,5,10,"19:50",1,37,"OCGF",1410,2060,2100,1350,"Gangguan Binatang Tando Menempel Ke Sutm dan Travers dekat Gardu SNC",5],[2026,5,11,"19:23",1,34,"GF",101,33,61,55,"Gangguan ada info ledakan di gardu SPGD",14],[2026,5,11,"14:21",0,78,"OCGF",84,1069,86,1004,"Gangguan Tidak diketahui",9],[2026,5,11,"14:48",6,110,"GF",262,138,132,254,"Gangguan Tidak diketahui",9],[2026,5,11,"19:17",4,72,"GF",213,1036,213,826,"Gangguan Binatang ular menempel di jaringan SUTM dan Travers gardu AMT",5],[2026,5,11,"21:24",1,101,"GF",8,138,9,133,"Gangguan Binatang Tando nabrak jaringan dekat gardu CICC kp Citarum",5],[2026,5,11,"08:53",6,38,"GF",232,90,55,232,"BINATANG ULAR MENEMPEL DI BLOK FCO GARDU TBB",9],[2026,5,11,"14:21",6,41,"GF",111,184,134,291,"SUTM LEPAS DARI ISOLATOR AKIBAT POHON KELAPA ROBOH MENIMPA SUTM DEKAT GARDU CIST",9],[2026,5,12,"15:25",0,43,"OC",52,79,50,0,"Gangguan Dahan Pohon Kering Patah Menimpa Sutm dekat Gardu DUS B",25],[2026,5,12,"15:39",6,94,"GF",65,72,118,94,"Gangguan Kabel Wifi Menempel Ke Sutm Dekat Gardu CIST",21],[2026,5,14,"21:43",1,76,"GF",2,115,2,113,"Gangguan binatang Tando di kp cijaralang sesudah gardu CJL A",5],[2026,5,14,"22:03",1,86,"GF",135,5,5,13,"fco aftak cikadong putus fasa R akibat tersentuh binatang muka G.CKGD",5],[2026,5,15,"01:15",1,37,"GF",7,6,194,189,"POHON TUMBANG MENIMPAH JARINGAN SUTM DEKAT GARDU CRHD",9],[2026,5,16,"16:06",4,68,"GF",439,251,231,1042,"Gangguan ranting pohon jatoh ke sutm di kp Mengger dkt grdu SKJB",25],[2026,5,17,"03:35",6,94,"GF",116,56,47,106,"Gangguan Binatang Tokek Menempel ke Bushing Trafo Gardu CIST",5],[2026,5,17,"18:00",4,99,"GF",16,14,247,234,"Gangguan dahan kering jatuh nimpa SUTM dan ranting bekas jatuh nya masih nempel di jaringan di kp kadukupa grdu KHMA",25],[2026,5,17,"21:25",6,94,"NO INDICATION",0,0,0,0,"Gangguan binatang tokek nempel dibhusing trafo",5],[2026,5,17,"04:44",4,27,"GF",78,120,52,96,"Gangguan Ranting Pohon Patah Menimpa Sutm Fase S dekat Gardu AWG",25],[2026,5,18,"10:42",4,105,"GF",16,15,573,560,"Gangguan menurut informasi warga binatang Tando nabrak ke jaringan di Kp. Retel G.RTL",5],[2026,5,18,"08:35",1,37,"GF",144,5,7,141,"Gangguan bintang kalong dekat Gardu TOE",5],[2026,5,19,"03:28",4,80,"GF",11,742,10,783,"Gangguan binatang Tando nabrak ke jaringan di kp. Canggong G.SAJ",5],[2026,5,21,"18:50",3,97,"GF",686,663,130,200,"Ggn SUTM putus 2 fasa, 1 gawang dari gardu NET",18],[2026,5,21,"02:10",9,72,"OC",2179,2490,2476,0,"Gangguan binatang tando di kp. Kadu suluh G.EDAL 002",5],[2026,5,21,"04:57",4,99,"GF",14,14,623,612,"Gangguan investigasi Sso pasar Jiput, temuan Dandru Menes, Seekor binatang Tando masih dijaringan Dekat G.BBS",5],[2026,5,21,"20:06",2,8,"GF",1072,1367,1294,88,"Gangguan Tidak diketahui",9],[2026,5,21,"22:10",1,77,"GF",1,1,27,26,"Gangguan Tidak diketahui",9],[2026,5,21,"22:15",6,94,"GF",70,69,92,86,"Gangguan ranting pohon Nimpah jaringan SUTM Grd HSED",25],[2026,5,21,"18:19",4,27,"OCGF",1077,1237,1093,155,"BINATANG TANDO MENABRAK JARINGAN SUTM DEKAT GARDU AWGA",9],[2026,5,23,"17:28",4,105,"GF",586,18,17,572,"Gangguan pelepah kelapa nempel ke SUTM imbas tadi hujan deras di barengi petir Sebelum gardu MLK",25],[2026,5,24,"18:45",4,92,"OC",105,105,0,0,"Gangguan Ranting pohon albasiah menimpa SUTM Dekat G.CLB",25],[2026,5,24,"20:14",6,94,"GF",129,62,52,148,"Gangguan tidak diketahui",0],[2026,5,24,"23:40",6,110,"OC",762,804,757,9,"Gangguan Kubikel Terbakar DI GRD BWJ",11],[2026,5,24,"16:50",0,43,"GF",34,134,85,124,"Gangguan Tidak diketahui",9],[2026,5,24,"10:00",4,24,"GF",100,100,100,"","",0],[2026,5,25,"08:21",1,103,"GF",9,9,116,112,"Gangguan PIN Isolator jatuh di arah RANCECET dekat gardu CRK",12],[2026,5,25,"19:25",0,78,"GF",92,890,98,818,"Gangguan Tidak diketahui",9],[2026,5,25,"23:12",4,92,"OC",103,1,0,0,"Gangguan pelepah alhasil tanya2 ke warga pelepah kelapa kering terbang trtiup angin.nimpa su tm lngsung jatuh ke bwah kng dj d kp Ciherang grdu CLB",25],[2026,5,25,"19:27",6,41,"GF",56,180,141,231,"Gangguan Tidak diketahui",9],[2026,5,25,"22:43",3,58,"GF",50,52,202,161,"Gangguan Tidak diketahui",9],[2026,5,25,"23:12",4,92,"OC",103,1,0,0,"Gangguan pelepah alhasil tanya2 ke warga pelepah kelapa kering terbang trtiup angin.nimpa su tm lngsung jatuh ke bwah kng dj d kp Ciherang grdu CLB",25],[2026,5,26,"18:37",1,100,"OC",311,318,12,0,"Gangguan binatang Tando di kampung simpang 3 G.CDS",5],[2026,5,26,"01:41",6,41,"GF",111,78,162,131,"Gangguan Tidak diketahui",9],[2026,5,26,"14:46",3,60,"GF",58,61,278,241,"Gangguan Dahan Pohon Bambu Menempel di Jaringan SUTM Dekat Gardu BPA",25],[2026,5,26,"22:24",5,51,"GF",9,9,759,751,"Gangguan Binatang Tando jatuh di bawah jaringan SUTN Dekat G.DTL",5],[2026,5,26,"22:26",6,41,"GF",143,123,45,208,"Gangguan Tidak diketahui",9],[2026,5,26,"11:00",0,20,"GF",100,100,100,"","",0],[2026,5,28,"16:26",4,105,"GF",17,16,568,555,"Gangguan ranting pohon rambutan masih nempel d jaringam di kp retel 4 gawang sebelum G. RTL",25],[2026,5,28,"12:00",1,26,"GF",100,100,100,"","",0],[2026,5,29,"21:50",6,41,"OC",423,385,98,10,"Gangguan Temuan binatang tando sudah ada dibawah aftak Gunung Pariuk dekat grd GPR",5],[2026,5,30,"01:16",4,66,"GF",153,157,721,628,"Gangguan tando dan fco gardu MNS putus 1 fassa T",5],[2026,5,30,"13:00",6,25,"GF",100,100,100,"","",0],[2026,5,31,"21:54",4,105,"GF",1322,1338,23,555,"GAGGUAN MASIH DALAM PENGUSUTAN",9],[2026,5,31,"12:51",4,92,"OC",117,117,0,0,"Gangguan Temuan layangan2 Menempel Jaringan SUTM dekat Gardu CLB",21],[2026,5,31,"22:00",1,102,"GF",11,12,90,79,"Gangguan Tidak diketahui",9],[2026,5,31,"12:51",4,92,"OC",117,117,0,0,"Gangguan Temuan layangan2 Menempel Jaringan SUTM dekat Gardu CLB",21],[2026,6,2,"11:50",9,11,"GF",42,40,114,75,"Gangguan sutm putus pas pendatangan Fco Bangko Akibat ngpong dari lc",18],[2026,6,2,"01:26",4,105,"GF",25,1071,1083,305,"Binatang tando dekat gardu PMI",5],[2026,6,2,"16:45",0,29,"GF",337,91,143,295,"Gangguan Info warga terdengar ledakan akibat layangan Menempel Jaringan SUTM G.LKK",21],[2026,6,3,"18:12",6,47,"GF",201,637,516,252,"Gangguan Tidak diketahui",9],[2026,6,4,"17:16",4,105,"GF",20,20,735,729,"Gangguan layang layang menempel di traves sso banjarwangi dekat G. BNP",21],[2026,6,5,"02:22",9,36,"GF",125,231,135,187,"Gangguan Binatang Tando Menempel di jaringan SUTM Dekat Gardu BDJ",5],[2026,6,5,"14:44",1,86,"GF",5,137,5,14,"Gangguan SUTM lepas dari isolator dekat gardu KULA akibat kabel schur tertarik mobil",17],[2026,6,5,"09:25",4,27,"GF",15,78,17,62,"Gangguan i temukan bintang Tando kang dj, untuk jaringan masih a3c tepat nya di kp. Pasir koer G.PKK",5],[2026,6,6,"00:40",9,85,"GF",0,1377,0,1296,"Gangguan binatang tando menabrak SUTM dekat Gardu KUK.A",5],[2026,6,6,"14:56",1,100,"GF",114,7,8,108,"Gangguan Tidak diketahui",9],[2026,6,7,"21:31",1,101,"GF",8,8,161,156,"Gangguan Tidak diketahui",9],[2026,6,8,"20:22",3,33,"GF",500,488,66,246,"Gangguan Tidak diketahui",9],[2026,6,9,"09:57",5,88,"GF",82,365,72,249,"Gangguan Tidak diketahui",9],[2026,6,9,"21:26",3,33,"GF",19,248,26,244,"Gangguan SUTM rantas 2 fhasa ST dekat G. BCP",18],[2026,6,9,"22:38",6,98,"GF",101,234,92,225,"Gangguan Tidak diketahui",9],[2026,6,9,"16:42",3,60,"GF",239,69,68,182,"Gangguan Tidak diketahui",9],[2026,6,10,"02:29",3,14,"GF",164,478,157,338,"Gangguan Arku Layangan Menempel Dijaringan SUTM, Kp.cibangkong Gardu CTE",21],[2026,6,10,"01:22",1,57,"GF",62,44,164,141,"Gangguan Ranting Pohon Patah Menimpa Sutm Akibat Tertiup Angin Kencang dekat Gardu CBK",25],[2026,6,10,"23:42",4,68,"GF",167,166,989,838,"Gangguan Ranting Pohon Ambondi Patah Menimpa Sutm dekat Gardu SKJ",25],[2026,6,12,"18:46",5,88,"GF",522,239,145,429,"Ggn temuan bambu roboh menimpa SUTM dekat gardu LBAN001",25],[2026,6,12,"21:35",3,33,"GF",8,339,6,33,"Gangguan Binatang Tando Menempel SUTM G.STG",5],[2026,6,12,"19:32",3,33,"GF",10,9,276,269,"Gangguan Tidak diketahui",9],[2026,6,13,"03:56",4,105,"GF",17,15,516,503,"Gggan Binatang Tando menempel ke sutm di aftak moncor 4 gawang sebelum fco moncor grd mlk",5],[2026,6,13,"17:20",3,111,"MOCGF",318,88,87,252,"Gangguan bersamaan dengan petir grd BPRA Kp bojen tanggul",16],[2026,6,13,"17:24",6,10,"OC",16,4,19,6,"Gangguan SUTM putus 1 fhas di kp. ciheru dekat gardu VKRA",18],[2026,6,13,"17:16",1,57,"GF",62,44,164,141,"Gangguan Ranting Pohon Menimpa Sutm dan Travers dekat Gardu MKUA",25],[2026,6,14,"20:20",1,100,"OC",275,10,268,0,"Gangguan di PMR mangkualam temuan pelapah kelapa ke sutm dekat G. CBH kp.cipangeran",25],[2026,6,14,"21:12",6,109,"OC",474,437,393,0,"Gangguan Tidak diketahui",9],[2026,6,14,"21:52",9,84,"GF",24,24,288,266,"Gangguan bintang muka info dari warga, tepatnya di kp. Sipogor G.SPG",5],[2026,6,15,"23:05",1,72,"46BC",82,57,84,1,"Gangguan di SSO CURUG trip info dari warga di titik ini ada ledakan akibat pohon kelapa tertiup angin, di kp.babakan kembang G. CUR",25],[2026,6,15,"08:47",4,92,"GF",148,134,0,41,"Gangguan ditemukan kabel wifi di jaringan SUTM di kp. Kananga gardu KNA, aktivitas warga",21],[2026,6,15,"11:34",0,78,"OC",82,3750,3680,2,"Gangguan Ranting Pohon Rambuatan Menimpa SUTM DI G.LKIK",25],[2026,6,17,"01:02",3,33,"GF",281,27,71,274,"Gangguan binatang tando dekat Gardu BCP Kp Pasir Rangrang",5],[2026,6,18,"00:47",3,48,"GF",33,27,224,214,"Gangguan Binatang Tando Menempel Ke Sutm Dan Travers dekat Gardu JLBC",5],[2026,6,18,"02:15",3,62,"GF",90,325,86,248,"Gangguan binatang Tando nempel di SUTM f S. di afftak gardu PPD",5],[2026,6,19,"23:31",4,27,"GF",84,464,49,445,"Gangguan Binatang Tando tempel di SUTM dekat gardu PKK & CO G.PKK terbakar",5],[2026,6,19,"04:02",0,43,"GF",819,712,29,531,"Gangguan Binatang MUKA di gardu DUSA",5],[2026,6,19,"06:07",0,78,"OC",4611,4965,4487,292,"Gangguan FCO Paradis putus phase T, akibat arku layangan",21],[2026,6,19,"10:37",2,67,"GF",13,538,12,530,"Gangguan Tidak diketahui",9],[2026,6,21,"19:11",3,14,"MOC",1950,1740,1860,0,"Gangguan jumper pengeluaran di 2 fhasa rt jebol arah co sukamandi",14],[2026,6,22,"07:22",3,69,"GF",6,5,241,235,"Gangguan Ranting Pohon Menempel ke Sutm dan Travers dekat Gardu SPK",25],[2026,6,24,"19:06",2,8,"MOC",4098,3884,143,164,"Gangguan tidak diketahui",9],[2026,6,25,"00:10",1,89,"OC",45,23,18,36,"Gangguan tidak diketahui",9],[2026,6,26,"12:32",6,90,"GF",109,133,92,64,"Gangguan tidak diketahui",9],[2026,6,26,"11:44",1,0,"GF",114,152,2,46,"",0],[2026,6,26,"14:40",1,57,"GF",62,44,164,141,"",0],[2026,6,26,"14:56",6,41,"OC",423,385,98,10,"",0],[2026,6,26,"15:53",0,43,"OC",52,79,50,0,"",0],[2026,6,26,"15:55",3,58,"GF",50,52,202,161,"",0],[2026,6,26,"15:35",9,27,"GF",15,78,17,62,"",0],[2026,6,26,"16:22",6,41,"GF",77,222,108,170,"",0],[2026,6,26,"16:25",6,41,"GF",77,222,108,170,"",0],[2026,6,26,"16:42",6,41,"GF",98,60,92,124,"",0],[2026,6,26,"16:43",0,29,"GF",39,40,311,276,"",0],[2026,6,26,"13:58",3,58,"GF",50,52,202,161,"",0],[2026,6,26,"14:39",1,57,"GF",62,44,164,141,"",0],[2026,6,27,"14:01",1,37,"GF",120,6,7,115,"Gangguan Pelapah Kelapa Menimpah Jaringan SUTM Dekat Gardu SNC",25],[2026,6,27,"22:18",6,41,"GF",77,222,108,170,"Gangguan Layang - Layang Menempel ke Sutm dan Travers dekat Gardu CIPN",21],[2026,6,28,"07:19",3,14,"GF",502,158,170,134,"GGAN TIDAK DIKETAHUI",9],[2026,6,28,"22:55",4,105,"GF",17,16,105,89,"GGAN TIDAK DIKETAHUI",9],[2026,6,28,"23:14",6,112,"GF",98,87,132,50,"GGAN TIDAK DIKETAHUI",9],[2026,6,28,"20:29",1,70,"GF",312,339,174,463,"Gangguan Tidak diketahui",9],[2026,6,29,"14:06",1,37,"GF",120,6,7,115,"",0],[2026,6,29,"15:10",9,55,"OC",995,979,37,1,"",0],[2026,6,29,"15:44",6,41,"GF",77,222,108,170,"",0],[2026,6,29,"14:39",3,62,"GF",36,552,501,219,"",0],[2026,6,29,"14:50",4,27,"",15,78,17,62,"",0],[2026,6,29,"15:56",1,57,"GF",62,44,164,141,"",0],[2026,6,30,"00:53",6,112,"GF",66,135,89,59,"Gangguan tidak diketahui",9],[2026,7,1,"00:03",2,8,"OC",116,3459,3240,172,"GANGGUAN ARKU LAYANGAN MENEMPEL DIJARINGAN SUTM GARDU GPP",21],[2026,7,1,"06:43",3,48,"GF",10,248,0,241,"Gangguan Ranting Patah Menimpa SUTM dekat G.ATK",25],[2026,7,1,"21:38",0,43,"GF",29,481,47,475,"Gangguan Binatang Tando Menempel ke Sutm dan Travers dekat Gardu KPE",5],[2026,7,2,"00:38",1,77,"GF",0,0,23,23,"LAYANG - LAYANG MENEMPEL KE SUTM DAN TRAVERS",21],[2026,7,2,"12:04",1,89,"GF",27,33,33,0,"FCO BABAKAN KESIK PUTUS FASA S AKIBAT PELAPA KELAPA PATAH MENIMPA SUTM",25],[2026,7,2,"11:39",3,33,"GF",10,281,7,280,"Gangguan pelepah kelapa nimpa sutm dekat GBKBA",25],[2026,7,2,"15:57",0,29,"GF",323,774,149,750,"Gangguan Investigasi PMR Banjarmasin arah PMR janaka temuan ranting pohon menimpa ke SUTM Kp Kadu salak G.TKK",25],[2026,7,3,"05:20",1,87,"GF",7,6,181,176,"Gangguan Binatang Ular Menempel ke Sutm dan Travers dekat G.RAYB",5],[2026,7,5,"08:17",9,85,"GF",0,3259,0,3204,"Gangguan layangan nempel di jumper pendatangan G.KUKC",21],[2026,7,7,"03:40",1,7,"OC",178,203,138,0,"FCO CILUBANG PUTUS PHASE RS, KAWAT RANTAS DEKAT GARDU CBKA",18],[2026,7,7,"08:34",4,105,"GF",16,582,15,571,"Gangguan anak kecil main layanglayang di kp koranji. Dekat gardu kks 2 sebelum fco kadujami",21],[2026,7,7,"21:46",3,48,"GF",10,193,228,185,"Gangguan binatang tando nabrak kejaringan kp. pancal deket grd BLO",5],[2026,7,8,"04:49",1,89,"GF",81,69,18,1,"Bersamaan dengan Hujan",25],[2026,7,8,"09:04",0,78,"OC",3578,3525,80,2,"Gggan Ranting Pohon rambutan jatoh menimpa ke Sutm fasa (RS) sesaat tertiup Angin dekat G. TKK",25],[2026,7,8,"11:53",6,42,"GF",205,10,10,197,"Gggan layang layang ke jaringan sutm pas Aspan 4B di kp Kepuh Cimahpar gardu KPP",21],[2026,7,8,"09:08",1,34,"GF",390,376,29,112,"Gangguan akibat Dahan pohon mangga pegas/patah menimpa ke Sutm fasa (S), Kp Ranca Sadang dekat G. RCS",25],[2026,7,9,"03:07",6,79,"GF",9,10,127,117,"Ggn Pelepah Kelapa Menempel ke Sutm dan Travers dekat G.CYO",25],[2026,7,9,"19:50",1,87,"GF",130,8,9,124,"Gangguan binatang Tando menabrak jaringan dan posisi sudah jatoh sangkut di panel gardu GRD RAY",5],[2026,7,9,"09:03",6,41,"GF",106,87,202,154,"Gangguan Daun Pisang Menempel ke SUTM dekat G.SMUR005",25],[2026,7,10,"20:41",1,87,"GF",116,8,9,111,"Gangguan binatang Tando menabrak jaringan posisi sudah dibawah GRD SAG",5],[2026,7,10,"20:12",1,34,"GF",163,435,426,141,"Gangguan Tidak diketahui",9],[2026,7,10,"21:23",1,70,"GF",360,156,187,259,"Gangguan Binatang Tando Menempel Ke SUTM dan Travers dekat G.SCGM",5],[2026,7,10,"23:32",1,52,"GF",20,160,21,150,"Gangguan Tidak diketahui",9],[2026,7,11,"00:18",1,100,"GF",125,7,8,120,"Gangguan Pelepah Kelapa Terbang Menimpa Sutm dekat G.BHG",25],[2026,7,12,"15:23",0,72,"MOC",12078,11640,12396,1207,"Gangguan Sutm Lepas Dari Isolator Fase S Akibat GSW Putus dekat Gardu MDC.",10],[2026,7,14,"10:27",6,112,"GF",84,74,54,42,"Gangguan Saat Mencoba Sso SMP Trip ada indikasi Ggn di Sso Smp",7],[2026,7,14,"11:01",1,106,"GF",3,4,212,207,"Gangguan dahan pohon menimpa sutm dekat G.LKJ",25],[2026,7,15,"15:43",3,58,"GF",123,567,130,462,"Gangguan Arrester Jebol/Rusak dekat G.KGS",2],[2026,7,15,"20:40",2,67,"GF",498,331,281,485,"Gangguan SUTM pPutus 1 fasa R Kp.sumber jaya Gardu:BDS",18],[2026,7,16,"03:49",6,109,"GF",26,35,171,164,"Gangguan Temuan seekor binatang Tando menabrak, Info warga sekitaran ledakan, sekitar GRD PGKL",5],[2026,7,16,"22:25",4,72,"MOC",8551,8700,7875,23,"Gangguan binatang Tando ke SUTM,dekat G. SMDC untuk barbuknya sudah dibuang ke sungai sama warga",5],[2026,7,18,"00:45",3,111,"GF",268,79,79,207,"Gangguan Binatang Tando Menempel Ke SUTM dan Travers dekat G.BOKA",5],[2026,7,18,"08:47",3,33,"GF",7,317,6,311,"Gangguan binatang Tando menempel di jaringan G.BCP",5],[2026,7,19,"00:23",1,77,"NO INDICATION","","","","","Gangguan binatang tando nepel di SUTM grdu Terdekat LKJ",5],[2026,7,21,"17:15",1,81,"GF",726,653,16,128,"Gangguan tabung CO TSN terbakar phase S",22],[2026,7,21,"18:37",4,80,"GF",14,720,14,707,"Gangguan Layang - Layang Menempel ke Sutm dan Travers dekat G.KUB",21],[2026,7,23,"12:20",6,47,"GF",0,129,405,294,"Gangguan GSW Lepas di Kp. Cijaralang 6 gawang sblum GRD alis005",10],[2026,7,23,"19:36",6,90,"OC",164,112,129,53,"Gangguan Ranting Pohon menimpa sutm ke traves, Pas Proteksi Sso GTA Kp Camara desa banyuasih",25],[2026,7,23,"22:58",1,103,"NO INDICATION","","","","","BERSAMAAN DENGAN HUJAN",25],[2026,7,24,"17:35",1,101,"GF",9,165,9,161,"Gangguan Sutm Putus Akibat Tertarik Becko Dekat G.DCC",24],[2026,7,24,"18:48",1,86,"OC",5,5,164,16,"GGN JUMPER PENDATANGAN FCO GARDU DCC PUTUS PHASE RS",14],[2026,7,25,"03:53",6,41,"GF",20,117,28,122,"Gangguan Jumper kabel turun phase S putus gardu THY",14],[2026,7,25,"13:40",1,72,"OC",118,95,84,1,"Gangguan bintang lutung dari pohon lompat ke kabel sutm di kp.sukasari Cibingbin gardu ARI",5],[2026,7,26,"04:27",4,92,"OC",120,119,0,0,"Gangguan Pohon Pepaya Roboh Menimpa Sutm dekat G.BGK",25],[2026,7,27,"14:39",5,82,"GF",19,20,805,790,"GGN AKIBAT BURUNG MERPATI NABRAK JARINGAN DEKAT GARDU CGKR, FCO PUTUS PHASE R",5],[2026,7,27,"20:08",1,103,"NO INDICATION","","","","","BERSAMAAN DENGAN HUJAN",25],[2026,7,27,"08:10",6,47,"GF",0,193,135,287,"Gangguan Tidak diketahui",9],[2026,7,28,"08:16",2,8,"GF",77,80,567,509,"Gangguan Pelepah Pisang Menempel ke Sutm dekat G.TLP (Tambak ASN)",25],[2026,7,28,"15:00",0,29,"OCGF",1374,1347,319,366,"Gangguan Layang - Layang Menempel ke Sutm dan Travers dekat Gardu WPA",21],[2026,7,29,"18:52",1,52,"GF",26,403,388,49,"Gangguan Tidak diketahui",9],[2026,8,3,"14:32",2,8,"NO INDICATION","","","","","Gangguan temuan arku layangan nempel di fasa T dan benang melilit di titik sambung aspan ke traves Kp.Rametuk GRD STDM P",21],[2026,8,4,"08:51",1,0,"OC",182,201,136,0,"warga gotongroyong nebang pohon bambu Menimpa SUTM aff Ciakar",25],[2026,8,5,"18:47",1,89,"GF",0,35,36,32,"Gangguan temuan ranting pohon pete sudah jatuh dari sutm lokasi dikampung geon, grdu terdekat elis005",25],[2026,8,6,"01:05",1,100,"GF",143,7,8,138,"GGN AKIBAT BINATANG TANDO DI KP SINDANG DEKAT GARDU ASK",5],[2026,8,6,"20:09",4,66,"GF",748,155,151,629,"akibat binatang Tando nabrak jaringan dekat gardu MRY",5],[2026,8,8,"14:14",1,100,"GF",329,450,11,104,"kawat Rantas dekat gardu RAYB",18],[2026,8,8,"22:32",4,49,"GF",39,44,103,66,"GGN AKIBAT DAHAN POHON MENIMPA SUTM DEKAT GARDU KDR",25],[2026,8,8,"08:39",3,58,"GF",1551,1476,169,64,"Gangguan Tidak diketahui",9],[2026,8,12,"07:29",3,33,"GF",8,267,6,262,"Gangguan Tidak diketahui",9],[2026,8,13,"13:59",6,90,"OC",487,549,219,2,"Gangguan info warga ada layangan nempel kejaringan pas masuk aftak Cisiih",21],[2026,8,13,"15:32",6,47,"GF",317,243,180,200,"Gangguan Tidak diketahui",9],[2026,8,13,"21:35",3,33,"GF",324,10,10,371,"Gangguan Tidak diketahui",9],[2026,8,15,"18:23",4,27,"GF",563,26,28,542,"Gangguan Tidak diketahui",9],[2026,8,15,"00:32",6,41,"GF",81,72,161,172,"Gangguan Tidak diketahui",9],[2026,8,15,"03:53",1,37,"OC",5690,5730,80,0,"Gangguan Kawat Rantas Menempel di Fase RS dekat Gardu PGDC",21],[2026,8,17,"04:50",6,98,"GF",103,138,294,287,"akibat Binatang Muka di gardu MSPA",5],[2026,8,17,"13:33",0,29,"GF",44,44,307,268,"Gangguan Tidak diketahui",9],[2026,8,18,"02:06",1,81,"GF",9,272,9,265,"info Warga ledakan di pas Sso Cigeulis, barbuk tidak ditemukan",5],[2026,8,18,"18:29",6,109,"GF",52,61,168,151,"Gangguan binatang toke di dudukan trafo GRD. PGKL",5],[2026,8,18,"20:26",3,33,"GF",225,393,414,215,"Gangguan Tidak diketahui",9],[2026,8,19,"15:38",3,33,"GF",37,1188,1188,215,"BINATANG TANDO NABRAK JARINGAN LOKASI KP BABAKAN KEUSIK DEKAT GARDU BCPB, BARBUK SUDAH DIBUANG WARGA",5],[2026,8,19,"22:28",0,29,"GF",44,44,65,192,"Ledakan (CO) G. SCRA",7],[2026,8,19,"23:15",6,41,"GF",126,197,92,120,"Gangguan temuan kabel wifi nempel ke arester ke angin angin G. CIPG",21],[2026,8,20,"23:13",1,70,"GF",289,225,194,128,"Gangguan binatang Tando masih nempel di SUTM Grd CLH",5],[2026,8,21,"11:24",3,60,"GF",84,268,81,217,"Gangguan kabel pendatangan FCO GRD SMPR putus fhasa S nempel ke traves",14],[2026,8,21,"20:27",6,98,"GF",99,138,381,357,"Gangguan tabun fco jaring G. EPJ terbakar",22],[2026,8,21,"01:09",6,41,"GF",98,35,169,176,"Gangguan Tidak diketahui",9],[2026,8,23,"18:31",4,105,"OC",21,74,21,54,"Gangguan layang layang setelah gardu pyl kp citinggul",21],[2026,8,23,"19:44",4,39,"OC",1983,1994,15,0,"Gangguan Tidak diketahui",9],[2026,8,24,"00:13",1,87,"GF",83,8,8,77,"Gangguan Informasi dari warga tadi malam ada bintang Tando nabrak sutm kang dj, di kp.sabrang grd ASK. Untuk barbuk sudah tidak ada",5],[2026,8,24,"01:34",4,92,"OC",104,1,0,0,"Gangguan Akibat Pelepah kelapa kering jatuh tertiup angin menimpa sutm di kp. kaduboluk gardu CLB",25],[2026,8,25,"08:19",3,31,"GF",65,0,80,475,"Gangguan Pohon roboh dan Arester Flashover di G. BKO",25],[2026,8,25,"23:18",4,55,"GF",44,631,46,598,"Gangguan Tidak diketahui",9],[2026,8,27,"08:32",2,67,"GF",73,72,450,440,"Gangguan Temuan layangan Nempel dI pendatangan Block Co gardu BKS",21],[2026,8,27,"18:33",1,108,"GF",17,259,16,252,"Gangguan Kabel Jumper In Gardu CRR Terbakar",14],[2026,8,27,"07:21",1,54,"GF",322,212,185,161,"Gangguan Tidak diketahui",9],[2026,8,27,"16:53",0,29,"GF",305,64,65,259,"Gangguan Tidak diketahui",9],[2026,8,27,"18:33",4,66,"GF",182,191,816,678,"Gangguan layang layang di sutm Gardu kp",21],[2026,8,29,"19:46",0,43,"GF",559,54,30,559,"Gangguan Tidak diketahui",9],[2026,8,29,"21:56",9,61,"GF",31,1,1,307,"Gangguan Temuan arku layang² nyangkut di SUTM kontruksi 4 B G. CPU",21],[2026,8,31,"08:45",4,92,"OC",112,1,52,0,"Gangguan keterangan warga sekitar kp. Sukamara gardu knab burung gereja nabrak, untuk barbuk sudah tidak",5],[2026,8,31,"04:29",1,52,"GF",11,13,1185,623,"Gangguan Tidak diketahui",9],[2026,8,31,"10:39",3,73,"GF",236,4,4,232,"Gangguan Tidak diketahui",9],[2026,9,1,"16:50",3,14,"MOCGF",1210,322,318,934,"Gangguan SKTM FBL - RMS FASA R ZERO",13],[2026,9,1,"07:00",3,60,"GF",47,209,46,173,"Gangguan BENANG LAYANG LAYANG DEKAT GARDU MKPC",21],[2026,9,2,"04:36",1,37,"GF",7,6,145,139,"Gangguan LAYANG LAYANG NEMPEL DI SUTM DEKAT GARDU BSH",21],[2026,9,3,"07:10",4,105,"GF",16,15,562,550,"binatang bajing dekat gardu SKIM",5],[2026,9,3,"21:18",1,86,"OC",7,381,385,0,"bintang Tando dekat gardu CSRH",5],[2026,9,4,"22:36",1,54,"GF",202,191,309,166,"Gangguan layangan nempel di sutm kang dj di kp Wates gardu WTM 1 gawang ke aft Curug luhur",21],[2026,9,5,"16:03",1,28,"GF",79,380,415,3,"Gangguan AKIBAT LAYANGAN NEMPEL DI SUTM DEKAT GARDU PCBL",21],[2026,9,6,"18:14",1,86,"GF",6,111,6,11,"Gangguan pelepah kelapa menempel SUTM Gardu CUR",25],[2026,9,6,"19:54",6,42,"GF",187,11,7,178,"Gangguan temuan pohon pete nempel di isolator fhasa R gardu BLC",25],[2026,9,6,"00:28",6,47,"GF",426,365,207,226,"Gangguan emuan kabel wifi melilit di SUTM kp.cinibung GRD KSPJA",21],[2026,9,6,"15:10",3,69,"GF",14,251,23,247,"Gangguan bintang Tando nabrak di jaringan di kontruksi 1b pas di jamper arrester G. TED",5],[2026,9,6,"16:12",6,42,"GF",178,7,6,173,"Gangguan pohon pete nempel di isolator fhasa R dekar gardu BLC",25],[2026,9,6,"16:42",6,41,"GF",85,225,119,223,"Gangguan Binatang monyet ke jaringan pas gardu TDP kp hasem",5],[2026,9,6,"19:11",6,42,"GF",178,7,6,173,"Gangguan pohon pete nempel di isolator fhasa R dekar gardu BLC",25],[2026,9,6,"19:30",6,42,"GF",185,7,7,180,"Gangguan pohon pete nempel di isolator fhasa R dekar gardu BLC",25],[2026,9,6,"21:26",3,48,"GF",10,193,203,194,"Gangguan akibatkan oleh layang",21],[2026,9,6,"22:29",6,41,"GF",92,38,137,133,"Gangguan temuan Flash Over di pin isolator di Fasa T, Kp.cisaat setelah gardu THY",7],[2026,9,7,"22:31",3,60,"GF",51,229,51,191,"Gangguan Tidak diketahui",9],[2026,9,8,"03:34",1,103,"GF",46,143,43,140,"Gangguan temuan flash over di pin isolator yg paling parah FT sebelum G. CRR",7],[2026,9,8,"21:02",1,54,"OC",22,687,536,57,"Gangguan pelapah kelapa terbang ke SUTM G.KYB",25],[2026,9,8,"23:43",6,41,"GF",54,198,146,184,"Gangguan temuan di aftak kp sawah yg fco nya putus semalam 1FT, di temukan kabel wifi nyangkut di travo G.SCBU",21],[2026,9,9,"18:28",4,105,"GF",21,262,21,243,"Gangguan info warga binatang tupay di Kp.Retel G.RTL",5],[2026,9,10,"02:12",1,89,"OC",151,206,178,75,"benang layangan nempel ke SUTM dekat gardu KCGS",21],[2026,9,10,"10:37",1,54,"GF",141,191,169,86,"Gangguan Pohon roboh menimpa jaringan, Sutm putus 2 fasa Segemen Sec Ciburial GH CBL - PMR ARENGBATOK",25],[2026,9,10,"19:50",9,84,"GF",25,24,396,374,"Gangguan binatang bunglon digardu RGT",5],[2026,9,10,"16:45",1,52,"OC",399,422,379,29,"Gangguan temuan pelapah kelapa di SUTM dekat arester jaring. Kp. Huni G.Hmca",25],[2026,9,11,"22:20",0,29,"MGF",1328,2054,2031,559,"Gangguan Binatang Tando nempel di jaringan SUTM 3 Gawang sebelum GRD LKIK",5],[2026,9,12,"15:40",6,98,"GF",667,692,694,18,"Gangguan akibat layangan di Fco DCL",21],[2026,9,12,"15:21",2,67,"GF",209,115,479,470,"Gangguan Layangan Menempel SUTM GRD KKLD",21],[2026,9,13,"19:38",3,33,"GF",281,11,34,268,"Gangguan binatang Tando nempel di isolator fase R dekat G.BBP",5],[2026,9,14,"20:55",1,87,"OC",11,518,509,0,"Gangguan temukan ranting pohon mahoni di sutm dekat isolator fhasa S, di kp Lebak balong G. CINC",25],[2026,9,14,"03:11",1,54,"GF",573,458,207,225,"Gangguan binatang muka sebelum fco ciserehen dekat GRD SKBC",5],[2026,9,14,"18:48",6,41,"GF",66,169,93,213,"Gangguan kabel wifi di kp. Cihangasa ds. Kertamukti G. CHGS203",21],[2026,9,15,"01:27",3,60,"GF",43,212,44,179,"Gangguan temuan binatang tokek udah jatuh di bawah trafo gardu APL",5],[2026,9,15,"04:23",6,41,"GF",85,57,127,120,"Gangguan pohon kelapa tumbang nimpa jaringan SUTM aftak tambak gardu TUJ",25],[2026,9,15,"04:23",6,42,"GF",396,6,6,392,"Gangguan ISOLATOR PECAH DEKAT GARDI CIJ",12],[2026,9,15,"05:33",3,48,"GF",202,0,0,193,"Gangguan Temuan bambu roboh ranting nya nempel ke jaringan di kp. Cilongkrang dkt grd SWUA",25],[2026,9,15,"17:25",1,28,"GF",85,208,64,157,"Gangguan KETERANGAN WARGA KP CIBURIAL ADA LEDAKAN / FLASOVER ISOLATOR DEKAT GARDU WCC",7],[2026,9,16,"07:40",2,107,"OC",1124,1347,1258,238,"Gangguan benang layang layang nempel ke kabel SUTM ke 3 Fassa deket gardu PMA",21],[2026,9,17,"19:38",1,87,"GF",10,9,125,118,"binatang Muka dekat co ciparay",5],[2026,9,17,"00:04",4,66,"GF",159,699,151,609,"Gangguan Ranting Pohon Menempel SUTM di FCO WADEN",25],[2026,9,18,"01:47",1,22,"NO INDICATION",0,0,0,0,"Gangguan benang melilit di SUTM depan pabrik gula Kp.kepuh sekitaran GRD DEA",21],[2026,9,19,"19:12",4,80,"GF",14,796,14,783,"Gangguan kembang jati di block FCO G. BRJ",25],[2026,9,19,"19:18",1,108,"GF",252,22,24,249,"flashover isolator dekat gardu CRR",12],[2026,9,20,"21:22",1,89,"GF",872,730,261,5,"SUTM putus dekat gardu MKL",18],[2026,9,20,"21:50",6,72,"GF",876,82,75,3328,"Gangguan Kabel SUTM Putus 2 Phasa doubel sirkuit Cibaliung-Panimbang",18],[2026,9,20,"21:52",1,72,"GF",48,32,147,141,"Gangguan Kabel SUTM Putus 2 Phasa doubel sirkuit Cibaliung-Panimbang",18],[2026,9,20,"21:55",8,72,"GF",151,171,272,34,"berbarengan dengan trip P. Panimbang dan Cibaliung akibat SUTM putus double sirkuit, kondisi paralel tegangan",18],[2026,9,20,"04:22",3,69,"GF",85,5,5,79,"Gangguan binatang Tando nempel di Jaringan SUTM selelah G.TUP",5],[2026,9,21,"22:45",4,80,"GF",12,646,12,635,"Gangguan binatang Tando Menempel Di SUTM G. BRJ",5],[2026,9,21,"22:58",4,99,"GF",12,12,636,627,"binatang Tando dekat gardu CGS",5],[2026,9,21,"00:58",6,41,"OC",140,92,77,86,"temuan binatang Tando nempel di travo di aftak gunung pariuk G.GPT",5],[2026,9,21,"19:28",3,33,"OC",1293,1306,27,0,"Gangguan arrester gardu BCBP jebol 2 fhsa RS",2],[2026,9,22,"17:09",6,109,"GF",41,158,32,143,"binatang monyet dekat gardu SMUR007",5],[2026,9,22,"21:46",4,105,"GF",19,18,491,475,"Gangguan Binatang Tando di FCO KADU JAMI Sebelum G. KKS",5],[2026,9,22,"22:18",4,92,"GF",1,1,48,0,"Gangguan binantang tando kp cilaban bulan G. CLB",5],[2026,9,23,"01:13",6,109,"GF",45,203,53,184,"Gangguan Layangan di Aftak FCO kp petey G. SMUR003",21],[2026,9,23,"10:43",1,52,"OC",311,284,330,622,"Akibat Pekerjaan Uji RC",0],[2026,9,23,"12:01",9,61,"GF",1,1,12,105,"Gangguan SAAT PENORMALAN FCO PARIGI / PENGAMANAN POHON ROBOH",9],[2026,9,23,"19:08",1,52,"OC",334,330,12,0,"Gangguan temuan pelapah kelapa terbang nimpa sutm dekat gardu CBH",25],[2026,9,24,"03:02",1,52,"OC",334,330,12,0,"Gangguan temuan pelapah kelapa terbang nimpa sutm dekat gardu CBH",25],[2026,9,24,"03:24",3,48,"GF",0,2,0,235,"Gangguan akibat binatang Tando nabrak jaringan dekat G.SWUA",5],[2026,9,24,"20:47",9,36,"OC",2594,2642,70,0,"Gangguan binatang Tando masih hidup, posisi sudah di bawah kp. Bojong canar G.BCJ",5],[2026,9,25,"03:07",4,105,"OC",13,1313,1325,0,"Gangguan Binatang Tando nabrak jaringan G RTL",5],[2026,9,25,"21:27",1,37,"GF",10,465,471,140,"Gangguan binatang Tando di kp.Sodong gantung G.CGC",5],[2026,9,26,"19:51",9,36,"OCGF",218,269,349,295,"Gangguan 1 gawang sebelum fco bangko binatang tando",5],[2026,9,27,"03:51",1,101,"GF",7,8,199,196,"Gangguan daun jati nempel di isolator fhasa T 15 tiang dari sso perhutani",25],[2026,9,27,"06:33",7,10,"NO INDICATION","","","","","Gangguan binatang tokek di gardu TKCA",5],[2026,9,27,"19:09",6,109,"GF",50,58,170,147,"Gangguan layangan menyentuh sutm di dekat gardu LGP",21],[2026,9,28,"09:50",2,56,"NO INDICATION","","","","","Ganguan Kabel Wifi Menyentuh Jaringan SUTM Gardu PMA",21],[2026,9,29,"22:45",2,8,"GF",99,101,866,793,"Gangguan isolator pecah dekat gardu TPK",12],[2026,9,29,"16:02",0,29,"GF",1328,2054,2031,559,"Gangguan FCO SALABARANG PUTUS FASA S, BERBARENGAN DENGAN PETIR",16],[2026,9,29,"21:14",1,52,"OC",13,406,399,0,"Gangguan pelapah kelapa menimpa SUTM dekat arester jaring kp.huni G.HMCA",25],[2026,9,29,"22:45",6,41,"GF",138,147,122,222,"Gangguan pelapah kelapa tertiup angin menempel Kp.gembreng GRD GBR",25],[2026,9,30,"20:35",4,105,"GF",21,550,21,537,"Gangguan jumper FCO kadujami putus phasa s",14],[2026,9,30,"20:38",1,103,"NO INDICATION","","","","","Gangguan jumper CO madur putus phasa R",14],[2026,9,30,"21:00",1,70,"GF",232,387,175,263,"Gangguan Tidak diketahui",9],[2026,10,1,"05:24",3,48,"NO INDICATION","","","","","Gangguan SUTM Putus",18],[2026,10,1,"03:24",6,47,"GF",190,302,205,245,"Gangguan Tidak diketahui",9],[2026,10,2,"23:15",6,109,"GF",35,170,28,153,"Gangguan pada fco ada ranting di jaringan phasa S dekat GRD TJC",25],[2026,10,2,"17:09",0,29,"GF",200,283,329,267,"Gangguan Tidak diketahui",9],[2026,10,2,"23:21",1,52,"OC",12,387,383,0,"Gangguan pelapah kelapa nyangkut di sutm kemungkinan terbawa angin, dekat GRD NBH",25],[2026,10,3,"16:28",2,67,"NO INDICATION","","","","","Gangguan Tidak diketahui",9],[2026,10,4,"19:59",6,47,"MOCGF",190,269,121,220,"binatang Luak digardu AAP",5],[2026,10,4,"11:47",6,41,"GF",88,80,168,164,"Gangguan warga nebang pohon mangga ngepret ke jaringan sutm Kp Cihoe Grd CHGR",25],[2026,10,5,"00:58",6,41,"GF",91,105,138,126,"Gangguan Tidak diketahui",9],[2026,10,5,"05:37",0,40,"OCGF",4586,4629,2986,2887,"Gangguan Fco G.MDC ke 3 nya putus, trafo busing primer F. R pecah",22],[2026,10,6,"02:19",7,10,"NO INDICATION","","","","","Gangguan SUTM nempel ke bangunan/rumah warga dekat gardu PNBG001",4],[2026,10,6,"19:22",4,92,"OC",33,1,32,0,"Gangguan pohon bambu nempel ke SUTM dekat gardu BGK",25],[2026,10,6,"21:34",6,110,"GF",263,151,168,178,"Gangguan Binatang Biawak Menempel SUTM 5 gawang sblm G.MCC",5],[2026,10,7,"00:15",1,89,"GF",455,251,202,291,"binatang Tando digardu SPBU",5],[2026,10,7,"15:09",9,84,"OC",2080,33,1965,143,"Gangguan FCO Aftak Putus Akibat Pelepah Kelapa di gardu CRY",25],[2026,10,7,"01:18",9,27,"GF",18,19,343,327,"Gangguan ranting al- basiah Maninpa SUTM dekat gardu NKJC",25],[2026,10,7,"05:22",3,33,"GF",10,9,224,217,"Gangguan Tidak diketahui",9],[2026,10,7,"23:45",1,34,"GF",112,31,36,78,"Gangguan Tidak diketahui",9],[2026,10,8,"21:03",9,72,"OC",115,4241,3892,322,"Gangguan Binatang Tando Menabrak SUTM di Gardu SJO",5],[2026,10,8,"21:24",6,41,"GF",158,78,117,118,"Gangguan binatang Tando kng dj dikp.kdu Mulya grd sjo",5],[2026,10,9,"00:08",6,41,"GF",37,161,83,159,"Gangguan Tidak diketahui",9],[2026,10,9,"21:12",4,39,"OC",17,1965,1974,0,"Gangguan Tidak diketahui",9],[2026,10,10,"05:32",2,8,"GF",89,569,92,492,"Gangguan layang layang nempel di phasa S Grd MMA",21],[2026,10,10,"07:47",1,37,"OC",457,461,11,99,"Gangguan warga menopang sutr dan kabel wifi sutm nya ngadu di Gardu KRAK",21],[2026,10,10,"21:32",9,84,"GF",25,358,25,334,"Gangguan binatang tando 1 gawang sebelum fco cikiray G. CRY",5],[2026,10,10,"18:06",4,27,"GF",23,26,161,135,"Gangguan ada bintang Tando nabrak sutm dekat Gardu kkd",5],[2026,10,11,"02:50",1,52,"OC",17,496,491,1,"Gangguan pelapah kelapa terbawa angin menimpa SUTM dekat titik sambung SUTM dekat G. HMCA, 10 gawang setelah PMR MANGKUALAM",25],[2026,10,11,"06:52",3,33,"GF",311,167,49,302,"Gangguan investigasi dan hasil keterangan warga temuan pohon Roboh ngepret jaringan , GRD BKBA P/Pagelaran",25],[2026,10,12,"14:19",2,67,"GF",67,31,476,467,"Pelapah sawit nempel ke SUTM dekat gardu SMC",25],[2026,10,12,"02:57",4,39,"GF",12,10,341,332,"Gangguan Tidak diketahui",9],[2026,10,12,"14:48",3,60,"GF",249,229,54,206,"Gangguan Tidak diketahui",9],[2026,10,13,"02:35",6,109,"GF",64,373,71,385,"Gangguan aft fco petey G. SMUR003 temuan benang layangan melintang",21],[2026,10,14,"20:28",1,87,"GF",9,179,10,174,"Gangguan ujung pelapah kelapa di bawah tiang sutm, untuk jarak pohon kelapa sebrang jln di kp simpang tiga gardu CDS",25],[2026,10,14,"16:20",6,47,"GF",190,286,279,10,"Gangguan Tidak diketahui",9],[2026,10,15,"01:16",2,8,"NO INDICATION","","","","","Gangguan dalam proses investigasi",9],[2026,10,15,"15:11",2,67,"GF",498,29,48,488,"Gangguan burung gereja Jatoh Diatas Traffo , Mengakibatkan FCO GRD KKLB putus",5],[2026,10,16,"23:12",1,87,"OC",9,435,429,0,"Gangguan binatang tando dekat gardu ask",5],[2026,10,16,"23:51",1,37,"GF",70,1520,70,1490,"Gangguan ada temuan binatang Tando nabrak sutm di Kp. Gintung aftak tanpa fco G.CRHD",5],[2026,10,17,"02:20",6,98,"GF",262,251,173,414,"Pelapah Kelapa jatuh Menimpa SUTM dekat gardu TBA",25],[2026,10,18,"18:56",6,110,"GF",239,137,243,167,"Gangguan pelepah pohon pinang berada di jaringa kabel SUTM kemungkinan pelapah tsb jatih nya melewati kbel kp cikendal G. TKC",25],[2026,10,18,"20:25",9,84,"GF",7,215,11,208,"Gangguan layang layang di SUTM di G. MCP",21],[2026,10,19,"05:15",1,89,"GF",278,196,0,102,"Gangguan SUTM Putus Phasa R Sebelum PMR BRI",18],[2026,10,19,"10:51",6,98,"GF",637,636,655,135,"Gangguan temuan pelapah kelapa ada bekas ledakan G.STDM",25],[2026,10,19,"15:34",0,29,"GF",314,581,87,546,"Gangguan binatang burung di atas travo G.LKK",5],[2026,10,19,"18:50",1,52,"OC",13,406,402,0,"Gangguan kawat Rantas dekat G.CBH",18],[2026,10,20,"01:17",3,33,"OC",40,1027,1032,0,"Gangguan informasi warga temuan binatang Tando nabrak jaringan SUTM Posisi di bawah jaringan 6 gawang setelah GRD STG",5],[2026,10,20,"17:08",0,40,"OC",87,8799,8552,200,"Gangguan ranting dibawah terminasi kabel naik G.LGA",25],[2026,10,20,"18:27",1,70,"GF",266,265,246,13,"Gangguan Tidak diketahui",0],[2026,10,21,"10:08",6,98,"OC",815,843,740,12,"kawat Rantas dekat gardu TBA",18],[2026,10,21,"03:40",1,4,"GF",16,15,162,147,"Gangguan Tidak diketahui",9],[2026,10,21,"11:24",1,34,"OC",608,597,31,0,"Gangguan Tidak diketahui",9],[2026,10,22,"02:17",4,92,"GF",142,132,31,41,"Gangguan Proses Investigasi",9],[2026,10,22,"13:58",6,47,"GF",400,242,161,281,"GANGGUAN POHON KELAPA NIMPA SUTM AFTAK GEMBRENG GARDU GBRB",25],[2026,10,23,"12:33",9,85,"GF",46,130,47,87,"Gangguan Layang layang nempel di SUTM dekat gardu KUKC",21],[2026,10,23,"11:24",3,58,"OC",1540,1453,181,202,"Gangguan Indikasi kabel wifi nempel ke jaringan tertiup angin dekat G. SADR",21],[2026,10,23,"23:43",3,33,"GF",309,8,7,302,"Gangguan binatang Tando nempel di SUTM fase R 1 Gawang sebelum GRD BCP P.Cigondang",5],[2026,10,24,"23:25",6,106,"GF",75,6,6,69,"Gangguan binatang tando nepel di taves di aftak Lebak jaha",5],[2026,10,24,"02:07",6,47,"GF",400,197,152,249,"Gangguan Tidak diketahui",9],[2026,10,25,"01:45",6,109,"GF",84,350,38,392,"Gangguan skur putus nyentuh SUTM dekat gardu SMUR001",4],[2026,10,25,"12:26",10,5,"MOC",4159,4162,4166,13,"Gangguan IB Konsumen kubikel cbo arah G.SCD",11],[2026,10,25,"02:49",6,47,"GF",400,202,126,218,"Gangguan Tidak diketahui",9],[2026,10,25,"19:45",6,47,"GF",91,202,126,218,"Gangguan Tidak diketahui",9],[2026,10,25,"21:25",1,52,"NO INDICATION","","","","","Gangguan benang layangan di sutm dekat jumper arester jaring. Lokasi kp. Nagrog G.Nbh",21],[2026,10,26,"03:32",10,5,"OC",4377,4399,4186,0,"Gangguan ada desisan di Kubikel CSD",28],[2026,10,26,"03:43",1,87,"OC",9,435,429,0,"Gangguan Di temukan binatang tando sudah di bawah di kp simpang 3 gardu cds",5],[2026,10,26,"04:10",9,11,"OC",32,46,55,0,"Gangguan Proses Investigasi",9],[2026,10,27,"02:18",3,48,"OC",17,640,641,0,"Gangguan Hewan kelelawar Menabrak Jaringan SUTM Gardu LBJ",5],[2026,10,27,"09:14",2,8,"NO INDICATION","","","","","Gangguan Proses Investigasi",9],[2026,10,27,"14:05",6,47,"GF",91,518,392,216,"Gangguan kawat rantas phasa ST G. KPB",18],[2026,10,27,"14:30",6,10,"GF",32,36,30,1,"Gangguan layangan nempel di SUTM ke Traves 3 gawang sebelum GRD STDM",21],[2026,10,27,"21:59",4,75,"GF",0,26,33,24,"Gangguan binatang kelalawar di G. RTL",5],[2026,10,28,"02:30",1,87,"GF",177,7,7,173,"Gangguan temuan binatang Tando di kp. Simpang 3 aftak G. CDS, 6 gawang sebelum G.CDS",5],[2026,10,28,"21:09",3,60,"GF",59,"",58,201,"Gangguan info keterangan warga ada binatang tando nabrak jaringan, namun barbuk sudah terbang lagi di kp bayur deket grdu BWC",5],[2026,10,29,"15:30",2,8,"GF",119,3317,3238,482,"Gangguan Proses Investigasi",9],[2026,10,29,"22:03",6,109,"GF",82,100,261,259,"Gangguan Proses Investigasi",9],[2026,10,29,"01:32",4,27,"GF",17,87,18,69,"Gangguan Tidak diketahui",9],[2026,10,29,"15:01",2,67,"GF",498,29,48,488,"Gangguan Tidak diketahui",9],[2026,10,29,"15:50",3,48,"GF",258,634,633,252,"Gangguan Tidak diketahui",9],[2026,10,29,"21:42",6,47,"GF",0,250,244,14,"Gangguan binatang Ular Menempel di jaringan dekat Pmr Kali caah",0],[2026,10,30,"02:27",6,90,"MOCGF",101,172,227,192,"Gangguan Proses Investigasi",9],[2026,10,30,"14:20",1,23,"GF",194,245,466,294,"Gangguan Proses Investigasi",9],[2026,10,30,"23:28",1,54,"GF",234,740,601,29,"Gangguan Tidak diketahui",0],[2026,10,30,"13:44",3,62,"GF",105,108,422,337,"Gangguan Dahan pohon nimpa sutm dekat G.PPD kp panyeuseupan",25],[2026,10,31,"00:05",8,13,"OC",82,95,114,0,"Gangguan Proses Investigasi",9],[2026,10,31,"14:19",3,58,"GF",511,145,157,395,"Gangguan Tidak diketahui",9],[2026,11,1,"04:50",3,33,"GF",7,232,7,228,"Gangguan Tidak diketahui",9]]};
+let detOrder='desc', detQ='', chMode='val', chZoom=false;
+const TARGET={1:34,2:104,3:96,4:85,5:64,6:69,7:50,8:43,9:68,10:8};
+const S={tahun:'2026',bulan:'',kelas:'',peny:'',sect:'',topN:5};
+const el=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('id-ID');
+const PAL=['#1d5f9c','#0f8a5f','#d5771a','#8a4f0f','#6b7280','#7e57c2','#c2185b','#00838f','#827717','#455a64','#b0bec5'];
+
+function frows(){
+  return D.rows.filter(r=>(!S.tahun||r[0]==+S.tahun)&&(!S.bulan||r[1]==+S.bulan)&&
+    (!S.kelas||D.kelas[r[5]]===S.kelas)&&(!S.peny||D.peny[r[3]]===S.peny)&&
+    (!S.sect||D.sect[r[4]]===S.sect));
+}
+// kolom dinamis: bulan tutup buku + (bulan berjalan) mingguan lalu harian
+function curInfo(){
+  const y = S.tahun ? +S.tahun : 2026;
+  const ms = D.rows.filter(r=>r[0]===y).map(r=>r[1]);
+  const cm = ms.length ? Math.max.apply(null, ms) : 12;
+  const ds = D.rows.filter(r=>r[0]===y && r[1]===cm).map(r=>r[2]);
+  const lastDay = ds.length ? Math.max.apply(null, ds) : 0;
+  return {y:y, cm:cm, lastDay:lastDay};
+}
+function monthBlocks(lastDay){
+  // minggu versi kalender sederhana: 1-7, 8-14, 15-21, 22-28, 29-31
+  const b=[]; for(let s=1;s<=29;s+=7) b.push([s, Math.min(s+6,31)]);
+  return b;
+}
+let weekOpen = {};                       // {indexMinggu:true/false}
+let penyOpen = {};                       // {namaPenyulang:true} — default tertutup (hanya baris penyulang)
+function penyIsOpen(n){ return !!penyOpen[n]; }
+function penyButtonState(){
+  const names=(D.peny||[]);
+  const allOpen = names.length>0 && names.every(n=>penyIsOpen(n));
+  const b=document.getElementById('bPenyAll');
+  if(b) b.innerText = allOpen ? 'Ringkas semua penyulang' : 'Buka semua penyulang';
+}                       // {indexMinggu: true/false}; default: minggu berjalan terbuka
+function weekIsOpen(i, curIdx){ return (i in weekOpen) ? !!weekOpen[i] : (i === curIdx); }
+function weekButtonState(){
+  const ci=curInfo(), bl=monthBlocks(ci.lastDay), bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+  const allOpen = bl.length>0 && bl.every((b,i)=>weekIsOpen(i,bi));
+  const b=document.getElementById('bWkAll');
+  if(b) b.innerText = allOpen ? 'Ringkas semua minggu' : 'Rinci semua minggu (per tanggal)';
+}
+function cols(){
+  if(S.tahun==='2026'){
+    const ci=curInfo(), c=[];
+    for(let m=1;m<ci.cm;m++) c.push({l:D.bshort[m-1], t:r=>r[1]===m, okt:false});
+    const bl=monthBlocks(ci.lastDay);
+    const bi=bl.findIndex(b=>ci.lastDay>=b[0] && ci.lastDay<=b[1]);
+    bl.forEach((b,i)=>{
+      if(i > bi) return;                        // minggu yang belum lewat tidak ditampilkan
+      if(!weekIsOpen(i,bi)){
+        c.push({l:'M'+(i+1)+' ▸<br><span class="mini">'+b[0]+'-'+b[1]+'</span>',
+                t:r=>r[1]===ci.cm && r[2]>=b[0] && r[2]<=b[1], okt:true, wk:i, kind:'wk'});
+      }else{
+        const end = (i===bi) ? ci.lastDay : b[1];
+        if(b[0] > end){ c.push({l:'M'+(i+1)+' ◂<br><span class="mini">'+b[0]+'-'+b[1]+'</span>',
+                t:r=>r[1]===ci.cm && r[2]>=b[0] && r[2]<=b[1], okt:true, wk:i, kind:'wk'}); return; }
+        for(let d=b[0]; d<=end; d++){
+          c.push({l:(d===b[0] ? '◂ ' : '')+d+'<br><span class="mini">'+D.bshort[ci.cm-1]+'</span>',
+                  t:r=>r[1]===ci.cm && r[2]===d, okt:true, wk:i, kind:'day'});
+        }
+      }
+    });
+    return c;
+  }
+  return [...Array(12)].map((_,i)=>({l:D.bshort[i],t:r=>r[1]===i+1,okt:false}));
+}
+function heat(v,mx){
+  if(!v) return 'background:#f6f8fa;color:#9aa4b2';
+  const r=v/mx, bg=['#eaf5ea','#d6ecd6','#bde3bd','#9ed79e','#f7d7a8','#f2b183','#ec8f5c','#e06b3a'][Math.min(7,Math.floor(r*8))];
+  return 'background:'+bg+';color:'+(r>=.5?'#7a3410':'#1f3d1f')+';font-weight:600';
+}
+
+function renderKPI(){
+  const f=frows(), tot=f.reduce((a,r)=>a+r[7],0);
+  const perB={},perP={},peny=new Set(),sect=new Set(),kel={};
+  f.forEach(r=>{perB[r[1]]=(perB[r[1]]||0)+r[7];perP[r[3]]=(perP[r[3]]||0)+r[7];
+    peny.add(r[3]);sect.add(r[4]);kel[D.kelas[r[5]]]=(kel[D.kelas[r[5]]]||0)+r[7];});
+  let mTop=0,mTopV=-1; for(const m in perB) if(perB[m]>mTopV){mTopV=perB[m];mTop=+m;}
+  const nB=Object.keys(perB).length||1;
+  const label=S.bulan?D.bulan[S.bulan-1]+' ':'';const th=S.tahun||'2025+2026';
+  el('kpis').innerHTML=[
+    ['Total trip '+label+th,fmt(tot),'event bersih (baris ganda dibuang)'],
+    ['Rata-rata / bulan',(tot/nB).toFixed(1),nB+' bulan berdata'],
+    ['Bulan tertinggi',mTopV<0?'-':fmt(mTopV),mTopV<0?'-':D.bulan[mTop-1]],
+    ['Penyulang berdata',fmt(peny.size),'dari '+D.peny.length+' penyulang'],
+    (function(){ const ci=curInfo(); if(S.tahun!=='2026') return ['Bulan berjalan','-','pilih tahun 2026'];
+       const tot=D.rows.filter(r=>r[0]===2026 && r[1]===ci.cm).reduce((a,r)=>a+r[7],0);
+       const bl=monthBlocks(ci.lastDay), bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+       const sisa=bl.slice(0,bi+1).map((b,i)=>{const v=D.rows.filter(r=>r[0]===2026&&r[1]===ci.cm&&r[2]>=b[0]&&r[2]<=b[1]).reduce((a,r)=>a+r[7],0);
+         return 'M'+(i+1)+':'+v;}).join(' · ');
+       return [D.bulan[ci.cm-1]+' s/d '+ci.lastDay+' '+D.bshort[ci.cm-1],fmt(tot),sisa||'belum ada trip'];}())
+  ].map(k=>'<div class="kpi"><div class="l">'+k[0]+'</div><div class="v">'+k[1]+'</div><div class="s">'+k[2]+'</div></div>').join('');
+}
+
+function chartSeries(){
+  // deret batang: bulan tutup buku, minggu selesai, lalu harian minggu berjalan
+  const months=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
+  if(S.tahun===''){
+    const a=aggBy(2025), b=aggBy(2026);
+    const items=[];
+    for(let m=1;m<=12;m++){ items.push({l:months[m-1], v:a[m]||0, cls:' y25', kind:'m'}); items.push({l:'', v:b[m]||0, cls:'', kind:'m'}); }
+    return {items:items, label:'2025 (abu) vs 2026 (biru)', multi:true};
+  }
+  const y=+S.tahun, o=aggBy(y), items=[];
+  const nm = (S.tahun==='2026') ? curInfo().cm-1 : 12;
+  let prev=null;
+  for(let m=1;m<=nm;m++){ const v=o[m]||0; items.push({l:months[m-1], v:v, prev:prev, cls:'', kind:'m'}); prev=v; }
+  if(S.tahun==='2026'){
+    const ci=curInfo(), bl=monthBlocks(ci.lastDay), bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+    const oD=aggBy(y, ci.cm);                 // PENTING: data per HARI di bulan berjalan
+    if(bi>0) items.push({sep:1});
+    let pw=null;
+    for(let k=0;k<bi;k++){
+      const b=bl[k]; let v=0; Object.entries(oD).forEach(([d,n])=>{ if(+d>=b[0]&&+d<=b[1]) v+=n; });
+      items.push({l:'M'+(k+1)+'<br>'+b[0]+'-'+b[1], v:v, prev:pw, cls:' okt', kind:'w'}); pw=v;
+    }
+    if(bi>=0){ const b=bl[bi]; let pd=null;
+      for(let d=b[0]; d<=ci.lastDay; d++){ const v=oD[d]||0;
+        items.push({l:String(d)+'<br><span class="mini">'+D.bshort[ci.cm-1]+'</span>', v:v, prev:pd, cls:' okt'+(d===ci.lastDay?' run':''), kind:'d'}); pd=v; }
+    }
+  }
+  return {items:items, label:String(y), multi:false};
+}
+function renderChart(){
+  const S2=chartSeries(), items=S2.items;
+  const mv=items.filter(b=>!b.sep && b.kind==='m').map(b=>b.v||0);      // batang bulanan
+  const ov=items.filter(b=>!b.sep && b.kind!=='m').map(b=>b.v||0);      // blok Oktober (minggu/hari)
+  const mxM=Math.max(1,...(mv.length?mv:[0]));
+  const mxO=Math.max(1,...(ov.length?ov:[0]));
+  const mx=Math.max(mxM,mxO);
+  // zoom hanya untuk batang bulanan (blok Oktober tetap diskala dari nol)
+  const base = (chZoom && !S2.multi && mv.length) ? Math.max(0, Math.floor(Math.min(...mv)*0.9)) : 0;
+  const spanM = Math.max(1, mxM-base);
+  el('chTitle').innerHTML='— '+S2.label+' · mode '+(chMode==='delta'?'Δ selisih':'nilai')+(S2.multi?' (mode nilai)':'');
+  const useDelta = (chMode==='delta' && !S2.multi);
+  if(useDelta){
+    const dv=items.filter(b=>!b.sep && b.prev!==null).map(b=>(b.v-(b.prev||0)));
+    const m2=Math.max(1,...dv.map(x=>Math.abs(x)));
+    el('chart').className='chart dv';
+    el('chart').innerHTML=items.map(b=>{
+      if(b.sep) return '<div class="bsep"></div>';
+      if(b.prev===null) return '<div class="bwrap"><div class="bararea dv"><div class="btop"></div><div class="bbot"></div></div><div class="blbl">'+b.l+'</div></div>';
+      const d=b.v-(b.prev||0), h=Math.max(2,Math.abs(d)/m2*100);
+      const lab = (d===0) ? '<small class="flat">sama</small>'
+        : '<small class="'+(d>0?'up':'down')+'">'+(d>0?'▲ +':'▼ ')+d+'</small>';
+      return '<div class="bwrap"><div class="bararea dv"><div class="btop">'+(d>0?'<div class="bar pos" style="height:'+h+'%"></div>':'')+'</div>'+
+             '<div class="bbot">'+(d<0?'<div class="bar neg" style="height:'+h+'%"></div>':'')+'</div></div>'+
+             '<div class="blbl">'+b.l+'<br>'+lab+'</div></div>';
+    }).join('');
+  }else{
+    el('chart').className='chart';
+    el('chart').innerHTML=items.map(b=>b.sep?'<div class="bsep"></div>':
+      '<div class="bwrap"><div class="bararea"><div class="bval">'+(b.v||'')+'</div>'+
+      '<div class="bar'+b.cls+'" style="height:'+Math.max(2,(b.kind==='m' ? ((b.v||0)-base)/spanM*100 : (b.v||0)/mxO*100))+'%"></div></div>'+
+      '<div class="blbl">'+b.l+'<br>'+(b.prev===undefined||b.prev===null?'':trendHtml(b.v||0,b.prev))+'</div></div>').join('');
+  }
+  el('chVal').classList.toggle('on',!useDelta);
+  el('chDelta').classList.toggle('on',useDelta);
+  el('chZoom').classList.toggle('on',chZoom && !S2.multi);
+  el('chZoom').innerText = (chZoom && !S2.multi) ? ('Zoom skala aktif (batang bulanan mulai dari '+base+' trip)') : 'Zoom skala (perbesar beda antar bulan)';
+  const vals2=items.filter(b=>!b.sep&&b.kind==='m').map(b=>b.v||0);
+  if(vals2.length){
+    const avg=vals2.reduce((a,b)=>a+b,0)/vals2.length, hi=Math.max(...vals2), lo=Math.min(...vals2);
+    el('chNote').innerHTML='Bulan tutup buku: rata-rata <b>'+avg.toFixed(1)+'</b> trip · tertinggi <b>'+hi+'</b> · terendah <b>'+lo+'</b>. '+
+      (chZoom&&!S2.multi ? '<br><span class="warn">Skala batang BULANAN dipotong, mulai dari '+base+' trip (bukan nol) supaya beda antar bulan kelihatan — blok Oktober tetap diskala dari nol. Jangan dibaca sebagai proporsi dari nol.</span>'
+                         : 'Besarnya kenaikan/penurunan dibaca dari <b>label Δ</b> di bawah tiap batang, atau aktifkan <b>Zoom skala</b> / mode <b>Δ naik/turun</b>.');
+  }
+}
+function renderTable(){
+  const f=frows(), C=cols();
+  // agregasi [(peny,sect)] x kolom
+  const cell={}, subt={}, subOkt={}, totC=C.map(()=>0), totAll=[0];
+  f.forEach(r=>{
+    const key=r[3]+'|'+r[4];
+    cell[key]=cell[key]||C.map(()=>0);
+    C.forEach((c,i)=>{if(c.t(r)){cell[key][i]+=r[7];subOkt[key]=1;}});
+  });
+  const perPeny={};
+  Object.keys(cell).forEach(k=>{
+    const p=+k.split('|')[0], tot=cell[k].reduce((a,b)=>a+b,0); if(!tot) return;
+    perPeny[p]=perPeny[p]||{tot:0,sec:[]}; perPeny[p].tot+=tot; perPeny[p].sec.push({s:+k.split('|')[1],v:cell[k],tot:tot});
+  });
+  C.forEach((c,i)=>{Object.values(cell).forEach(v=>totC[i]+=v[i]);});
+  const totSemua=Object.values(perPeny).reduce((a,p)=>a+p.tot,0);
+  const mxC=Math.max(1,...totC), mxS=Math.max(1,...Object.values(cell).flat());
+  let h='<thead><tr><th style="min-width:190px">Penyulang / Titik proteksi</th>'+
+        C.map(c=>{ const click=(c.wk!=null);
+          return '<th class="'+(c.okt?'oktcol ':'')+(click?'wkhead':'')+'"'+(click?' data-wk="'+c.wk+'" title="klik untuk '+(c.kind==='wk'?'membuka rincian per tanggal':'meringkas jadi mingguan')+'"':'')+'>'+c.l+'</th>'; }).join('')+
+        '<th>Total</th></tr></thead><tbody>';
+  const forceOpen = !!S.sect;                 // kalau nama titik proteksi difilter, langsung rinci
+  Object.keys(perPeny).map(Number).sort((a,b)=>perPeny[b].tot-perPeny[a].tot).forEach(p=>{
+    const nm=D.peny[p], open = forceOpen || penyIsOpen(nm);
+    h+='<tr class="grp penygrp" data-penygrp="'+nm+'" data-peny="'+nm+'" data-kel="TOTAL" data-okt="'+(perPeny[p].sec.some(x=>x.v.some(v=>v))?'y':'')+'" title="klik untuk '+(open?'meringkas':'membuka rincian per titik proteksi')+'">'+
+       '<td class="sec"><span class="caret">'+(open?'▾':'▸')+'</span>'+nm+' <span class="mini">· '+perPeny[p].sec.length+' titik</span></td>'+
+       C.map((c,i)=>{const v=perPeny[p].sec.reduce((a,s2)=>a+s2.v[i],0);
+          return '<td class="num" style="'+heat(v,mxC)+'">'+(v||'')+'</td>';}).join('')+
+       '<td class="num ytd">'+perPeny[p].tot+'</td></tr>';
+    if(!open) return;
+    perPeny[p].sec.sort((a,b)=>b.tot-a.tot).forEach(s2=>{
+      const snm=D.sect[s2.s], pre=snm.split(' ')[0];
+      h+='<tr data-peny="'+nm+'" data-kel="'+(D.kelas.find(k=>snm.startsWith(k.split(' ')[0]))||'LAIN')+'">'+
+         '<td class="sec sub"><span class="tag '+pre+'">'+pre+'</span>'+(snm.slice(pre.length).trim()||snm)+'</td>'+
+         C.map((c,i)=>'<td class="num" style="'+heat(s2.v[i],mxS)+'">'+(s2.v[i]||'')+'</td>').join('')+
+         '<td class="num ytd">'+s2.tot+'</td></tr>';
+    });
+  });
+  h+='<tr class="grand"><td>TOTAL</td>'+C.map((c,i)=>'<td class="num">'+(totC[i]||'')+'</td>').join('')+
+     '<td class="num ytd">'+totSemua+'</td></tr></tbody>';
+  el('tblRekap').innerHTML=h;
+}
+
+function renderTop(){
+  const f=frows(), m=new Map();
+  f.forEach(r=>{const k=r[3]+'|'+r[4];m.set(k,(m.get(k)||0)+r[7]);});
+  const per={},sumS={};
+  m.forEach((v,k)=>{const[a,b]=k.split('|').map(Number);(per[a]=per[a]||[]).push({s:b,v});sumS[a]=(sumS[a]||0)+v;});
+  const grand=Object.values(sumS).reduce((a,b)=>a+b,0);
+  let h='<thead><tr><th>Penyulang</th><th>#</th><th>Titik proteksi</th><th>Trip</th><th>% penyulang</th><th>% total</th></tr></thead><tbody>';
+  Object.keys(per).map(Number).sort((a,b)=>sumS[b]-sumS[a]).forEach(p=>{
+    if(!per[p]) return;
+    const list=per[p].sort((a,b)=>b.v-a.v).slice(0,(S.topN||999));
+    h+='<tr class="grp"><td>'+D.peny[p]+'</td><td class="num"></td><td class="mini">total '+sumS[p]+'</td><td class="num">'+sumS[p]+'</td><td class="num">100%</td><td class="num">'+(sumS[p]/grand*100).toFixed(1)+'%</td></tr>';
+    list.forEach((s2,i)=>{
+      const nm=D.sect[s2.s], pre=nm.split(' ')[0];
+      h+='<tr><td></td><td class="num rank">'+(i+1)+'</td><td class="sec"><span class="tag '+pre+'">'+pre+'</span>'+(nm.slice(pre.length).trim()||nm)+'</td>'+
+         '<td class="num">'+s2.v+'</td><td class="num">'+(s2.v/sumS[p]*100).toFixed(0)+'%</td><td class="num">'+(s2.v/grand*100).toFixed(1)+'%</td></tr>';
+    });
+  });
+  h+='</tbody>';
+  el('tblTop').innerHTML=h;
+  el('topTitle').innerHTML=S.topN?('Top '+S.topN+' segmen paling sering gangguan'):'ALL gangguan — semua segmen per penyulang';
+}
+
+function anevCols(){
+  const n = S.tahun==='2026' ? curInfo().cm : 12;
+  return [...Array(n)].map((_,i)=>({l:D.bshort[i],t:r=>r[1]===i+1}));
+}
+function renderPie(){
+  const f=frows(), C=anevCols(), c={}, mat={};
+  f.forEach(r=>{const a=D.anev[r[6]]; c[a]=(c[a]||0)+r[7];
+    mat[a]=mat[a]||C.map(()=>0); C.forEach((cc,i)=>{if(cc.t(r))mat[a][i]+=r[7];});});
+  const arr=Object.entries(c).sort((a,b)=>b[1]-a[1]);
+  const tot=arr.reduce((a,x)=>a+x[1],0)||1;
+  let top=arr.slice(0,8), rest=arr.slice(8).reduce((a,x)=>a+x[1],0);
+  if(rest) top=top.concat([['Lainnya ('+arr.slice(8).length+' jenis lain)',rest]]);
+  // donut CSS conic-gradient (mulai jam 12, searah jarum jam)
+  let acc=0;
+  const stops=top.map((x,i)=>{const a0=acc*360, a1=(acc+x[1]/tot)*360; acc+=x[1]/tot;
+    return PAL[i%PAL.length]+' '+a0.toFixed(2)+'deg '+a1.toFixed(2)+'deg';});
+  el('donut').style.background='conic-gradient(from 0deg,'+stops.join(',')+')';
+  el('donutTot').innerText=fmt(tot);
+  const big=arr[0]||['-',0], three=arr.slice(0,3).map(x=>x[0]+' ('+(x[1]/tot*100).toFixed(0)+'%)').join(', ');
+  el('donutInfo').innerHTML='<div><b>'+fmt(tot)+'</b> trip dari '+'<b>'+arr.length+'</b> jenis penyebab.</div>'+
+    '<div>Terbesar: <b>'+big[0]+' — '+big[1]+' trip ('+(big[1]/tot*100).toFixed(1)+'%)</b></div>'+
+    '<div>3 teratas: '+three+'</div>'+
+    '<div class="mini">Rincian per bulan ada di tabel di bawah (warna kotak = warna donut).</div>';
+  // tabel ANEV penyebab x bulan
+  const mx=Math.max(1,...top.map(x=>Math.max(0,...(mat[x[0]]||[0]))));
+  let h='<thead><tr><th style="min-width:210px">ANEV / penyebab</th>'+
+        C.map(cc=>'<th>'+cc.l+'</th>').join('')+'<th>Total</th><th>%</th></tr></thead><tbody>';
+  top.forEach((x,i)=>{
+    const row=mat[x[0]]||C.map(()=>0);
+    h+='<tr><td class="anm"><span class="sw" style="background:'+PAL[i%PAL.length]+'"></span>'+x[0]+'</td>'+
+       row.map(v=>'<td class="num" style="'+heat(v,mx)+'">'+(v||'')+'</td>').join('')+
+       '<td class="num ytd">'+x[1]+'</td><td class="num">'+(x[1]/tot*100).toFixed(1)+'%</td></tr>';
+  });
+  h+='<tr class="grand"><td>TOTAL</td>'+
+     C.map(cc=>'<td class="num">'+(f.filter(r=>cc.t(r)).reduce((a,r)=>a+r[7],0)||'')+'</td>').join('')+
+     '<td class="num">'+fmt(tot)+'</td><td class="num">100%</td></tr></tbody>';
+  el('tblAnev').innerHTML=h;
+  el('pieTitle').innerHTML='Pie chart penyebab gangguan (ANEV) &amp; rincian bulanan — '+
+    [S.tahun||'Semua tahun', S.bulan?D.bulan[S.bulan-1]:'semua bulan', S.kelas||'semua proteksi',
+     S.peny||'semua penyulang'].join(' · ');
+  el('pieNote').innerHTML='Donut = 8 penyebab terbesar + Lainnya (warna = legenda di kolom tabel). Basis <b>'+fmt(tot)+
+    '</b> trip dari '+fmt(f.length)+' kombinasi baris · filter: tahun <b>'+(S.tahun||'Semua')+'</b>, bulan <b>'+
+    (S.bulan?D.bulan[S.bulan-1]:'Semua')+'</b>, proteksi <b>'+(S.kelas||'Semua')+'</b>'+(S.peny?', penyulang <b>'+S.peny+'</b>':'')+'.';
+}
+
+
+function kelasOf(sec){
+  const s=String(sec||'').toUpperCase().replace(/[^A-Z]/g,'');
+  if(s.indexOf('SEC')===0||s.indexOf('SSO')===0) return 'SSO';
+  if(s.indexOf('PMR')===0||s.indexOf('REC')===0) return 'PMR';
+  if(s.indexOf('PMT')===0) return 'PMT GI';
+  if(s.indexOf('CBO')===0) return 'CBO/GH';
+  return 'LAIN';
+}
+/* ---- bersihkan tabel detail (lookup sendiri) ---- */
+function cleanDet(d){
+  const AL=ALIAS||{}, EX=EXCLUDE||[];
+  const pMap=[], pNew=[];
+  (d.peny||[]).forEach((p,i)=>{ if(EX.indexOf(p)>=0){pMap[i]=-1;return;}
+    let j=pNew.indexOf(p); if(j<0){ j=pNew.length; pNew.push(p); } pMap[i]=j; });
+  const sMap=[], sNew=[];
+  (d.sect||[]).forEach((n,i)=>{ const c=AL[kk(n)]||n;
+    let j=sNew.indexOf(c); if(j<0){ j=sNew.length; sNew.push(c); } sMap[i]=j; });
+  d.rows=(d.rows||[]).filter(r=>pMap[r[4]]>=0).map(r=>{ r[4]=pMap[r[4]]; r[5]=sMap[r[5]]; return r; });
+  d.peny=pNew; d.sect=sNew;
+  return d;
+}
+/* ---- bersihkan data (berlaku utk snapshot & live): alias typo + buang penyulang luar ULP --- */
+const kk = s => String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+function clean(d){
+  const AL = ALIAS || {}, EX = EXCLUDE || [];
+  const pMap = [], pNew = [];
+  (d.peny||[]).forEach((p,i)=>{ if(EX.indexOf(p)>=0){pMap[i]=-1;return;}
+    let j=pNew.indexOf(p); if(j<0){ j=pNew.length; pNew.push(p); } pMap[i]=j; });
+  const sMap = [], sNew = [];
+  (d.sect||[]).forEach((n,i)=>{ const c=AL[kk(n)]||n;
+    let j=sNew.indexOf(c); if(j<0){ j=sNew.length; sNew.push(c); } sMap[i]=j; });
+  const agg = {};
+  (d.rows||[]).forEach(r=>{
+    if(pMap[r[3]]<0) return;
+    const k=[r[0],r[1],r[2],pMap[r[3]],sMap[r[4]],r[5],r[6]].join('|');
+    agg[k]=(agg[k]||0)+r[7];
+  });
+  d.peny = pNew; d.sect = sNew;
+  d.rows = Object.keys(agg).map(k=>{ const a=k.split('|').map(Number); a.push(agg[k]); return a; });
+  return d;
+}
+
+function aggBy(y, m){ const o={}; frows().forEach(r=>{ if(r[0]!==y) return; if(m && r[1]!==m) return;
+  const k = m ? (r[2]) : (r[1]); o[k]=(o[k]||0)+r[7]; }); return o; }
+function chipHtml(label, val, cls, title){
+  return '<div class="chip '+(cls||'')+((val===0)?' zero':'')+'" title="'+(title||'')+'"><b>'+(val==null?'–':val)+'</b><span>'+label+'</span></div>';
+}
+function renderRolling(){
+  const bulanNama=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  const y = S.tahun ? +S.tahun : null;
+  const note=document.getElementById('rollNote'); if(!note) return;
+  if(!y){
+    let h='';
+    [2025,2026].forEach(yy=>{ const o=aggBy(yy); const tot=Object.values(o).reduce((a,b)=>a+b,0);
+      h+=chipHtml('total '+yy, tot, '', 'total '+yy); });
+    el('rollBulan').innerHTML=h; el('rollMinggu').innerHTML=''; el('rollHari').innerHTML='';
+    note.innerHTML='Mode <b>Semua tahun</b> — ringkasan per tahun (pilih satu tahun untuk melihat rincian bulanan → mingguan → harian).';
+    return;
+  }
+  const ci=curInfo();                      // bulan & hari terakhir yang ada datanya
+  const oB=aggBy(y), oM=aggBy(y, ci.cm);
+  // bulanan: bulan yang sudah tutup
+  let hB=''; const tutup = (S.tahun==='2026') ? ci.cm-1 : 12;
+  for(let m=1;m<=tutup;m++){
+    const prev = (m>1) ? (oB[m-1]||0) : (aggBy(y-1)[12]||0);
+    let t='';
+    if(m>1 || prev>0) t=trendHtml(oB[m]||0, prev);
+    hB+='<div class="chip done" title="'+bulanNama[m-1]+': '+(oB[m]||0)+' trip'+(m>1?(' (bulan lalu '+(oB[m-1]||0)+')'):'')+'"><b>'+(oB[m]||0)+'</b><span>'+D.bshort[m-1]+'</span>'+t+'</div>';
+  }
+  el('rollBulan').innerHTML=hB||'<span class="mini">belum ada bulan tutup buku</span>';
+  // mingguan + harian bulan berjalan
+  const bl=monthBlocks(ci.lastDay);
+  const bi=bl.findIndex(b=>ci.lastDay>=b[0] && ci.lastDay<=b[1]);
+  let hM='', hH='';
+  bl.forEach((b,i)=>{
+    const v=Object.entries(oM).filter(([d])=>(+d)>=b[0]&&(+d)<=b[1]).reduce((a,x)=>a+x[1],0);
+    if(i<bi){
+      const pv = i>0 ? Object.entries(oM).filter(([d])=>(+d)>=bl[i-1][0]&&(+d)<=bl[i-1][1]).reduce((a,x)=>a+x[1],0) : null;
+      hM+='<div class="chip done" title="minggu ke-'+(i+1)+' ('+b[0]+'-'+b[1]+' '+D.bshort[ci.cm-1]+'): '+v+' trip"><b>'+v+'</b><span>M'+(i+1)+' · '+b[0]+'-'+b[1]+'</span>'+
+          (pv===null?'':trendHtml(v, pv))+'</div>';
+    }
+    else if(i===bi) hM+=chipHtml('M'+(i+1)+' · '+b[0]+'-'+b[1], v, 'now', 'minggu berjalan ('+b[0]+'-'+b[1]+'): '+v+' trip');
+  });
+  if(bi>=0){ const b=bl[bi];
+    for(let d=b[0]; d<=b[1]; d++){
+      const v=oM[d]||0, lewat= d<=ci.lastDay;
+      const prevD = d>1 ? (oM[d-1]||0) : null;
+      hH+='<div class="chip '+(lewat? (d===ci.lastDay?'now':'done') : 'next')+((lewat&&v===0)?' zero':'')+'" title="'+d+' '+bulanNama[ci.cm-1]+': '+(lewat? v+' trip':'belum lewat')+'"><b>'+(lewat? v : '–')+'</b><span>'+d+' '+D.bshort[ci.cm-1]+'</span>'+
+          (lewat && prevD!==null ? trendHtml(v, prevD) : '')+'</div>';
+    }
+  }
+  el('rollMinggu').innerHTML=hM||'<span class="mini">–</span>';
+  el('rollHari').innerHTML=hH||'<span class="mini">–</span>';
+  const totB=Object.values(oB).reduce((a,b)=>a+b,0);
+  note.innerHTML='Tahun <b>'+y+'</b> · bulan berjalan <b>'+bulanNama[ci.cm-1]+'</b> (data s/d '+ci.lastDay+' '+D.bshort[ci.cm-1]+
+    ') · total '+fmt(totB)+' trip. Periode «berjalan» ditandai kotak garis putus-putus.';
+}
+function y2026PerBulan(){const o={};D.rows.filter(r=>r[0]===2026).forEach(r=>{o[r[1]]=(o[r[1]]||0)+r[7];});return o;}
+function renderVerdict(){
+  const rb=(D.meta&&D.meta.rawBulan)||{},db=(D.meta&&D.meta.dupBulan)||{},tot=y2026PerBulan();
+  let raw9=0,dup9=0,b9=0,tgt=0;
+  for(let m=1;m<=9;m++){raw9+=(+rb[m]||0);dup9+=(+db[m]||0);b9+=(tot[m]||0);tgt+=TARGET[m];}
+  const v=document.getElementById('verdict'); if(!v) return;
+  v.innerHTML='🔎 <b>Hasil cek Sheet10 vs rekapan atas: TIDAK SAMA.</b> Yang cocok persis hanya '+
+    '<b>Juni (69), Juli (50), Agustus (43)</b>. Sheet10 (2026) berisi <b>'+fmt(raw9)+' baris</b> Jan–Sep dengan '+
+    '<b>'+fmt(dup9)+' baris ganda</b> → <b>'+fmt(b9)+' event bersih</b>, rekapan atas <b>'+fmt(tgt)+'</b>. '+
+    'Rincian di kartu “Perbandingan”.';
+}
+function renderCompare(){
+  const rb=(D.meta&&D.meta.rawBulan)||{},db=(D.meta&&D.meta.dupBulan)||{},tot=y2026PerBulan();
+  let h='';
+  for(let m=1;m<=10;m++){
+    const t=TARGET[m]||0,raw=+rb[m]||0,bers=tot[m]||0,dup=+db[m]||0,dr=raw-t,de=bers-t;
+    h+='<tr><td>'+D.bulan[m-1]+'</td><td class="num">'+t+'</td><td class="num">'+raw+'</td><td class="num">'+bers+'</td>'+
+       '<td class="num warn">'+(dup||'')+'</td>'+
+       '<td class="num '+(de>0?'pos':de<0?'neg':'')+'">'+(de>0?'+':'')+de+'</td>'+
+       '<td class="num '+(dr>0?'pos':dr<0?'neg':'')+'">'+(dr>0?'+':'')+dr+'</td>'+
+       '<td class="stat">'+(de===0?'sama':'beda')+'</td></tr>';
+  }
+  const el2=document.getElementById('cmpBody'); if(el2) el2.innerHTML=h;
+}
+function renderTopPeny(){
+  const c={};D.rows.filter(r=>r[0]===2026).forEach(r=>{const p=D.peny[r[3]];c[p]=(c[p]||0)+r[7];});
+  const arr=Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5),tot=Object.values(c).reduce((a,b)=>a+b,0)||1;
+  const el2=document.getElementById('topPenyBody'); if(el2) el2.innerHTML=arr.map(x=>
+    '<tr><td>'+x[0]+'</td><td class="num">'+x[1]+'</td><td class="num">'+(x[1]/tot*100).toFixed(0)+'%</td></tr>').join('');
+}
+function renderHist(){
+  const per=y=>{const o={};D.rows.filter(r=>r[0]===y).forEach(r=>{o[r[1]]=(o[r[1]]||0)+r[7];});return o;};
+  const a=per(2025),c=per(2026);let r1='',r2='',r3='',s1=0,s2=0;
+  for(let m=1;m<=9;m++){const v1=a[m]||0,v2=c[m]||0,d=v2-v1;s1+=v1;s2+=v2;
+    r1+='<td class="num">'+(v1||'')+'</td>';r2+='<td class="num">'+(v2||'')+'</td>';
+    r3+='<td class="num '+(d>0?'pos':d<0?'neg':'')+'">'+(d>0?'+':'')+d+'</td>';}
+  const el2=document.getElementById('histBody'); if(!el2) return;
+  el2.innerHTML='<tr><td>2025</td>'+r1+'<td class="num ytd">'+s1+'</td></tr>'+
+    '<tr><td>2026</td>'+r2+'<td class="num ytd">'+s2+'</td></tr>'+
+    '<tr class="grp"><td>Δ 2026−2025</td>'+r3+'<td class="num ytd">'+((s2-s1>0?'+':'')+(s2-s1))+'</td></tr>';
+}
+/* ---------- mode LIVE (Apps Script JSONP) ---------- */
+function badge(t,cls){const b=document.getElementById('liveBadge');if(!b)return;b.className='badge'+(cls?' '+cls:'');b.innerText=t;}
+function jsonp(url,name,ms){return new Promise((res,rej)=>{
+  const s=document.createElement('script');let to=setTimeout(()=>{done();rej(new Error('timeout'))},ms||25000);
+  function done(){clearTimeout(to);try{delete window[name]}catch(e){} if(s.parentNode)s.parentNode.removeChild(s);}
+  window[name]=d=>{const r=d;done();res(r);};
+  s.onerror=()=>{done();rej(new Error('gagal memuat endpoint'))};
+  s.src=url+(url.indexOf('?')>=0?'&':'?')+'callback='+name+'&_='+Date.now();
+  document.head.appendChild(s);});}
+let liveTimer=null, liveOk=false, liveStamp='', detFromSnap=true;
+function validLive(d){ return d && d.rows && d.rows.length>=100 && d.peny && d.sect && d.sect.length>10; }
+async function fetchLive(){
+  const url=LIVE_URL+(LIVE_URL.indexOf('?')>=0?'&':'?')+'_='+Date.now();
+  const r=await fetch(url,{cache:'no-store'});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const t=await r.text();
+  let d; try{ d=JSON.parse(t); }catch(e){ throw new Error('balasan bukan JSON ('+t.length+' char)'); }
+  if(d&&d.error) throw new Error(d.error);
+  return d;
+}
+async function loadLive(manual){
+  if(!LIVE_URL){ badge('snapshot · URL live belum diset',''); if(manual)alert('URL Apps Script /exec belum diisi (live_url.txt).');return; }
+  if(!liveOk) badge('memuat data live…','warn');
+  let lastErr='';
+  for(let i=0;i<3;i++){
+    try{
+      const d = (i%2===0) ? await fetchLive() : await jsonp(LIVE_URL,'hermesLive'+Date.now(),30000);
+      if(d&&d.error) throw new Error(d.error);
+      if(!validLive(d)) throw new Error('data tidak lengkap ('+((d&&d.rows)?d.rows.length:0)+' baris)');
+      Object.keys(D).forEach(k=>delete D[k]);
+      Object.assign(D,d);
+      clean(D);
+      if(d.detail && d.detail.rows && d.detail.rows.length){ DET=cleanDet(d.detail); detFromSnap=false; }
+      renderAll();
+      liveOk=true; liveStamp=(d.meta&&d.meta.generated)||'';
+      badge('LIVE · '+liveStamp+(d.meta&&d.meta.sumber?' · '+d.meta.sumber:''),'live');
+      return;
+    }catch(e){ lastErr=e.message; await new Promise(r=>setTimeout(r,(i+1)*2500)); }
+  }
+  badge(liveOk?('LIVE · '+liveStamp+' · refresh gagal ('+lastErr+')'):('snapshot (live gagal: '+lastErr+')'),'warn');
+}
+
+function y2026PerBulan(){const o={};D.rows.filter(r=>r[0]===2026).forEach(r=>{o[r[1]]=(o[r[1]]||0)+r[7];});return o;}
+function renderVerdict(){
+  const rb=(D.meta&&D.meta.rawBulan)||{},db=(D.meta&&D.meta.dupBulan)||{},tot=y2026PerBulan();
+  let raw9=0,dup9=0,b9=0,tgt=0;
+  for(let m=1;m<=9;m++){raw9+=(+rb[m]||0);dup9+=(+db[m]||0);b9+=(tot[m]||0);tgt+=TARGET[m];}
+  const v=document.getElementById('verdict'); if(!v) return;
+  v.innerHTML='🔎 <b>Hasil cek Sheet10 vs rekapan atas: TIDAK SAMA.</b> Yang cocok persis hanya '+
+    '<b>Juni (69), Juli (50), Agustus (43)</b>. Sheet10 (2026) berisi <b>'+fmt(raw9)+' baris</b> Jan–Sep dengan '+
+    '<b>'+fmt(dup9)+' baris ganda</b> → <b>'+fmt(b9)+' event bersih</b>, rekapan atas <b>'+fmt(tgt)+'</b>. '+
+    'Rincian di kartu “Perbandingan”.';
+}
+function renderCompare(){
+  const rb=(D.meta&&D.meta.rawBulan)||{},db=(D.meta&&D.meta.dupBulan)||{},tot=y2026PerBulan();
+  let h='';
+  for(let m=1;m<=10;m++){
+    const t=TARGET[m]||0,raw=+rb[m]||0,bers=tot[m]||0,dup=+db[m]||0,dr=raw-t,de=bers-t;
+    h+='<tr><td>'+D.bulan[m-1]+'</td><td class="num">'+t+'</td><td class="num">'+raw+'</td><td class="num">'+bers+'</td>'+
+       '<td class="num warn">'+(dup||'')+'</td>'+
+       '<td class="num '+(de>0?'pos':de<0?'neg':'')+'">'+(de>0?'+':'')+de+'</td>'+
+       '<td class="num '+(dr>0?'pos':dr<0?'neg':'')+'">'+(dr>0?'+':'')+dr+'</td>'+
+       '<td class="stat">'+(de===0?'sama':'beda')+'</td></tr>';
+  }
+  const el2=document.getElementById('cmpBody'); if(el2) el2.innerHTML=h;
+}
+function renderTopPeny(){
+  const c={};D.rows.filter(r=>r[0]===2026).forEach(r=>{const p=D.peny[r[3]];c[p]=(c[p]||0)+r[7];});
+  const arr=Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5),tot=Object.values(c).reduce((a,b)=>a+b,0)||1;
+  const el2=document.getElementById('topPenyBody'); if(el2) el2.innerHTML=arr.map(x=>
+    '<tr><td>'+x[0]+'</td><td class="num">'+x[1]+'</td><td class="num">'+(x[1]/tot*100).toFixed(0)+'%</td></tr>').join('');
+}
+function renderHist(){
+  const per=y=>{const o={};D.rows.filter(r=>r[0]===y).forEach(r=>{o[r[1]]=(o[r[1]]||0)+r[7];});return o;};
+  const a=per(2025),c=per(2026);let r1='',r2='',r3='',s1=0,s2=0;
+  for(let m=1;m<=9;m++){const v1=a[m]||0,v2=c[m]||0,d=v2-v1;s1+=v1;s2+=v2;
+    r1+='<td class="num">'+(v1||'')+'</td>';r2+='<td class="num">'+(v2||'')+'</td>';
+    r3+='<td class="num '+(d>0?'pos':d<0?'neg':'')+'">'+(d>0?'+':'')+d+'</td>';}
+  const el2=document.getElementById('histBody'); if(!el2) return;
+  el2.innerHTML='<tr><td>2025</td>'+r1+'<td class="num ytd">'+s1+'</td></tr>'+
+    '<tr><td>2026</td>'+r2+'<td class="num ytd">'+s2+'</td></tr>'+
+    '<tr class="grp"><td>Δ 2026−2025</td>'+r3+'<td class="num ytd">'+((s2-s1>0?'+':'')+(s2-s1))+'</td></tr>';
+}
+/* ---------- mode LIVE (Apps Script JSONP) ---------- */
+function badge(t,cls){const b=document.getElementById('liveBadge');if(!b)return;b.className='badge'+(cls?' '+cls:'');b.innerText=t;}
+function jsonp(url,name,ms){return new Promise((res,rej)=>{
+  const s=document.createElement('script');let to=setTimeout(()=>{done();rej(new Error('timeout'))},ms||25000);
+  function done(){clearTimeout(to);try{delete window[name]}catch(e){} if(s.parentNode)s.parentNode.removeChild(s);}
+  window[name]=d=>{const r=d;done();res(r);};
+  s.onerror=()=>{done();rej(new Error('gagal memuat endpoint'))};
+  s.src=url+(url.indexOf('?')>=0?'&':'?')+'callback='+name+'&_='+Date.now();
+  document.head.appendChild(s);});}
+
+function fillPeny(){
+  const s=document.getElementById('fPeny'); if(!s) return;
+  if(S.peny && D.peny.indexOf(S.peny)<0) S.peny='';
+  s.innerHTML='<option value="">Semua</option>'+D.peny.map(p=>'<option'+(p===S.peny?' selected':'')+'>'+p+'</option>').join('');
+}
+function fillSect(){
+  const s=document.getElementById('fSect'); if(!s) return;
+  const names=(D.sect||[]).slice().sort();
+  if(S.sect && names.indexOf(S.sect)<0) S.sect='';
+  s.innerHTML='<option value="">Semua</option>'+
+    names.map(n=>{const v=n.replace(/"/g,'&quot;');
+      return '<option value="'+v+'"'+(n===S.sect?' selected':'')+'>'+n+'</option>';}).join('');
+}
+function detFiltered(){
+  if(!DET||!DET.rows) return [];
+  return DET.rows.filter(r=>{
+    if(S.tahun && r[0]!==+S.tahun) return false;
+    if(S.bulan && r[1]!==+S.bulan) return false;
+    if(S.peny && DET.peny[r[4]]!==S.peny) return false;
+    if(S.sect && DET.sect[r[5]]!==S.sect) return false;
+    if(S.kelas && kelasOf(DET.sect[r[5]])!==S.kelas) return false;
+    if(detQ){ const t=(DET.peny[r[4]]+' '+DET.sect[r[5]]+' '+DET.anev[r[12]]+' '+r[11]+' '+r[3]).toUpperCase();
+      if(t.indexOf(detQ)<0) return false; }
+    return true;
+  });
+}
+function trendHtml(cur, prev){
+  if(prev===undefined || prev===null) return '';
+  if(prev===0 && cur===0) return '<small class="flat">–</small>';
+  if(prev===0) return '<small class="up">+'+cur+'</small>';
+  const d=cur-prev, p=(d/prev*100);
+  if(d===0) return '<small class="flat">sama</small>';
+  const cls = d>0 ? 'up' : 'down';
+  const ar  = d>0 ? '▲' : '▼';
+  return '<small class="'+cls+'">'+ar+' '+(p>0?'+':'')+p.toFixed(0)+'%</small>';
+}
+function renderTopNow(){
+  const box=document.getElementById('top3Now'); if(!box) return;
+  const ci=curInfo(), rows=detFiltered();
+  if(S.tahun!=='2026'){ box.innerHTML='<span class="mini">pilih tahun 2026 untuk melihat periode berjalan.</span>'; return; }
+  const hari=rows.filter(r=>r[1]===ci.cm && r[2]===ci.lastDay);
+  const bl=monthBlocks(ci.lastDay), bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+  const wk=bi>=0 ? rows.filter(r=>r[1]===ci.cm && r[2]>=bl[bi][0] && r[2]<=ci.lastDay) : [];
+  const top=(arr)=>{
+    const m={}; arr.forEach(r=>{const k=r[5]+'|'+r[4]; m[k]=(m[k]||0)+1;});   // pasangan titik proteksi + penyulang
+    return Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,3)
+             .map(x=>{const p=x[0].split('|').map(Number); return {sect:p[0], peny:p[1], n:x[1]};});
+  };
+  const li=(arr,tot)=>arr.length? arr.map((x,i)=>'<li><span class="rk">'+(i+1)+'</span>'+
+      '<span class="nm">'+DET.sect[x.sect]+' <span class="mini">· '+DET.peny[x.peny]+'</span></span>'+
+      '<span class="vv">'+x.n+' <span class="mini">('+(x.n/(tot||1)*100).toFixed(0)+'%)</span></span></li>').join('') : '<li class="mini">belum ada gangguan</li>';
+  box.innerHTML=
+    '<div style="font-weight:700;font-size:12px;margin:2px 0 4px">Hari terakhir berdata: '+ci.lastDay+' '+D.bulan[ci.cm-1]+' ('+hari.length+' trip)</div>'+
+    '<ul class="t3">'+li(top(hari), hari.length)+'</ul>'+
+    '<div style="font-weight:700;font-size:12px;margin:10px 0 4px">Minggu berjalan M'+(bi+1)+' ('+bl[bi][0]+'-'+ci.lastDay+' '+D.bshort[ci.cm-1]+') — '+wk.length+' trip</div>'+
+    '<ul class="t3">'+li(top(wk), wk.length)+'</ul>';
+}
+function renderHour(){
+  const box=document.getElementById('jamProf'); if(!box) return;
+  const rows=detFiltered();
+  const B=[['00–06',0,6],['06–12',6,12],['12–18',12,18],['18–24',18,24]];
+  const c=B.map(()=>0); const jamH={};
+  rows.forEach(r=>{
+    const h=parseInt(String(r[3]).slice(0,2),10); if(isNaN(h)) return;
+    c[B.findIndex(b=>h>=b[1]&&h<b[2])]++;
+    jamH[h]=(jamH[h]||0)+1;
+  });
+  const tot=c.reduce((a,b)=>a+b,0)||1, mx=Math.max(1,...c);
+  const peak=B[c.indexOf(Math.max(...c))][0];
+  box.innerHTML=B.map((b,i)=>'<div class="hbar"><span class="lab">'+b[0]+'</span>'+
+      '<span class="track"><span class="fill'+(b[0]===peak?' pk':'')+'" style="width:'+(c[i]/mx*100).toFixed(1)+'%"></span></span>'+
+      '<span class="val">'+c[i]+' <span class="mini">('+(c[i]/tot*100).toFixed(1)+'%)</span></span></div>').join('');
+  const topJam=Object.entries(jamH).sort((a,b)=>b[1]-a[1]).slice(0,5)
+      .map(x=>String(x[0]).padStart(2,'0')+':00 ('+x[1]+')').join(' · ');
+  document.getElementById('jamSub').innerText='— '+fmt(tot)+' trip';
+  document.getElementById('jamNote').innerHTML='Blok paling rawan: <b>'+peak+'</b> ('+(c[c.indexOf(Math.max(...c))]/tot*100).toFixed(1)+'%) · '+
+    'jam tersibuk: '+topJam+'. Basis: '+fmt(rows.length)+' baris terfilter (butuh kolom JAM terisi).';
+}
+function renderDetail(){
+  const box=document.getElementById('detBody'); if(!box||!DET||!DET.rows) return;
+  const kelasOk = (nm,k)=> !k || kelasOf(nm)===k;
+  let rows=DET.rows.filter(r=>{
+    if(S.tahun && r[0]!==+S.tahun) return false;
+    if(S.bulan && r[1]!==+S.bulan) return false;
+    if(S.peny && DET.peny[r[4]]!==S.peny) return false;
+    if(S.sect && DET.sect[r[5]]!==S.sect) return false;
+    if(!kelasOk(DET.sect[r[5]], S.kelas)) return false;
+    if(detQ){ const t=(DET.peny[r[4]]+' '+DET.sect[r[5]]+' '+DET.anev[r[12]]+' '+r[11]+' '+r[3]).toUpperCase();
+      if(t.indexOf(detQ)<0) return false; }
+    return true;
+  });
+  const d2=v=>String(v).padStart(2,'0');
+  const key=r=>r[0]*10000+r[1]*100+r[2];
+  rows.sort((a,b)=> detOrder==='desc' ? key(b)-key(a) : key(a)-key(b));
+  const MAX=600, shown=rows.slice(0,MAX);
+  box.innerHTML=shown.map((r,i)=>'<tr><td class="num dim">'+(i+1)+'</td>'+
+    '<td class="num">'+d2(r[2])+'/'+d2(r[1])+'/'+r[0]+'</td>'+
+    '<td>'+DET.peny[r[4]]+'</td><td class="sec">'+DET.sect[r[5]]+'</td>'+
+    '<td class="num">'+r[3]+'</td><td class="num">'+(r[6]||'')+'</td>'+
+    [7,8,9,10].map(k=>'<td class="num">'+(r[k]===''?'':r[k])+'</td>').join('')+
+    '<td class="hasil">'+r[11]+'</td><td class="anevc">'+DET.anev[r[12]]+'</td></tr>').join('');
+  const cc=document.getElementById('detCount');
+  if(cc) cc.innerHTML='Menampilkan <b>'+shown.length+'</b> dari <b>'+rows.length+'</b> baris terfilter · total <b>'+DET.rows.length+'</b> baris bersih (Sheet10)'+
+    (detFromSnap&&liveOk?' · <span class="warn">detail masih snapshot — endpoint Apps Script belum dikirim ulang (Deploy › Manage deployments › Edit › Version: New version)</span>':'');
+}
+function renderAll(){fillPeny();fillSect();renderRolling();renderTable();weekButtonState();penyButtonState();renderTopNow();renderHour();renderDetail();renderKPI();renderChart();renderTop();renderPie();renderVerdict();renderCompare();renderTopPeny();renderHist();}
+function bind(){
+  el('fTahun').onchange=e=>{S.tahun=e.target.value;renderAll();};
+  el('fBulan').onchange=e=>{S.bulan=e.target.value;renderAll();};
+  el('fKelas').onchange=e=>{S.kelas=e.target.value;renderAll();};
+  el('fPeny').onchange=e=>{S.peny=e.target.value;renderAll();};
+  el('fSect').onchange=e=>{S.sect=e.target.value;renderAll();};
+  el('bT5').onclick=()=>{S.topN=5;el('bT5').classList.add('on');el('bT10').classList.remove('on');renderTop();};
+  el('bT10').onclick=()=>{S.topN=10;el('bT10').classList.add('on');el('bT5').classList.remove('on');renderTop();};
+  el('bAll').onclick=()=>{S.topN=0;[['bAll',1],['bT5',0],['bT10',0]].forEach(x=>el(x[0]).classList.toggle('on',!!x[1]));renderTop();};
+  el('bLive').onclick=()=>loadLive(true);
+  el('chVal').onclick=()=>{ chMode='val'; renderChart(); };
+  el('chDelta').onclick=()=>{ chMode='delta'; renderChart(); };
+  el('chZoom').onclick=()=>{ chZoom=!chZoom; renderChart(); };
+  document.addEventListener('click', e=>{
+    const gr=e.target.closest && e.target.closest('tr[data-penygrp]');
+    if(gr){ const nm=gr.dataset.penygrp; penyOpen[nm]=!penyIsOpen(nm); penyButtonState(); renderTable(); return; }
+    const th=e.target.closest && e.target.closest('th[data-wk]');
+    if(th){ const i=+th.dataset.wk; const ci=curInfo(), bl=monthBlocks(ci.lastDay);
+      const bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+      weekOpen[i]=!weekIsOpen(i,bi); weekButtonState(); renderTable(); return; }
+  });
+  const bp=el('bPenyAll');
+  if(bp) bp.onclick=()=>{ const names=D.peny||[];
+    const allOpen=names.every(n=>penyIsOpen(n));
+    names.forEach(n=>{ penyOpen[n]=!allOpen; }); penyButtonState(); renderTable(); };
+  const bw=el('bWkAll');
+  if(bw) bw.onclick=()=>{ const ci=curInfo(), bl=monthBlocks(ci.lastDay);
+    const bi=bl.findIndex(b=>ci.lastDay>=b[0]&&ci.lastDay<=b[1]);
+    const allOpen=bl.every((b,i)=>weekIsOpen(i,bi));
+    bl.forEach((b,i)=>{ weekOpen[i]=!allOpen; }); weekButtonState(); renderTable(); };
+  document.addEventListener('input', e=>{ if(e.target && e.target.id==='detQ'){ detQ=e.target.value.trim().toUpperCase(); renderDetail(); } });
+  document.addEventListener('click', e=>{ if(e.target && e.target.id==='bDetOrd'){ detOrder = detOrder==='desc'?'asc':'desc';
+    e.target.innerText = detOrder==='desc'?'Terbaru dulu':'Terlama dulu'; renderDetail(); } });
+  el('bReset').onclick=()=>{S.tahun='2026';S.bulan='';S.kelas='';S.peny='';S.sect='';S.topN=5;
+    el('fTahun').value='2026';el('fBulan').value='';el('fKelas').value='';el('fPeny').value='';el('fSect').value='';
+    [['bT5',1],['bT10',0],['bAll',0]].forEach(x=>el(x[0]).classList.toggle('on',!!x[1]));renderAll();};
+}
+clean(D);
+cleanDet(DET);
+bind();renderAll();
+if(LIVE_URL){loadLive();liveTimer=setInterval(()=>loadLive(),300000);   // auto-refresh live tiap 5 menit
+}
+else { badge('snapshot · live belum diset (isi live_url.txt)',''); }
+
+</script>
+</body></html>
