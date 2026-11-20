@@ -340,7 +340,8 @@ function chartSeries(){
   if(S.tahun===''){
     const a=aggBy(2025), b=aggBy(2026);
     const items=[];
-    for(let m=1;m<=12;m++){ items.push({l:months[m-1], v:a[m]||0, cls:' y25', kind:'m'});
+    const nm2=curInfo().cm;   // hanya bulan yang sudah terjadi (s/d bulan berjalan)
+    for(let m=1;m<=nm2;m++){ items.push({l:months[m-1], v:a[m]||0, cls:' y25', kind:'m'});
       items.push({l:'', v:b[m]||0, cls:'', kind:'m', prev:(a[m]||0)}); }   // prev = bulan sama tahun lalu (YoY)
     return {items:items, label:'2025 (abu) vs 2026 (biru)', multi:true};
   }
